@@ -1,0 +1,30 @@
+import DescriptionDesktop from "../descriptionDesktop";
+
+type Props = {
+  title: string;
+  name: string;
+  description: string;
+};
+
+export default function CharacterProfileDesktop({
+  title,
+  name,
+  description,
+}: Readonly<Props>) {
+  return (
+    <div className="w-full flex flex-col items-start justify-center">
+      <h2
+        className="font-algoindeEnka xl:text-5xl 2xl:text-8xl"
+        style={{
+          textShadow: "4px 4px 4px rgba(0, 0, 0, 0.9)",
+        }}
+      >
+        {name}
+      </h2>
+      <h4 className="uppercase font-semibold text-3xl italic tracking-widest mt-6 font-algoindeEnka drop-shadow-xl">
+        {title}
+      </h4>
+      <DescriptionDesktop description={description} />
+    </div>
+  );
+}

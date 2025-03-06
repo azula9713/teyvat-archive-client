@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Enka";
+  display: swap;
+  src: url("./assets/fonts/shii-webfont.woff2") format("woff2");
+}
+
+@theme {
+  --font-sans: "Enka", sans-serif;
+
+  --breakpoint-xs: 350px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+html,
+body {
+  @apply font-sans;
+
+  @apply bg-white dark:bg-gray-950;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
