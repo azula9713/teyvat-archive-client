@@ -2,7 +2,7 @@ import StaticNameCard from "~/assets/images/namecards/UI_NameCardPic_0_P.png";
 import type { ICharacter } from "~/types/enka.types";
 import LazyBackgroundImage from "../common/lazyBackgroundImage";
 import AscensionMatsDesktop from "./characterAscension/ascensionMatsDesktop";
-import DesktopConstellationContainer from "./characterConstellations/desktopConstellationContainer";
+import DesktopConstellationView from "./characterConstellations/desktopConstellationView";
 import DesktopOverview from "./characterOverview/desktopOverview";
 import CharacterProfileDesktop from "./characterProfile/characterProfileDesktop";
 import TalentsDesktop from "./characterTalents/talentsDesktop";
@@ -30,6 +30,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
     nameId,
     constellationIcon,
     sideIcon,
+    ascensionData,
   } = characterData;
 
   return (
@@ -85,13 +86,13 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
         skills={skills}
         passiveTalents={passiveTalents}
       />
-      <DesktopConstellationContainer
+      <DesktopConstellationView
         consName={constellation}
         constellations={constellations}
         chapterIcon={constellationIcon}
         element={element}
       />
-      <AscensionMatsDesktop />
+      <AscensionMatsDesktop ascensionData={ascensionData} />
     </div>
   );
 }

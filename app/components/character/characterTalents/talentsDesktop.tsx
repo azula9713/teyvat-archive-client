@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import TitleHeading from "~/components/common/typography/titleHeading";
 import type { IAllTalent, IElementType, ITalent } from "~/types/enka.types";
+import DesktopContainer from "../containers/desktopContainer";
 import CharacterTalentDetails from "./characterTalentDetails";
 import TalentIcon from "./talentIcon";
 
@@ -47,29 +47,26 @@ export default function TalentsDesktop({
   }, [skills]);
 
   return (
-    <div className="w-full px-7 py-4 overflow-hidden">
-      <div className="w-full flex flex-col items-start justify-center mt-8">
-        <TitleHeading text="Talents" />
-        <div className="w-full flex items-center justify-start space-x-8 mt-8 mb-6">
-          {/* merge skills and passive talents to a one array and map. Filter out talents without name  */}
-          {allTalents
-            .filter((skill) => skill.name !== "")
-            .map((skill) => (
-              <TalentIcon
-                talent={skill}
-                key={skill.id}
-                selectedTalentId={selectedTalentId}
-                setSelectedTalentId={setSelectedTalentId}
-                element={element}
-              />
-            ))}
-        </div>
+    <DesktopContainer title="Talents">
+      <div className="w-full flex items-center justify-start space-x-8 mt-8 mb-6">
+        {allTalents
+          .filter((skill) => skill.name !== "")
+          .map((skill) => (
+            <TalentIcon
+              talent={skill}
+              key={skill.id}
+              selectedTalentId={selectedTalentId}
+              setSelectedTalentId={setSelectedTalentId}
+              element={element}
+            />
+          ))}
       </div>
+
       <CharacterTalentDetails
         selectedTalent={allTalents?.find(
           (skill) => skill.id === selectedTalentId
         )}
       />
-    </div>
+    </DesktopContainer>
   );
 }

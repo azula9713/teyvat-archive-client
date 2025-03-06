@@ -4,7 +4,7 @@ type Props = {
   stars: number;
 };
 
-export default function RarityStars({ stars }: Props) {
+export default function RarityStars({ stars }: Readonly<Props>) {
   return (
     <div className="flex w-max justify-start items-center">
       {Array(stars)

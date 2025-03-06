@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { getMaterialById } from "~/services/enka/enka.service";
 import type { IMaterialData } from "~/types/enka.types";
-import TextLabel from "./typography/textLabel";
-import TextValue from "./typography/textValue";
+import TextLabel from "../../common/typography/textLabel";
+import TextValue from "../../common/typography/textValue";
 
 type Props = {
   id: string;
@@ -10,7 +10,7 @@ type Props = {
   index?: number;
 };
 
-export default function AscensionMaterialHolder({
+export default function AscensionMaterialHolderMobile({
   id,
   value,
   index,

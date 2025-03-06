@@ -1,7 +1,6 @@
-import { useState } from "react";
 import type { IAscensionData } from "~/types/enka.types";
-import AscensionMaterialHolder from "../../common/ascensionMaterialHolder";
 import MobileContainer from "../containers/mobileContainer";
+import AscensionMaterialHolderMobile from "./ascensionMaterialHolderMobile";
 
 type Props = {
   ascensionData: IAscensionData[];
@@ -10,12 +9,6 @@ type Props = {
 export default function AscensionMatsMobile({
   ascensionData,
 }: Readonly<Props>) {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
-
-  function handleExpansion() {
-    setIsExpanded(!isExpanded);
-  }
-
   const itemsMap = ascensionData
     ?.flatMap((ascData) => ascData.costItems)
     .filter((item) => item.id)
@@ -33,7 +26,7 @@ export default function AscensionMatsMobile({
           if (!id || !count) return null;
           return (
             <div key={id}>
-              <AscensionMaterialHolder
+              <AscensionMaterialHolderMobile
                 id={id}
                 value={count.toString()}
                 index={index}
