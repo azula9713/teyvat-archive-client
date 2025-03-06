@@ -28,9 +28,8 @@ export default function DesktopConstellationContainer({
     <div className="w-full px-7 py-4 overflow-hidden ">
       <div className="w-full flex flex-col items-start justify-center mt-8">
         <TitleHeading text={`Constellation - ${consName}`} />
-
-        <div className="w-full flex items-start justify-between mt-20">
-          <div className="w-full flex flex-col items-center justify-start pb-80">
+        <div className="w-full flex items-start justify-between">
+          <div className="w-full flex flex-col items-center justify-start pb-40">
             <div
               className="mt-60 min-h-max flex items-center justify-center w-full"
               style={{

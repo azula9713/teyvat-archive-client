@@ -1,6 +1,6 @@
 import type { ICharacter } from "~/types/enka.types";
-import AscensionMatsMobile from "./ascensionMatsMobile";
-import MobileConstellationContainer from "./characterConstellations/mobileConstellationContainer";
+import AscensionMatsMobile from "./characterAscension/ascensionMatsMobile";
+import MobileConstellationView from "./characterConstellations/mobileConstellationView";
 import Mobileoverview from "./characterOverview/mobileOverview";
 import CharacterProfileMobile from "./characterProfile/characterProfileMobile";
 import TalentsMobile from "./characterTalents/talentsMobile";
@@ -28,29 +28,20 @@ export default function CharacterMobileView({
         spalshImage={characterData.splashUrl}
         element={characterData.element}
       />
-
       <Mobileoverview
         element={characterData.element}
         weapon={characterData.weaponType}
         affiliation={characterData.location}
         description={characterData.description}
-        name={characterData.nameId}
-        constellation={constellation}
+        birthday={characterData.birthday}
       />
-
-      {skills && passiveTalents && (
-        <TalentsMobile skills={skills} passiveTalents={passiveTalents} />
-      )}
-
-      {constellations && (
-        <MobileConstellationContainer
-          constellation={constellation}
-          constellations={constellations}
-          chapterIcon={constellationIcon}
-        />
-      )}
-
-      {ascensionData && <AscensionMatsMobile ascensionData={ascensionData} />}
+      <TalentsMobile skills={skills} passiveTalents={passiveTalents} />
+      <MobileConstellationView
+        constellation={constellation}
+        constellations={constellations}
+        chapterIcon={constellationIcon}
+      />
+      <AscensionMatsMobile ascensionData={ascensionData} />
     </div>
   );
 }

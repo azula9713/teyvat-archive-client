@@ -1,6 +1,7 @@
 import StaticNameCard from "~/assets/images/namecards/UI_NameCardPic_0_P.png";
 import type { ICharacter } from "~/types/enka.types";
 import LazyBackgroundImage from "../common/lazyBackgroundImage";
+import AscensionMatsDesktop from "./characterAscension/ascensionMatsDesktop";
 import DesktopConstellationContainer from "./characterConstellations/desktopConstellationContainer";
 import DesktopOverview from "./characterOverview/desktopOverview";
 import CharacterProfileDesktop from "./characterProfile/characterProfileDesktop";
@@ -90,6 +91,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
         chapterIcon={constellationIcon}
         element={element}
       />
+      <AscensionMatsDesktop />
     </div>
   );
 }

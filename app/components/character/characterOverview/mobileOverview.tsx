@@ -1,28 +1,27 @@
 import OverviewItemHolder from "~/components/common/overviewItemHolder";
-import type { IElementType, IWeaponType } from "~/types/enka.types";
+import type { IBirthday, IElementType, IWeaponType } from "~/types/enka.types";
+import birthdayFormatter from "~/utils/birthdayFormatter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import weaponIconFilter from "~/utils/weaponIconFilter";
 import weaponTypeParser from "~/utils/weaponTypeParser";
 
 type Props = {
-  name: string;
   element: IElementType;
   weapon: IWeaponType;
   affiliation: string;
   description: string;
-  constellation: string;
+  birthday: IBirthday | null;
 };
 
 export default function Mobileoverview({
-  name,
   element,
   weapon,
   affiliation,
   description,
-  constellation,
+  birthday,
 }: Readonly<Props>) {
   return (
-    <div className="mt-2 bg-slate-200 dark:bg-slate-800 bg-opacity-50 flex flex-col items-center justify-center p-4 rounded-lg shadow-md xl:hidden">
+    <div className="mt-2 bg-slate-200 dark:bg-slate-800 bg-opacity-50 flex flex-col items-center justify-center p-4 rounded-lg shadow-md w-full xl:hidden">
       <p
         className="text-sm md:text-base lg:text-lg mb-4 italic w-full text-slate-400"
         style={{
@@ -54,14 +53,14 @@ export default function Mobileoverview({
         </OverviewItemHolder>
       </div>
       <div className="flex items-start w-full justify-between mt-4">
-        <OverviewItemHolder label="Affiliation" value={affiliation}>
-          {/* <img
-              className="w-6 h-6 mr-2"
-              src={regionIcon}
-              alt={region?.regionName}
-            /> */}
-        </OverviewItemHolder>
-        <OverviewItemHolder label="Constellation" value={constellation}>
+        <OverviewItemHolder
+          label="Affiliation"
+          value={affiliation}
+        ></OverviewItemHolder>
+        <OverviewItemHolder
+          label="Birthday"
+          value={birthday ? `${birthdayFormatter(birthday)}` : "Unknown"}
+        >
           {/* <img className="w-6 h-6 mr-2" src={chapterIcon} alt={name} /> */}
         </OverviewItemHolder>
       </div>
