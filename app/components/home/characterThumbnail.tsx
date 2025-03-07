@@ -24,7 +24,9 @@ export default function CharacterThumbnail({ character }: Readonly<Props>) {
         opacity: 1,
       }}
       // style={{ backgroundColor: bgColorFilter[character.rarity] }}
-      style={{ backgroundColor: "#777777" }}
+      style={{
+        backgroundImage: `linear-gradient(to bottom right, ${bgFrom}, ${bgVia}, ${bgTo}`,
+      }}
       className="mx-3 w-[100px] relative lg:w-[130px] rounded-xl shadow-lg drop-shadow-md shadow-[#d6d6d6] dark:shadow-[#323333] overflow-hidden mb-5"
     >
       <NavLink
@@ -39,9 +41,7 @@ export default function CharacterThumbnail({ character }: Readonly<Props>) {
           </div>
           <div
             className="w-full h-1/4 flex items-center justify-center"
-            style={{
-              backgroundImage: `linear-gradient(to bottom right, ${bgFrom}, ${bgVia}, ${bgTo}`,
-            }}
+            style={{ backgroundColor: "var(--color-gray-900)" }}
           >
             <p className="text-sm text-center font-semibold leading-3 mt-1 flex items-center h-full p-1 text-white">
               {character.name}

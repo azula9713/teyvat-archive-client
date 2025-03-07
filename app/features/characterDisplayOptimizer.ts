@@ -6,11 +6,11 @@ const useFilterTravelers = atom((get) => get(useFilterTravelersAtom));
 
 const ELEMENT_BASED_TRAVELERS_INVERT = {
   anemo: "PlayerGirl",
-  geo: "PlayerBoy",
+  geo: "PlayerGirl",
   electro: "PlayerGirl",
-  dendro: "PlayerBoy",
+  dendro: "PlayerGirl",
   hydro: "PlayerGirl",
-  pyro: "PlayerBoy",
+  pyro: "PlayerGirl",
 };
 
 const filterCharacters = (characters: IBaseCharacter[]) => {

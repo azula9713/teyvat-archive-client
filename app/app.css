@@ -6,8 +6,15 @@
   src: url("./assets/fonts/shii-webfont.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: "Enka", sans-serif;
+  --font-enka: "Enka", sans-serif;
+  --font-sans: "Open Sans", serif;
 
   --breakpoint-xs: 350px;
   --breakpoint-sm: 480px;
@@ -25,4 +32,13 @@ body {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-enka;
 }

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import type { IAllTalent, IElementType, ITalent } from "~/types/enka.types";
 import DesktopContainer from "../containers/desktopContainer";
 import CharacterTalentDetails from "./characterTalentDetails";
@@ -18,10 +18,9 @@ export default function TalentsDesktop({
   const [selectedTalentId, setSelectedTalentId] = useState<number>(0);
   const [allTalents, setAllTalents] = useState<IAllTalent[]>([]);
 
-  useMemo(() => {
+  useEffect(() => {
     if (skills?.length > 0 && passiveTalents?.length > 0) {
       //add an attribute to the talent to determine if it is a passive or not to a new array with new type
-
       const newSkills = skills.map((skill) => {
         return {
           ...skill,
@@ -40,7 +39,7 @@ export default function TalentsDesktop({
     }
   }, [skills, passiveTalents]);
 
-  useMemo(() => {
+  useEffect(() => {
     if (skills && skills.length > 0) {
       setSelectedTalentId(skills[0].id);
     }

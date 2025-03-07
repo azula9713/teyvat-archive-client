@@ -1,3 +1,4 @@
+import travelerSplashImage from "~/assets/images/traveler/traveler.png";
 import type { ICharacter } from "~/types/enka.types";
 
 const IMAGE_BASE_URL = import.meta.env.VITE_IMAGE_BASE_URL as string;
@@ -17,10 +18,12 @@ const transformCharacterData = (character: ICharacter) => {
 
   let nameCard;
   let chapterIcon;
+  let splashUrl;
 
   if (character.isTraveler) {
     nameCard = `${IMAGE_BASE_URL}/nameCardPicAlpha/UI_NameCardPic_${character.name}.png`;
     chapterIcon = `${IMAGE_BASE_URL}/chapterIcons/UI_ChapterIcon_${character.name}.png`;
+    splashUrl = travelerSplashImage;
   } else {
     const currentName = character.nameCard?.split("/").pop();
     nameCard = `${IMAGE_BASE_URL}/nameCardPicAlpha/${currentName}`;
@@ -31,6 +34,7 @@ const transformCharacterData = (character: ICharacter) => {
       .replace(".png", "");
 
     chapterIcon = `${IMAGE_BASE_URL}/chapterIcons/UI_ChapterIcon_${currentConstellationIcon}.png`;
+    splashUrl = character.splashUrl;
   }
 
   //Eff_UI_Talent_Ayaka.png Just get the name (remove Eff_UI_Talent_ and .png)
@@ -42,6 +46,7 @@ const transformCharacterData = (character: ICharacter) => {
   const updatedCharacter = {
     ...character,
     nameCard,
+    splashUrl,
     sideIcon,
     constellationIcon: chapterIcon,
   };

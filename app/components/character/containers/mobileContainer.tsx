@@ -1,6 +1,6 @@
 import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 import MobileItemHeading from "~/components/common/typography/mobileItemHeading";
 
@@ -9,7 +9,7 @@ type Props = {
   title: string;
 };
 
-export default function MobileContainer({ children, title }: Readonly<Props>) {
+function MobileContainer({ children, title }: Readonly<Props>) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   function handleExpansion() {
@@ -47,3 +47,5 @@ export default function MobileContainer({ children, title }: Readonly<Props>) {
     </div>
   );
 }
+
+export default memo(MobileContainer);
