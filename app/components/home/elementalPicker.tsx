@@ -23,6 +23,7 @@ export default function ElementalPicker() {
                 setSelectedElement("all");
               }
             }}
+            className="cursor-pointer"
           >
             <img
               src={elementalImageFilter[element]}

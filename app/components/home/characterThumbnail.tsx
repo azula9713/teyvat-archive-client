@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { NavLink } from "react-router";
 
-import CustomLinkCursor from "~/assets/cursor/Genshin-Impact-Link-Select.png";
 import type { IBaseCharacter } from "~/types/enka.types";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import colorFilter from "~/utils/thumbnailColorFilter";
@@ -31,9 +30,6 @@ export default function CharacterThumbnail({ character }: Readonly<Props>) {
     >
       <NavLink
         to={`/character/${character.nameId}-${character.enkaId}-${character.skillDepotId}`}
-        style={{
-          cursor: "url(" + CustomLinkCursor + "), auto",
-        }}
       >
         <div className="w-full flex flex-col items-center mt-1 h-[130px] lg:h-[170px]">
           <div className="h-3/4 flex items-end justify-center">

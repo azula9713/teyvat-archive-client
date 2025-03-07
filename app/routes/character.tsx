@@ -35,7 +35,7 @@ export function HydrateFallback() {
 export function meta(params: Readonly<Route.MetaArgs>) {
   const { data } = params;
   return [
-    { title: data.character.name },
+    { title: `Teyvat Archive - ${data.character.name}` },
     //set favicon side icon
     { name: "favicon", content: data.character.sideIcon },
     { name: "description", content: data.character.description },

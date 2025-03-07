@@ -14,7 +14,7 @@ export default function CharacterProfileDesktop({
   return (
     <div className="w-full flex flex-col items-start justify-center">
       <h2
-        className="font-algoindeEnka xl:text-5xl 2xl:text-8xl"
+        className="font-algoindeEnka xl:text-6xl"
         style={{
           textShadow: "4px 4px 4px rgba(0, 0, 0, 0.9)",
         }}

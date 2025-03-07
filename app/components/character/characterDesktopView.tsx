@@ -38,7 +38,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
       <LazyBackgroundImage
         img={nameCard === "No Name Card" ? StaticNameCard : nameCard}
         isDarkened
-        className="hidden xl:flex w-[calc(100%-3rem)] 2xl:min-w-[calc(1500px-3rem)] flex-col relative items-start justify-between p-10 xl:h-[650px] 2xl:h-[700px] rounded-4xl"
+        className="hidden xl:flex w-[calc(100%-3rem)] flex-col relative items-start justify-between p-10 xl:h-[650px] rounded-4xl"
       >
         <div className="w-2/3 flex flex-col items-start mr-4 absolute z-10">
           <div className="flex items-center justify-start space-x-1 mb-5">
@@ -66,7 +66,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
             birthday={characterData.birthday}
           />
         </div>
-        <div className="w-full xl:h-[400px] 2xl:h-[700px] flex items-center justify-end">
+        <div className="w-full xl:h-[400px] flex items-center justify-end">
           <div className={`w-4/5 h-full ${nameId}`}>
             <img
               src={splashUrl}
