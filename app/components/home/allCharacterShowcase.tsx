@@ -2,7 +2,11 @@ import { motion } from "framer-motion";
 import { useAtomValue } from "jotai";
 import { useEffect, useState } from "react";
 
-import { selectedElementAtom, selectedWeaponAtom } from "~/atoms/teyvat.atom";
+import {
+  selectedElementAtom,
+  selectedRarityAtom,
+  selectedWeaponAtom,
+} from "~/atoms/teyvat.atom";
 import type { IBaseCharacter } from "~/types/enka.types";
 import CharacterThumbnail from "./characterThumbnail";
 
@@ -13,6 +17,7 @@ type Props = {
 export default function AllCharacterShowcase({ characters }: Readonly<Props>) {
   const selectedElement = useAtomValue(selectedElementAtom);
   const selectedWeapon = useAtomValue(selectedWeaponAtom);
+  const selectedRarity = useAtomValue(selectedRarityAtom);
 
   const [filteredCharacters, setFilteredCharacters] =
     useState<IBaseCharacter[]>(characters);
@@ -23,10 +28,12 @@ export default function AllCharacterShowcase({ characters }: Readonly<Props>) {
         (character) =>
           (selectedElement === "all" ||
             character.element === selectedElement) &&
-          (selectedWeapon === "all" || character.weaponType === selectedWeapon)
+          (selectedWeapon === "all" ||
+            character.weaponType === selectedWeapon) &&
+          (selectedRarity === "all" || character.rarity === selectedRarity)
       )
     );
-  }, [selectedElement, characters, selectedWeapon]);
+  }, [selectedElement, characters, selectedWeapon, selectedRarity]);
 
   return (
     <div className="overflow-hidden w-full items-center justify-center flex px-4 md:px-12">

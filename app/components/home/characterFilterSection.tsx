@@ -5,6 +5,7 @@ import {
   selectedWeaponAtom,
 } from "~/atoms/teyvat.atom";
 import ElementFilter from "./filtering/elementFilter";
+import RarityFilter from "./filtering/rarityFilter";
 import WeaponFilter from "./filtering/weaponFilter";
 
 export default function CharacterFilterSection() {
@@ -14,8 +15,6 @@ export default function CharacterFilterSection() {
 
   return (
     <div className="w-full pt-3 mx-2 px-2 flex flex-col items-center">
-      {/* create a dropdown of elements for mobile version */}
-
       <ElementFilter
         selectedElement={selectedElement}
         setSelectedElement={setSelectedElement}
@@ -23,6 +22,10 @@ export default function CharacterFilterSection() {
       <WeaponFilter
         selectedWeapon={selectedWeapon}
         setSelectedWeapon={setSelectedWeapon}
+      />
+      <RarityFilter
+        selectedRarity={selectedRarity}
+        setSelectedRarity={setSelectedRarity}
       />
     </div>
   );
