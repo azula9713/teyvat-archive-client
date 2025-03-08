@@ -9,7 +9,7 @@ import YoutubeIcon from "~/assets/icons/icons8-youtube.svg";
 
 export default function ThankingSection() {
   return (
-    <div className="mb-6 flex flex-col items-start">
+    <div className="mb-6 flex flex-col items-center md:items-start">
       <h5 className="mb-2.5 uppercase">Special Thanks Goes To</h5>
       <ul className="mb-0 list-none">
         {thankingMembers.map((member) => (

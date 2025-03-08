@@ -1,4 +1,4 @@
-const colorFilter = {
+const rarityColoFilter = {
   QUALITY_PURPLE: {
     fromColor: "rgb(107, 79, 182)",
     viaColor: "rgb(107, 79, 182)",
@@ -22,4 +22,4 @@ export const bgColorFilter = {
   QUALITY_ORANGE_SP: "rgb(207 15 95)",
 };
 
-export default colorFilter;
+export default rarityColoFilter;

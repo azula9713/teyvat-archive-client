@@ -1,5 +1,7 @@
 import { memo } from "react";
+
 import { ELEMENTS } from "~/data/teyvatData";
+import ItemSeparator from "./itemSeparator";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 
 type Props = {
@@ -12,31 +14,33 @@ function ElementFilter({
   setSelectedElement,
 }: Readonly<Props>) {
   return (
-    <div className="w-full flex items-center justify-between space-x-2 p-2 mb-3 max-w-[300px] border-2 border-slate-600 rounded-lg">
-      {ELEMENTS.map((element) => (
-        <button
-          key={element}
-          onClick={() => {
-            if (selectedElement !== element) {
-              setSelectedElement(element);
-            } else {
-              setSelectedElement("all");
-            }
-          }}
-          className="cursor-pointer"
-        >
-          <img
-            src={elementalImageFilter[element]}
-            alt={element}
-            className="w-[28px]"
-            style={{
-              filter:
-                selectedElement === element || selectedElement === "all"
-                  ? "none"
-                  : "grayscale(100%)",
+    <div className="w-full lg:w-max flex items-center justify-between p-2 mb-3 max-w-[300px] border-2 border-slate-600 rounded-lg h-[40px]">
+      {ELEMENTS.map((element, index) => (
+        <div key={element} className="flex items-center">
+          <button
+            onClick={() => {
+              if (selectedElement === element) {
+                setSelectedElement("all");
+              } else {
+                setSelectedElement(element);
+              }
             }}
-          />
-        </button>
+            className="cursor-pointer mx-2"
+          >
+            <img
+              src={elementalImageFilter[element]}
+              alt={element}
+              className="w-[30px]"
+              style={{
+                filter:
+                  selectedElement === element || selectedElement === "all"
+                    ? "none"
+                    : "grayscale(100%)",
+              }}
+            />
+          </button>
+          {index !== ELEMENTS.length - 1 && <ItemSeparator />}
+        </div>
       ))}
     </div>
   );

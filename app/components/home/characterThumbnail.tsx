@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 
 import type { IBaseCharacter } from "~/types/enka.types";
 import elementalImageFilter from "~/utils/elementalImagePicker";
-import colorFilter from "~/utils/thumbnailColorFilter";
+import rarityColoFilter from "~/utils/thumbnailColorFilter";
 
 type Props = {
   character: IBaseCharacter;
@@ -14,7 +14,7 @@ export default function CharacterThumbnail({ character }: Readonly<Props>) {
     toColor: bgTo,
     fromColor: bgFrom,
     viaColor: bgVia,
-  } = colorFilter[character.rarity];
+  } = rarityColoFilter[character.rarity];
 
   return (
     <motion.div

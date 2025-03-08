@@ -1,6 +1,7 @@
 import { memo } from "react";
 
 import { WEAPONS } from "~/data/teyvatData";
+import ItemSeparator from "./itemSeparator";
 import weaponIconFilter from "~/utils/weaponIconFilter";
 
 type Props = {
@@ -10,32 +11,34 @@ type Props = {
 
 function WeaponFilter({ selectedWeapon, setSelectedWeapon }: Readonly<Props>) {
   return (
-    <div className="w-full flex items-center justify-between space-x-2 p-2 mb-3 max-w-[300px] border-2 border-slate-600 rounded-lg">
-      {/* (display all weapon icons and make it seem like fluid switching between them) */}
-
-      {WEAPONS.map((weapon) => (
-        <button
-          key={weapon}
-          onClick={() => {
-            if (selectedWeapon === weapon) {
-              setSelectedWeapon("all");
-            } else {
-              setSelectedWeapon(weapon);
-            }
-          }}
-        >
-          <img
-            src={weaponIconFilter[weapon]}
-            alt={weapon}
-            className="w-[36px]"
-            style={{
-              filter:
-                selectedWeapon === weapon || selectedWeapon === "all"
-                  ? "brightness(0) invert(1)"
-                  : "",
+    <div className="w-full lg:w-max flex items-center justify-between p-2 mb-3 max-w-[300px] border-2 border-slate-600 rounded-lg h-[40px]">
+      {/* map weapons and add separators in between them */}
+      {WEAPONS.map((weapon, index) => (
+        <div key={weapon} className="flex items-center">
+          <button
+            onClick={() => {
+              if (selectedWeapon === weapon) {
+                setSelectedWeapon("all");
+              } else {
+                setSelectedWeapon(weapon);
+              }
             }}
-          />
-        </button>
+            className="cursor-pointer mx-2"
+          >
+            <img
+              src={weaponIconFilter[weapon]}
+              alt={weapon}
+              className="w-[30px]"
+              style={{
+                filter:
+                  selectedWeapon === weapon || selectedWeapon === "all"
+                    ? "brightness(0) invert(1)"
+                    : "",
+              }}
+            />
+          </button>
+          {index !== WEAPONS.length - 1 && <ItemSeparator />}
+        </div>
       ))}
     </div>
   );
