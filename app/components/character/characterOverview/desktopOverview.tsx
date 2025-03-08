@@ -19,7 +19,7 @@ export default function DesktopOverview({
   birthday,
 }: Readonly<Props>) {
   return (
-    <div className="hidden xl:flex mt-4 xl:mt-16 flex-col items-start justify-center py-4 w-full h-full">
+    <div className="hidden xl:flex mt-4 xl:mt-8 flex-col items-start justify-center py-4 w-full h-full">
       <div className="w-full flex flex-col items-start justify-evenly">
         <div className="flex w-full items-start justify-start">
           <OverviewItemHolder label="Element" value={element}>

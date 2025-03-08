@@ -1,6 +1,5 @@
 import SocialIcon from "~/components/common/socialIcon";
 import socials from "~/data/socialData";
-
 import SiteMapSection from "./siteMapSection";
 import ThankingSection from "./thankingSection";
 

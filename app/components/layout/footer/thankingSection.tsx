@@ -17,59 +17,44 @@ export default function ThankingSection() {
             <div className="flex items-center space-x-2">
               <span className="text-sm text-slate-400 ">{member.name}</span>
               <span className="text-slate-200">•</span>
-              <a
-                href={member.x}
-                className="text-slate-400 hover:text-slate-500"
-              >
+              <div className="text-slate-400 hover:text-slate-500">
                 <SocialIcon name={member.name} url={member.x} icon={Ximage} />
-              </a>
+              </div>
               {member.github && (
-                <a
-                  href={member.github}
-                  className="text-slate-400 hover:text-slate-500"
-                >
+                <div className="text-slate-400 hover:text-slate-500">
                   <SocialIcon
                     name={member.name}
                     url={member.github}
                     icon={GithubIcon}
                   />
-                </a>
+                </div>
               )}
               {member.discord && (
-                <a
-                  href={member.discord}
-                  className="text-slate-400 hover:text-slate-500"
-                >
+                <div className="text-slate-400 hover:text-slate-500">
                   <SocialIcon
                     name={member.name}
                     url={member.discord}
                     icon={DiscordIcon}
                   />
-                </a>
+                </div>
               )}
               {member.twitch && (
-                <a
-                  href={member.twitch}
-                  className="text-slate-400 hover:text-slate-500"
-                >
+                <div className="text-slate-400 hover:text-slate-500">
                   <SocialIcon
                     name={member.name}
                     url={member.twitch}
                     icon={TwitchIcon}
                   />
-                </a>
+                </div>
               )}
               {member.youtube && (
-                <a
-                  href={member.youtube}
-                  className="text-slate-400 hover:text-slate-500"
-                >
+                <div className="text-slate-400 hover:text-slate-500">
                   <SocialIcon
                     name={member.name}
                     url={member.youtube}
                     icon={YoutubeIcon}
                   />
-                </a>
+                </div>
               )}
             </div>
           </li>

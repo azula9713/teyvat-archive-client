@@ -34,7 +34,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
   } = characterData;
 
   return (
-    <div className="py-4 px-12 flex-col items-center justify-start space-y-8 hidden xl:flex">
+    <div className="py-4 px-12 flex-col items-center justify-start space-y-8 hidden xl:flex w-full">
       <LazyBackgroundImage
         img={nameCard === "No Name Card" ? StaticNameCard : nameCard}
         isDarkened

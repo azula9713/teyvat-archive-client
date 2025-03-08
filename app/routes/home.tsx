@@ -1,4 +1,5 @@
 import { atom } from "jotai";
+
 import { useFilterTravelersAtom } from "~/atoms/feature.atoms";
 import AllCharacterShowcase from "~/components/home/allCharacterShowcase";
 import ElementalPicker from "~/components/home/elementalPicker";
