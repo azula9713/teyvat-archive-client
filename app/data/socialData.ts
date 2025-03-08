@@ -6,7 +6,7 @@ const socials = [
   {
     name: "LinkedIn",
     icon: linkedinIcon,
-    link: "https://discord.gg/2VvBk7K",
+    link: "https://www.linkedin.com/in/nilesh-viduranga/",
   },
   {
     name: "X",
@@ -16,7 +16,7 @@ const socials = [
   {
     name: "Github",
     icon: githubIcon,
-    link: "https://github.com/azula9713/genshin-aio",
+    link: "https://github.com/azula9713",
   },
 ];
 

@@ -1,18 +1,18 @@
 const rarityColoFilter = {
   QUALITY_PURPLE: {
-    fromColor: "rgb(107, 79, 182)",
+    fromColor: "rgb(226, 185, 253)",
     viaColor: "rgb(107, 79, 182)",
-    toColor: "rgb(226, 185, 253)",
+    toColor: "rgb(0, 0, 0)",
   },
   QUALITY_ORANGE: {
-    fromColor: "rgb(163, 105, 0)",
+    fromColor: "rgb(255, 225, 73)",
     viaColor: "rgb(163, 105, 0)",
-    toColor: "rgb(255, 225, 73)",
+    toColor: "rgb(0, 0, 0)",
   },
   QUALITY_ORANGE_SP: {
-    fromColor: "rgb(217 0 70)",
+    fromColor: "rgb(255 73 73)",
     viaColor: "rgb(207 15 95)",
-    toColor: "rgb(255 73 73)",
+    toColor: "rgb(0, 0, 0)",
   },
 };
 
