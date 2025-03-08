@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useAtomValue } from "jotai";
 import { useEffect, useState } from "react";
 
-import { selectedElementAtom } from "~/atoms/teyvat.atom";
+import { selectedElementAtom, selectedWeaponAtom } from "~/atoms/teyvat.atom";
 import type { IBaseCharacter } from "~/types/enka.types";
 import CharacterThumbnail from "./characterThumbnail";
 
@@ -12,19 +12,21 @@ type Props = {
 
 export default function AllCharacterShowcase({ characters }: Readonly<Props>) {
   const selectedElement = useAtomValue(selectedElementAtom);
+  const selectedWeapon = useAtomValue(selectedWeaponAtom);
 
   const [filteredCharacters, setFilteredCharacters] =
     useState<IBaseCharacter[]>(characters);
 
   useEffect(() => {
-    if (selectedElement === "all") {
-      setFilteredCharacters(characters);
-    } else {
-      setFilteredCharacters(
-        characters.filter((character) => character.element === selectedElement)
-      );
-    }
-  }, [selectedElement, characters]);
+    setFilteredCharacters(
+      characters.filter(
+        (character) =>
+          (selectedElement === "all" ||
+            character.element === selectedElement) &&
+          (selectedWeapon === "all" || character.weaponType === selectedWeapon)
+      )
+    );
+  }, [selectedElement, characters, selectedWeapon]);
 
   return (
     <div className="overflow-hidden w-full items-center justify-center flex px-4 md:px-12">

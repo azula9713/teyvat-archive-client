@@ -1,12 +1,14 @@
-import type { IAllTalent } from "~/types/enka.types";
+import type { IAllTalent, IElementType } from "~/types/enka.types";
 import parseText from "~/utils/parseEnkaText";
 
 type Props = {
   selectedTalent?: IAllTalent;
+  element: IElementType;
 };
 
 export default function CharacterTalentDetails({
   selectedTalent,
+  element,
 }: Readonly<Props>) {
   if (selectedTalent) {
     return (

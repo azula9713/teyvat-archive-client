@@ -1,8 +1,9 @@
 import { atom } from "jotai";
 
 import { useFilterTravelersAtom } from "~/atoms/feature.atoms";
+import PageTitle from "~/components/common/typography/pageTitle";
 import AllCharacterShowcase from "~/components/home/allCharacterShowcase";
-import ElementalPicker from "~/components/home/elementalPicker";
+import CharacterFilterSection from "~/components/home/characterFilterSection";
 import filterCharacters from "~/features/characterDisplayOptimizer";
 import { getCharacters } from "~/services/enka/enka.service";
 import type { IBaseCharacter } from "~/types/enka.types";
@@ -38,7 +39,10 @@ export default function Home({ loaderData }: Readonly<Route.ComponentProps>) {
 
   return (
     <>
-      <ElementalPicker />
+      <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
+        <PageTitle title="Teyvat Characters" />
+      </div>
+      <CharacterFilterSection />
       <AllCharacterShowcase characters={characters} />
     </>
   );

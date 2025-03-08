@@ -1,4 +1,5 @@
 import { Outlet } from "react-router";
+
 import CustomCursor from "~/assets/cursor/cursor.png";
 import Footer from "../footer/footer";
 import Header from "../header/header";

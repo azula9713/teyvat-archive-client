@@ -5,7 +5,7 @@ type Props = {
   customClass?: string;
 };
 
-function TitleHeading({ text, customClass = "text-6xl" }: Readonly<Props>) {
+function TitleHeading({ text, customClass = "text-5xl" }: Readonly<Props>) {
   return <h4 className={customClass}>{text}</h4>;
 }
 

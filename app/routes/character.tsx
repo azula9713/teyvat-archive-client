@@ -1,4 +1,5 @@
 import { atom } from "jotai";
+
 import { useImageFetchOptimizerAtom } from "~/atoms/feature.atoms";
 import CharacterDesktopView from "~/components/character/characterDesktopView";
 import CharacterMobileView from "~/components/character/characterMobileView";
@@ -13,6 +14,8 @@ export async function loader({ params }: Readonly<Route.LoaderArgs>) {
 
   const useImageFetchOptimizer = atom((get) => get(useImageFetchOptimizerAtom));
 
+  //update atom's value of selected character
+
   const { skillDepotId, enkaId } = decryptUniqueRoute(uniqueId);
 
   const character: ICharacter = await getCharacterBySkillDepotId(
@@ -22,6 +25,7 @@ export async function loader({ params }: Readonly<Route.LoaderArgs>) {
 
   if (useImageFetchOptimizer) {
     const transformedCharacter = transforCharacterData(character);
+
     return { character: transformedCharacter };
   } else {
     return { character };
@@ -36,8 +40,6 @@ export function meta(params: Readonly<Route.MetaArgs>) {
   const { data } = params;
   return [
     { title: `Teyvat Archive - ${data.character.name}` },
-    //set favicon side icon
-    { name: "favicon", content: data.character.sideIcon },
     { name: "description", content: data.character.description },
   ];
 }

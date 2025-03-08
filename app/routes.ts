@@ -11,6 +11,7 @@ import {
 export default [
   layout("./components/layout/container/baseLayout.tsx", { id: "base" }, [
     index("./routes/home.tsx"),
+    route("aboutus", "./routes/aboutus.tsx"),
   ]),
   ...prefix("character", [
     layout(

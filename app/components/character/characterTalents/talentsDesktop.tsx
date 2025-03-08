@@ -65,6 +65,7 @@ export default function TalentsDesktop({
         selectedTalent={allTalents?.find(
           (skill) => skill.id === selectedTalentId
         )}
+        element={element}
       />
     </DesktopContainer>
   );
