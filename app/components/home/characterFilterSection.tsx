@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useAtom } from "jotai";
 import {
   AdjustmentsHorizontalIcon,
-  BackspaceIcon,
   ChevronDownIcon,
   ChevronUpIcon,
   StarIcon,
@@ -13,9 +12,6 @@ import {
   selectedRarityAtom,
   selectedWeaponAtom,
 } from "~/atoms/teyvat.atom";
-import ElementFilter from "./filtering/elementFilter";
-import RarityFilter from "./filtering/rarityFilter";
-import WeaponFilter from "./filtering/weaponFilter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import weaponIconFilter from "~/utils/weaponIconFilter";
 import { RARITIES } from "~/data/teyvatData";
