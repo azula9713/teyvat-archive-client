@@ -66,16 +66,20 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
             birthday={characterData.birthday}
           />
         </div>
-        <div className="w-full xl:h-[400px] flex items-center justify-end">
-          <div className={`w-4/5 h-full ${nameId}`}>
+        <div className="w-full xl:h-[400px]  flex items-center justify-end border-2 border-gray-300">
+          <div
+            className={`w-4/5 h-full ${nameId} border-2 border-red-500 relative`}
+          >
             <img
               src={splashUrl}
+              className={`bottom-[-10] right-0 absolute border-2 border-green-400 ${
+                !characterData.isTraveler ? "-mr-20" : "mr-30"
+              }`}
               alt={name}
               style={{
                 height: "100%",
-                marginLeft: "18%",
-                marginTop: "3%",
-                scale: "1.2",
+                marginTop: "15%",
+                scale: `${characterData.isTraveler ? "2.5" : "1.70"}`,
               }}
             />
           </div>

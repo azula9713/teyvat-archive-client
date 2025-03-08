@@ -19,6 +19,8 @@ export type IWeaponType =
   | "WEAPON_CATALYST"
   | "WEAPON_BOW";
 
+  export type IBodyType = "BODY_MALE" | "BODY_BOY" | "BODY_LADY" | "BODY_GIRL" | "BODY_LOLI";
+
 export interface IConstellation {
   id: string;
   name: string;
@@ -82,6 +84,7 @@ export interface ICharacter extends IBaseCharacter {
   ascensionData: IAscensionData[];
   title: string;
   birthday: IBirthday | null;
+  bodyType: IBodyType;
 }
 
 export interface IMaterialData {
