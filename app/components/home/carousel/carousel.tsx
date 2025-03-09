@@ -1,38 +1,40 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
+import { useEffect, useState } from "react";
 
 type Props = {
   items: IEvent[];
-  handleNext: () => void;
-  handlePrev: () => void;
 };
 
-export default function Carousel({
-  items,
-  handleNext,
-  handlePrev,
-}: Readonly<Props>) {
+export default function Carousel({ items }: Readonly<Props>) {
+  const [carouselItems, setCarouselItems] = useState<IEvent[]>(items);
+
+  const handlePrev = () => {
+    setCarouselItems((prevItems) => {
+      const newItems = [...prevItems] as any;
+      newItems.unshift(newItems.pop()); // Move last item to start
+      return newItems;
+    });
+  };
+
+  const handleNext = () => {
+    setCarouselItems((prevItems) => {
+      const newItems = [...prevItems] as any;
+      newItems.push(newItems.shift()); // Move first item to end
+      return newItems;
+    });
+  };
+
+  useEffect(() => {
+    setCarouselItems(items);
+  }, [items]);
+
   return (
-    <div className="relative w-[1000px] h-[500px] shadow-[0_3px_10px_rgba(0,0,0,0.3)] overflow-hidden grid place-items-center rounded-xl">
+    <div className="relative w-[calc(100vw/12*10)] h-[calc(100vw/12*5)] max-w-[1000px] max-h-[500px] shadow-[0_3px_10px_rgba(0,0,0,0.3)] overflow-hidden grid place-items-center rounded-xl">
       <ul className="list-none p-0 m-0">
-        {items.map((item, index) => (
+        {carouselItems.map((item, index) => (
           <li
             key={index}
-            className={`
-              absolute top-1/2 -translate-y-1/2 z-[1]
-             
-              rounded-[20px]
-              shadow-[inset_0_20px_30px_rgba(255,255,255,0.3)]
-              transition-[transform_0.1s,left_0.75s,top_0.75s,width_0.75s,height_0.75s]
-              ${
-                index === 0 || index === 1
-                  ? "left-0 top-0 w-full h-full transform-none rounded-none shadow-none opacity-100"
-                  : ""
-              }
-              ${index === 2 ? "left-1/2" : ""}
-              ${index === 3 ? "left-[calc(50%+120px)]" : ""}
-              ${index === 4 ? "left-[calc(50%+220px)]" : ""}
-              ${index === 5 ? "left-[calc(50%+330px)] opacity-0" : ""}
-            `}
+            className="absolute -translate-y-1/2 z-[1] rounded-[20px] shadow-[inset_0_20px_30px_rgba(255,255,255,0.3)] left-0 w-full h-full transform-none opacity-100"
             style={{
               backgroundImage: `url('${item.imageUrl}')`,
               backgroundSize: "cover",
@@ -44,13 +46,13 @@ export default function Carousel({
       </ul>
       <nav className="absolute bottom-5 right-5 z-[5] select-none">
         <button
-          className="btn bg-[rgba(255,255,255,0.5)] text-[rgba(0,0,0,0.7)] m-[0_0.25rem] p-3 rounded-full cursor-pointer hover:bg-[rgba(255,255,255,0.3)]"
+          className="btn bg-[rgba(255,255,255,0.5)] text-[rgba(0,0,0,0.7)] m-[0_0.25rem] p-1 rounded-full cursor-pointer hover:bg-[rgba(255,255,255,0.3)]"
           onClick={handlePrev}
         >
           <ChevronLeftIcon className="size-6" />
         </button>
         <button
-          className="btn bg-[rgba(255,255,255,0.5)] text-[rgba(0,0,0,0.7)] m-[0_0.25rem] p-3 rounded-full cursor-pointer hover:bg-[rgba(255,255,255,0.3)]"
+          className="btn bg-[rgba(255,255,255,0.5)] text-[rgba(0,0,0,0.7)] m-[0_0.25rem] p-1 rounded-full cursor-pointer hover:bg-[rgba(255,255,255,0.3)]"
           onClick={handleNext}
         >
           <ChevronRightIcon className="size-6" />

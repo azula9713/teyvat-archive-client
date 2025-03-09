@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+
 import PageTitle from "~/components/common/typography/pageTitle";
 import Carousel from "~/components/home/carousel/carousel";
+import OtherEvents from "~/components/home/events/otherEvents";
 import { getAllEvents } from "~/services/teyvatServer/teyvatArchive.service";
 import type { Route } from "./+types/home";
 
@@ -24,22 +26,7 @@ export default function Home({ loaderData }: Readonly<Route.ComponentProps>) {
   const { events } = loaderData;
 
   const [wishEventItems, setWishEventItems] = useState<IEvent[]>([]);
-
-  const handleNext = () => {
-    setWishEventItems((prevItems) => {
-      const newItems = [...prevItems] as any;
-      newItems.push(newItems.shift()); // Move first item to end
-      return newItems;
-    });
-  };
-
-  const handlePrev = () => {
-    setWishEventItems((prevItems) => {
-      const newItems = [...prevItems] as any;
-      newItems.unshift(newItems.pop()); // Move last item to start
-      return newItems;
-    });
-  };
+  const [otherEventItems, setOtherEventItems] = useState<IEvent[]>([]);
 
   useEffect(() => {
     //  "title": "Event Wish - Tempestuous Destiny",
@@ -47,17 +34,16 @@ export default function Home({ loaderData }: Readonly<Route.ComponentProps>) {
       event.title.includes("Event Wish")
     );
 
+    const filterOtherEvents = events.filter(
+      (event) =>
+        !event.title.includes("Event Wish") && !event.title.includes("Update")
+    );
+
     setWishEventItems(filterWishEvents);
+    setOtherEventItems(filterOtherEvents);
   }, [events]);
 
   // auto slide
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
@@ -65,12 +51,9 @@ export default function Home({ loaderData }: Readonly<Route.ComponentProps>) {
 
       <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
         <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
-          <Carousel
-            items={wishEventItems}
-            handleNext={handleNext}
-            handlePrev={handlePrev}
-          />
+          <Carousel items={wishEventItems} />
         </div>
+        <OtherEvents events={otherEventItems} />
       </div>
     </div>
   );
