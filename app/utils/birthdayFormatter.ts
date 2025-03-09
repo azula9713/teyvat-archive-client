@@ -1,5 +1,3 @@
-import type { IBirthday } from "~/types/enka.types";
-
 const birthdayFormatter = (birthday: IBirthday) => {
   //should return 8th of August if birthday is { month: 8, day: 8 }
   const { month, day } = birthday;

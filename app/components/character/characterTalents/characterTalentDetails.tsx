@@ -1,4 +1,3 @@
-import type { IAllTalent, IElementType } from "~/types/enka.types";
 import parseText from "~/utils/parseEnkaText";
 
 type Props = {

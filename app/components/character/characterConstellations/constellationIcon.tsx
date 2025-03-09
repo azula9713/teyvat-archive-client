@@ -1,4 +1,3 @@
-import type { IConstellation, IElementType } from "~/types/enka.types";
 import elementalColorPicker from "~/utils/elementalColorPicker";
 
 type Props = {

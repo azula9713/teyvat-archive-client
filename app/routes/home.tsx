@@ -1,33 +1,19 @@
-import { atom } from "jotai";
-
-import { useFilterTravelersAtom } from "~/atoms/feature.atoms";
+import { useEffect, useState } from "react";
 import PageTitle from "~/components/common/typography/pageTitle";
-import AllCharacterShowcase from "~/components/home/allCharacterShowcase";
-import CharacterFilterSection from "~/components/home/characterFilterSection";
-import filterCharacters from "~/features/characterDisplayOptimizer";
-import { getCharacters } from "~/services/enka/enka.service";
-import type { IBaseCharacter } from "~/types/enka.types";
+import Carousel from "~/components/home/carousel/carousel";
+import { getAllEvents } from "~/services/teyvatServer/teyvatArchive.service";
 import type { Route } from "./+types/home";
 
 export function meta() {
   return [
     { title: "Teyvat Archive" },
-    { name: "description", content: "Welcome to React Router!" },
+    { name: "description", content: "Welcome to Tevyat Archive!" },
   ];
 }
 
 export async function loader() {
-  const characters: IBaseCharacter[] = await getCharacters();
-
-  const fillterTravelers = atom((get) => get(useFilterTravelersAtom));
-
-  if (fillterTravelers) {
-    const filteredCharacters = filterCharacters(characters);
-
-    return { characters: filteredCharacters };
-  }
-
-  return { characters };
+  const events: IEvent[] = await getAllEvents();
+  return { events };
 }
 
 export function HydrateFallback() {
@@ -35,15 +21,57 @@ export function HydrateFallback() {
 }
 
 export default function Home({ loaderData }: Readonly<Route.ComponentProps>) {
-  const { characters } = loaderData;
+  const { events } = loaderData;
+
+  const [wishEventItems, setWishEventItems] = useState<IEvent[]>([]);
+
+  const handleNext = () => {
+    setWishEventItems((prevItems) => {
+      const newItems = [...prevItems] as any;
+      newItems.push(newItems.shift()); // Move first item to end
+      return newItems;
+    });
+  };
+
+  const handlePrev = () => {
+    setWishEventItems((prevItems) => {
+      const newItems = [...prevItems] as any;
+      newItems.unshift(newItems.pop()); // Move last item to start
+      return newItems;
+    });
+  };
+
+  useEffect(() => {
+    //  "title": "Event Wish - Tempestuous Destiny",
+    const filterWishEvents = events.filter((event) =>
+      event.title.includes("Event Wish")
+    );
+
+    setWishEventItems(filterWishEvents);
+  }, [events]);
+
+  // auto slide
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <>
-      <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
-        <PageTitle title="Teyvat Characters" />
+    <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
+      <PageTitle title="Welcome to Teyvat Archive" />
+
+      <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
+        <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
+          <Carousel
+            items={wishEventItems}
+            handleNext={handleNext}
+            handlePrev={handlePrev}
+          />
+        </div>
       </div>
-      <CharacterFilterSection />
-      <AllCharacterShowcase characters={characters} />
-    </>
+    </div>
   );
 }

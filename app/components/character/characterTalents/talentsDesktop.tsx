@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { IAllTalent, IElementType, ITalent } from "~/types/enka.types";
+
 import DesktopContainer from "../containers/desktopContainer";
 import CharacterTalentDetails from "./characterTalentDetails";
 import TalentIcon from "./talentIcon";

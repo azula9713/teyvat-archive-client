@@ -1,4 +1,3 @@
-import type { IConstellation } from "~/types/enka.types";
 import parseText from "~/utils/parseEnkaText";
 
 type Props = {

@@ -1,4 +1,3 @@
-import type { IConstellation } from "~/types/enka.types";
 import MobileContainer from "../containers/mobileContainer";
 import DataItemCard from "../dataItemCard";
 

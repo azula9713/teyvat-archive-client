@@ -1,5 +1,3 @@
-import type { IBodyType, IRarityType } from "~/types/enka.types";
-
 const getZoomValue = (
   rarity: IRarityType,
   bodyType: IBodyType,

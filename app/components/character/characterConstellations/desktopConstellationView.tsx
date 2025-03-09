@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { IConstellation, IElementType } from "~/types/enka.types";
+
 import DesktopContainer from "../containers/desktopContainer";
 import ConstellationDetails from "./constellationDetails";
 import ConstellationIcon from "./constellationIcon";

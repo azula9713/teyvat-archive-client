@@ -2,8 +2,7 @@ import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-import type { IConstellation, ITalent } from "~/types/enka.types";
-import parseText from "~/utils/parseenkaText";
+import parseText from "~/utils/parseEnkaText";
 import TextLabel from "../common/typography/textLabel";
 
 type Props = {

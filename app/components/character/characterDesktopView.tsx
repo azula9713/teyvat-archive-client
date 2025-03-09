@@ -1,4 +1,3 @@
-import type { ICharacter } from "~/types/enka.types";
 import { getMarginRightValue, getZoomValue } from "~/utils/splashArtZoom";
 import LazyBackgroundImage from "../common/lazyBackgroundImage";
 import AscensionMatsDesktop from "./characterAscension/ascensionMatsDesktop";

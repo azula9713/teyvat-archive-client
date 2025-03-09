@@ -1,6 +1,5 @@
 import { atom } from "jotai";
 import { useFilterTravelersAtom } from "~/atoms/feature.atoms";
-import type { IBaseCharacter } from "~/types/enka.types";
 
 const useFilterTravelers = atom((get) => get(useFilterTravelersAtom));
 

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { NavLink } from "react-router";
 
-import type { IBaseCharacter } from "~/types/enka.types";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import rarityColoFilter from "~/utils/thumbnailColorFilter";
 

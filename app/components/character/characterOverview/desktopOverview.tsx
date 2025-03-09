@@ -1,5 +1,4 @@
 import OverviewItemHolder from "~/components/common/overviewItemHolder";
-import type { IBirthday, IElementType, IWeaponType } from "~/types/enka.types";
 import birthdayFormatter from "~/utils/birthdayFormatter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import weaponIconFilter from "~/utils/weaponIconFilter";

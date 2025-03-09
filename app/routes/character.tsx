@@ -4,8 +4,7 @@ import { useImageFetchOptimizerAtom } from "~/atoms/feature.atoms";
 import CharacterDesktopView from "~/components/character/characterDesktopView";
 import CharacterMobileView from "~/components/character/characterMobileView";
 import { transforCharacterData } from "~/features/imageFetchOptimizer";
-import { getCharacterBySkillDepotId } from "~/services/enka/enka.service";
-import type { ICharacter } from "~/types/enka.types";
+import { getCharacterBySkillDepotId } from "~/services/teyvatServer/teyvatArchive.service";
 import decryptUniqueRoute from "~/utils/decryptUniqueId";
 import type { Route } from "./+types/character";
 

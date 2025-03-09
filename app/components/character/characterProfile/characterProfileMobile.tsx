@@ -6,7 +6,6 @@ import GeoBG from "~/assets/images/bgs/constellation_template__geo.jpg";
 import HydroBG from "~/assets/images/bgs/constellation_template__hydro.png";
 import PyroBG from "~/assets/images/bgs/constellation_template__pyro.jpg";
 import LazyBackgroundImage from "~/components/common/lazyBackgroundImage";
-import type { IElementType } from "~/types/enka.types";
 import RarityStars from "../rarityStars";
 
 type Props = {

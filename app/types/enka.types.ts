@@ -1,9 +1,6 @@
-export type IRarityType =
-  | "QUALITY_PURPLE"
-  | "QUALITY_ORANGE"
-  | "QUALITY_ORANGE_SP";
+type IRarityType = "QUALITY_PURPLE" | "QUALITY_ORANGE" | "QUALITY_ORANGE_SP";
 
-export type IElementType =
+type IElementType =
   | "Anemo"
   | "Geo"
   | "Electro"
@@ -12,28 +9,28 @@ export type IElementType =
   | "Pyro"
   | "Cryo";
 
-export type IWeaponType =
+type IWeaponType =
   | "WEAPON_SWORD_ONE_HAND"
   | "WEAPON_CLAYMORE"
   | "WEAPON_POLE"
   | "WEAPON_CATALYST"
   | "WEAPON_BOW";
 
-export type IBodyType =
+type IBodyType =
   | "BODY_MALE"
   | "BODY_BOY"
   | "BODY_LADY"
   | "BODY_GIRL"
   | "BODY_LOLI";
 
-export interface IConstellation {
+interface IConstellation {
   id: string;
   name: string;
   description: string;
   icon: string;
 }
 
-export interface IAscensionData {
+interface IAscensionData {
   scoinCost: number;
   costItems: [
     {
@@ -44,23 +41,23 @@ export interface IAscensionData {
   addProps: [propType: string];
 }
 
-export interface IBirthday {
+interface IBirthday {
   month: number;
   day: number;
 }
 
-export interface ITalent {
+interface ITalent {
   id: number;
   name: string;
   icon: string;
   description: string;
 }
 
-export interface IAllTalent extends ITalent {
+interface IAllTalent extends ITalent {
   isPassive: boolean;
 }
 
-export interface IBaseCharacter {
+interface IBaseCharacter {
   element: IElementType;
   nameId: string;
   iconUrl: string;
@@ -74,7 +71,7 @@ export interface IBaseCharacter {
   weaponType: IWeaponType;
 }
 
-export interface ICharacter extends IBaseCharacter {
+interface ICharacter extends IBaseCharacter {
   enkaId: number;
   splashUrl: string;
   constellations: IConstellation[];
@@ -94,7 +91,7 @@ export interface ICharacter extends IBaseCharacter {
   isArchon: boolean;
 }
 
-export interface IMaterialData {
+interface IMaterialData {
   id: number;
   name: string;
   description: string;

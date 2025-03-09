@@ -14,8 +14,6 @@ import GeoBg from "~/assets/images/bgs/constellation_template__geo.jpg";
 import HydroBg from "~/assets/images/bgs/constellation_template__hydro.png";
 import PyroBg from "~/assets/images/bgs/constellation_template__pyro.jpg";
 
-import type { IElementType } from "~/types/enka.types";
-
 interface ElementalImageFilter {
   [key: string]: string;
   Anemo: string;
