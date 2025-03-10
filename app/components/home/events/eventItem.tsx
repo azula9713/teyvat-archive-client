@@ -10,7 +10,7 @@ export default function EventItem({ event }: Readonly<Props>) {
 
   return (
     <article
-      className={`overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg dark:shadow-gray-700/25 ${
+      className={`overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg dark:shadow-gray-700/25 max-w-[calc(100vw/12*10)] ${
         isExpanded ? "row-span-4" : ""
       } border border-gray-700`}
     >
