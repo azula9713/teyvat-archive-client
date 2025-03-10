@@ -9,6 +9,9 @@ export default function Header() {
         <LogoHolder />
         <h1 className="text-white text-lg font-bold ml-2">Teyvat Archive</h1>
       </Link>
+
+      {/* add desktop navigation */}
+
       <div className="flex justify-end space-x-3 items-center">
         <div className="hidden">{/* <DarkModeToggle /> */}</div>
         <Bars3Icon

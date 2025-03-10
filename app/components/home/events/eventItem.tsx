@@ -10,7 +10,7 @@ export default function EventItem({ event }: Readonly<Props>) {
   return (
     <article
       className={`overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg dark:shadow-gray-700/25 ${
-        isExpanded ? "row-span-3" : ""
+        isExpanded ? "row-span-4" : ""
       }`}
     >
       <img alt={event.title} src={event.imageUrl} className="w-full" />

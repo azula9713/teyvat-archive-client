@@ -32,13 +32,11 @@ export default function AboutUs() {
           <AboutParagraph text="This website is made for educational purposes and is not affiliated with miHoYo." />
           <AboutParagraph text="If you have any questions or concerns, please contact us at our email" />
         </div>
-        {/* created by section */}
         <div className="mt-4 lg:mt-6 xl:mt-8 flex flex-col items-center justify-center space-y-2 text-left outline-none border-2 border-slate-600 rounded-lg p-4">
           <TitleHeading
             text="Created By"
             customClass="text-xl lg:text-2xl ml-4 font-sans"
           />
-          {/* Need something boxy and beautiful and minimal that says my name 'Azula9713' at 'Yae Publishing House */}
           <div className="flex flex-col items-center justify-center space-y-2">
             <div className="flex flex-col items-center justify-center space-y-2">
               <p className="text-white text-md font-bold">
