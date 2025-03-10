@@ -13,7 +13,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 
 scan({
-  enabled: true,
+  enabled: false,
 });
 
 export const links: Route.LinksFunction = () => [

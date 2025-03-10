@@ -1,17 +1,40 @@
-import { XMarkIcon } from "@heroicons/react/16/solid";
+import { Cog6ToothIcon, XMarkIcon } from "@heroicons/react/16/solid";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { Link } from "react-router";
 import HEADER_ROUTES from "~/data/routeData";
 
 type Props = {
   isSidebarOpen: boolean;
   setIsSidebarOpen: (value: boolean) => void;
+  isSettingsOpen: boolean;
+  setIsSettingsOpen: (value: boolean) => void;
 };
 
 export default function HeaderSidebar({
   isSidebarOpen,
   setIsSidebarOpen,
+  isSettingsOpen,
+  setIsSettingsOpen,
 }: Readonly<Props>) {
+  useEffect(() => {
+    const disableScroll = () => {
+      document.body.style.overflow = "hidden";
+    };
+
+    const enableScroll = () => {
+      document.body.style.overflow = "auto";
+    };
+
+    if (isSidebarOpen) {
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+
+    return () => enableScroll();
+  }, [isSidebarOpen]);
+
   return (
     <motion.div
       className={`absolute top-0 right-0 w-full max-w-[300px] h-screen bg-gray-800 opacity-90 z-50 px-10 flex flex-col items-end justify-start ${
@@ -40,6 +63,17 @@ export default function HeaderSidebar({
           </Link>
         ))}
       </nav>
+
+      {/* add settings button at the bottom right */}
+      <button
+        onClick={() => {
+          setIsSettingsOpen(true);
+          setIsSidebarOpen(false);
+        }}
+        className="absolute bottom-5 right-5 text-white"
+      >
+        <Cog6ToothIcon className="size-5" />
+      </button>
     </motion.div>
   );
 }
