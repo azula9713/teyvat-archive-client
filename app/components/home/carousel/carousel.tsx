@@ -78,7 +78,7 @@ export default function Carousel({
   }, [autoPlay, interval, carouselItems.length]);
 
   return (
-    <div className="relative w-[calc(100vw/12*10)] h-[calc(100vw/12*5)] max-w-[1000px] max-h-[500px] shadow-[0_3px_10px_rgba(0,0,0,0.3)] overflow-hidden grid place-items-center rounded-xl">
+    <div className="relative w-[calc(100vw/12*10)] h-[calc(100vw/12*5)] my-6 max-w-[1000px] max-h-[500px] shadow-[0_3px_10px_rgba(0,0,0,0.3)] overflow-hidden grid place-items-center rounded-xl">
       <div className="relative w-full h-full">
         <AnimatePresence initial={false} custom={direction}>
           {carouselItems[currentIndex] && (
