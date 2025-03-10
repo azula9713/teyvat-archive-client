@@ -29,6 +29,13 @@ export function HydrateFallback() {
   return <div>Loading...</div>;
 }
 
+export function meta() {
+  return [
+    { title: `Character Archive` },
+    { name: "description", content: "Welcome to Teyvat Archive!" },
+  ];
+}
+
 export default function Characters({
   loaderData,
 }: Readonly<Route.ComponentProps>) {

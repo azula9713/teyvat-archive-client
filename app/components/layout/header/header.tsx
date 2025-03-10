@@ -1,15 +1,13 @@
-import { Bars3Icon } from "@heroicons/react/16/solid";
+import { Bars3Icon, Cog6ToothIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
-import { Link, useLocation } from "react-router";
+import { Link } from "react-router";
 
 import LogoHolder from "~/components/common/logoHolder";
-import HEADER_ROUTES from "~/data/routeData";
+import DesktopNavRoutes from "./desktopNavRoutes";
 import HeaderSidebar from "./headerSideBar";
 
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const location = useLocation();
 
   return (
     <header className="bg-white dark:bg-gray-900 w-full shadow-slate-950 shadow-md">
@@ -24,37 +22,13 @@ export default function Header() {
           </Link>
 
           <div className="hidden lg:block">
-            <nav aria-label="Global">
-              <ul className="flex items-center gap-6 text-sm">
-                {HEADER_ROUTES.map((route) => (
-                  <li key={route.path}>
-                    <Link
-                      to={route.path}
-                      className={`transition hover:text-gray-500/75 dark:hover:text-white/75 font-enka ${
-                        location.pathname === route.path.toLowerCase()
-                          ? "text-teal-400"
-                          : "text-white"
-                      }`}
-                    >
-                      {route.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <DesktopNavRoutes />
           </div>
 
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex sm:gap-4">
-              <button className="rounded-lg bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm dark:hover:bg-teal-500">
-                Login
-              </button>
-
-              <div className="hidden sm:flex">
-                <button className="rounded-lg bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75">
-                  Register
-                </button>
-              </div>
+              {/* add a settings toggle */}
+              <Cog6ToothIcon className="size-5 text-gray-600 dark:text-white" />
             </div>
 
             <div className="block lg:hidden">

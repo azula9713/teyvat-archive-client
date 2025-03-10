@@ -8,8 +8,8 @@ const HEADER_ROUTES = [
     name: "Weapons",
   },
   {
-    path: "/aboutus",
-    name: "About",
+    path: "/artifacts",
+    name: "Artifacts",
   },
 ];
 

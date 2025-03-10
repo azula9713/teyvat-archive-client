@@ -15,12 +15,10 @@ export default function LogoHolder({ size = "medium" }: Readonly<Props>) {
       : `size-${size}`;
 
   return (
-    <div>
-      <img
-        src={LogoImage}
-        alt="logo"
-        className={`${sizeFilter} cursor-pointer`}
-      />
-    </div>
+    <img
+      src={LogoImage}
+      alt="logo"
+      className={`${sizeFilter} cursor-pointer`}
+    />
   );
 }
