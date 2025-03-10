@@ -1,11 +1,10 @@
-import SocialIcon from "~/components/common/socialIcon";
-import thankingMembers from "~/data/specialThanks";
-
 import DiscordIcon from "~/assets/icons/icons8-discord.svg";
 import GithubIcon from "~/assets/icons/icons8-github.svg";
 import TwitchIcon from "~/assets/icons/icons8-twitch.svg";
 import Ximage from "~/assets/icons/icons8-x.svg";
 import YoutubeIcon from "~/assets/icons/icons8-youtube.svg";
+import SocialIcon from "~/components/common/socialIcon";
+import thankingMembers from "~/data/specialThanks";
 
 export default function ThankingSection() {
   return (

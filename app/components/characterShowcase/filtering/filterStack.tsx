@@ -1,8 +1,8 @@
 import { BackspaceIcon } from "@heroicons/react/16/solid";
 
 import ElementFilter from "./elementFilter";
-import WeaponFilter from "./weaponFilter";
 import RarityFilter from "./rarityFilter";
+import WeaponFilter from "./weaponFilter";
 
 type Props = {
   setIsFilterOpen: (value: boolean) => void;
@@ -22,7 +22,7 @@ export default function FilterStack({
   setSelectedWeapon,
   selectedRarity,
   setSelectedRarity,
-}: Props) {
+}: Readonly<Props>) {
   return (
     <>
       <ElementFilter

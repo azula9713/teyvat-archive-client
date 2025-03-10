@@ -47,7 +47,6 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
               alt={name}
               style={{
                 zoom: "1.5",
-                //move bit to top
                 transform: "translateY(-8px)",
               }}
             />

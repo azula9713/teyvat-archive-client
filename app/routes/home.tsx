@@ -29,7 +29,6 @@ export default function Home({ loaderData }: Readonly<Route.ComponentProps>) {
   const [otherEventItems, setOtherEventItems] = useState<IEvent[]>([]);
 
   useEffect(() => {
-    //  "title": "Event Wish - Tempestuous Destiny",
     const filterWishEvents = events.filter((event) =>
       event.title.includes("Event Wish")
     );
@@ -43,17 +42,14 @@ export default function Home({ loaderData }: Readonly<Route.ComponentProps>) {
     setOtherEventItems(filterOtherEvents);
   }, [events]);
 
-  // auto slide
-
   return (
     <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
       <PageTitle title="Welcome to Teyvat Archive" />
-
       <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
         <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
           <Carousel items={wishEventItems} />
+          <OtherEvents events={otherEventItems} />
         </div>
-        <OtherEvents events={otherEventItems} />
       </div>
     </div>
   );

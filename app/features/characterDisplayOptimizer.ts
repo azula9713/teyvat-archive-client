@@ -1,4 +1,5 @@
 import { atom } from "jotai";
+
 import { useFilterTravelersAtom } from "~/atoms/feature.atoms";
 
 const useFilterTravelers = atom((get) => get(useFilterTravelersAtom));

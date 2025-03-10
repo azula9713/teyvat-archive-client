@@ -14,6 +14,7 @@ export default [
     route("characters", "./routes/characters.tsx"),
     route("aboutus", "./routes/aboutus.tsx"),
   ]),
+
   ...prefix("character", [
     layout(
       "./components/layout/container/baseLayout.tsx",
