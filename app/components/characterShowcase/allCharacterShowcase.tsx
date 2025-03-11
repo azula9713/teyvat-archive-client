@@ -22,16 +22,14 @@ export default function AllCharacterShowcase({ characters }: Readonly<Props>) {
     useState<IBaseCharacter[]>(characters);
 
   useEffect(() => {
-    setFilteredCharacters(
-      characters.filter(
-        (character) =>
-          (selectedElement === "all" ||
-            character.element === selectedElement) &&
-          (selectedWeapon === "all" ||
-            character.weaponType === selectedWeapon) &&
-          (selectedRarity === "all" || character.rarity === selectedRarity)
-      )
+    const tempFilteredCharacters = characters.filter(
+      (character) =>
+        (selectedElement === "all" || character.element === selectedElement) &&
+        (selectedWeapon === "all" || character.weaponType === selectedWeapon) &&
+        (selectedRarity === "all" || character.rarity === selectedRarity)
     );
+
+    setFilteredCharacters(tempFilteredCharacters);
   }, [selectedElement, characters, selectedWeapon, selectedRarity]);
 
   return (

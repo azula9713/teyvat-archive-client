@@ -36,7 +36,7 @@ export default function SettingsModal({
       //   onAfterOpen={afterOpenModal}
       onRequestClose={onRequestClose}
       style={customStyles}
-      contentLabel="Example Modal"
+      contentLabel="Teyvat Archive Settings"
     >
       <div className="w-usable max-w-[750px]">
         <h4 className="w-full text-center">Teyvat Archive Settings</h4>

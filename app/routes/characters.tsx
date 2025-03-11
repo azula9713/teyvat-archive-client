@@ -9,7 +9,7 @@ import { useFilterTravelersAtom } from "~/atoms/feature.atoms";
 import filterCharacters from "~/features/characterDisplayOptimizer";
 import type { Route } from "./+types/characters";
 
-export async function loader({ request }: Readonly<Route.LoaderArgs>) {
+export async function loader() {
   const characters: IBaseCharacter[] = await getCharacters();
 
   return { characters };

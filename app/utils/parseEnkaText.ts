@@ -27,7 +27,7 @@ function parseText(inputText: string) {
 
   modifiedText = modifiedText.replace(
     /<b style="color:([^>]+)">/g,
-    '<b style="color:$1; font-family: AlgoindeEnka">'
+    '<b style="color:$1; font-family: enka">'
   );
 
   return modifiedText;

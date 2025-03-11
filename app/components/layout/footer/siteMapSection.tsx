@@ -2,7 +2,7 @@ export default function SiteMapSection() {
   const LINKS = [
     {
       name: "About Us",
-      link: "/aboutus",
+      link: "/about",
     },
     {
       name: "Privacy Policy",

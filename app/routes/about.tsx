@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
-import AboutParagraph from "~/components/aboutus/aboutParagraph";
+
+import AboutParagraph from "~/components/about/aboutParagraph";
 import LogoHolder from "~/components/common/logoHolder";
 import PageTitle from "~/components/common/typography/pageTitle";
 import TitleHeading from "~/components/common/typography/titleHeading";
@@ -11,7 +12,7 @@ export function meta() {
   ];
 }
 
-export default function AboutUs() {
+export default function About() {
   return (
     <div className="w-full pt-3 mt-3 mx-2 px-2 flex flex-col items-center">
       <PageTitle title="About Us" />
