@@ -6,7 +6,7 @@ export default function DesktopNavRoutes() {
 
   return (
     <nav aria-label="Global">
-      <ul className="flex items-center gap-6 text-sm">
+      <ul className="flex items-center gap-6 text-sm w-full justify-center">
         {HEADER_ROUTES.map((route) => (
           <li key={route.path}>
             <Link

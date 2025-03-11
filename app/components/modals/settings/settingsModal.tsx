@@ -38,7 +38,7 @@ export default function SettingsModal({
       style={customStyles}
       contentLabel="Example Modal"
     >
-      <div className="usable-width">
+      <div className="w-usable max-w-[750px]">
         <h4 className="w-full text-center">Teyvat Archive Settings</h4>
         <div className="w-full my-4 py-2 flex flex-col items-center justify-between">
           <SettingItems />

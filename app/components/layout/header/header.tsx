@@ -25,8 +25,8 @@ export default function Header() {
   return (
     <header className="bg-white dark:bg-gray-900 w-full shadow-slate-950 shadow-md">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mx-2">
-          <Link to="/" className="flex items-center justify-start py-2">
+        <div className="flex items-center justify-between mx-2 w-full">
+          <Link to="/" className="flex items-center justify-start py-2 w-full">
             <span className="sr-only">Teyvat Archive</span>
             <LogoHolder />
             <h1 className="text-white text-lg font-bold ml-2">
@@ -34,11 +34,11 @@ export default function Header() {
             </h1>
           </Link>
 
-          <div className="hidden lg:block">
+          <div className="hidden lg:block w-full items-center justify-center">
             <DesktopNavRoutes />
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 w-full justify-end">
             <div className="hidden sm:flex sm:gap-4">
               {/* add a settings toggle */}
               <button
