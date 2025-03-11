@@ -11,6 +11,7 @@ import { scan } from "react-scan";
 import "react-tooltip/dist/react-tooltip.css";
 import type { Route } from "./+types/root";
 import "./app.css";
+import { appendHeaders, syncInitialValues } from "./utils/syncHeaderValues";
 
 scan({
   enabled: false,
@@ -28,6 +29,16 @@ export const links: Route.LinksFunction = () => [
     href: "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oxanium:wght@200;300;400;500;600;700;800&display=swap",
   },
 ];
+
+if (typeof window !== "undefined") {
+  const originalFetch = window.fetch;
+  window.fetch = async function fetch(input, init) {
+    syncInitialValues();
+    const headers = new Headers(init?.headers);
+
+    return originalFetch(input, appendHeaders(input, { ...init, headers }));
+  };
+}
 
 export function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

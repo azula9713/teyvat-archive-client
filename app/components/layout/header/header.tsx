@@ -7,17 +7,6 @@ import SettingsModal from "~/components/modals/settings/settingsModal";
 import DesktopNavRoutes from "./desktopNavRoutes";
 import HeaderSidebar from "./headerSideBar";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
-
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -39,7 +28,7 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-4 w-full justify-end">
-            <div className="hidden sm:flex sm:gap-4">
+            <div className="hidden lg:flex lg:gap-4">
               {/* add a settings toggle */}
               <button
                 onClick={() => setIsSettingsOpen(true)}

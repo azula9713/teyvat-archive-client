@@ -1,6 +1,3 @@
-import { atom } from "jotai";
-
-import { useImageFetchOptimizerAtom } from "~/atoms/feature.atoms";
 import CharacterDesktopView from "~/components/character/characterDesktopView";
 import CharacterMobileView from "~/components/character/characterMobileView";
 import { transforCharacterData } from "~/features/imageFetchOptimizer";
@@ -8,12 +5,11 @@ import { getCharacterBySkillDepotId } from "~/services/teyvatServer/teyvatArchiv
 import decryptUniqueRoute from "~/utils/decryptUniqueId";
 import type { Route } from "./+types/character";
 
-export async function loader({ params }: Readonly<Route.LoaderArgs>) {
+export async function loader({ params, request }: Readonly<Route.LoaderArgs>) {
   const { uniqueId } = params;
 
-  const useImageFetchOptimizer = atom((get) => get(useImageFetchOptimizerAtom));
-
-  //update atom's value of selected character
+  const useImageFetchOptimizer =
+    request.headers.get("X-Use-Image-Optimizer") === "true";
 
   const { skillDepotId, enkaId } = decryptUniqueRoute(uniqueId);
 
