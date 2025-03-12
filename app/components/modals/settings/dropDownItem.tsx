@@ -18,6 +18,7 @@ export default function DropdownItem({
   label,
   options,
   description,
+  isDisabled = false,
 }: Readonly<Props>) {
   return (
     <div>
@@ -28,10 +29,15 @@ export default function DropdownItem({
             id={id}
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            className="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo"
+            className="block w-full px-4 py-2 mt-1 bg-slate-800 border border-slate-600 rounded-md shadow-sm focus:outline-none"
+            disabled={isDisabled}
           >
             {options.map((option) => (
-              <option key={option.value} value={option.value}>
+              <option
+                key={option.value}
+                value={option.value}
+                className="bg-slate-800 text-white"
+              >
                 {option.label}
               </option>
             ))}

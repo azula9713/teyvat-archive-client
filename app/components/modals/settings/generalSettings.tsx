@@ -1,7 +1,9 @@
 import { useAtom } from "jotai";
+
 import {
   useFilterTravelersAtom,
   useImageFetchOptimizerAtom,
+  useSelectedTravelerAtom,
 } from "~/atoms/feature.atoms";
 import DropdownItem from "./dropDownItem";
 import ToggleItem from "./toggleItem";
@@ -12,6 +14,9 @@ export default function GeneralSettings() {
   );
   const [useFilterTravelers, setUseFilterTravelers] = useAtom(
     useFilterTravelersAtom
+  );
+  const [useSelectedTraveler, setUseSelectedTraveler] = useAtom(
+    useSelectedTravelerAtom
   );
 
   return (
@@ -30,9 +35,10 @@ export default function GeneralSettings() {
         label="Filter Travelers"
       />
       <DropdownItem
-        value="PlayerBoy"
-        setValue={() => {}}
+        value={useSelectedTraveler}
+        setValue={setUseSelectedTraveler}
         id="traveler"
+        isDisabled={!useFilterTravelers}
         label="Traveler"
         options={[
           { value: "PlayerBoy", label: "Aether" },

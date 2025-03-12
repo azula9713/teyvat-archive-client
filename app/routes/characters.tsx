@@ -5,7 +5,10 @@ import { getCharacters } from "~/services/teyvatServer/teyvatArchive.service";
 
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
-import { useFilterTravelersAtom } from "~/atoms/feature.atoms";
+import {
+  useFilterTravelersAtom,
+  useSelectedTravelerAtom,
+} from "~/atoms/feature.atoms";
 import filterCharacters from "~/features/characterDisplayOptimizer";
 import type { Route } from "./+types/characters";
 
@@ -32,17 +35,18 @@ export default function Characters({
   const { characters } = loaderData;
 
   const [useFilterTravelers] = useAtom(useFilterTravelersAtom);
+  const [useSelectedTraveler] = useAtom(useSelectedTravelerAtom);
 
   const [filteredCharacters, setFilteredCharacters] =
     useState<IBaseCharacter[]>(characters);
 
   useEffect(() => {
     if (useFilterTravelers) {
-      setFilteredCharacters(filterCharacters(characters));
+      setFilteredCharacters(filterCharacters(characters, useSelectedTraveler));
     } else {
       setFilteredCharacters(characters);
     }
-  }, [characters, useFilterTravelers]);
+  }, [characters, useFilterTravelers, useSelectedTraveler]);
 
   return (
     <>

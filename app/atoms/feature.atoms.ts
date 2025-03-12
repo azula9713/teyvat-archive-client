@@ -8,6 +8,10 @@ export const useFilterTravelersAtom = atomWithStorage(
   "useFilterTravelers",
   true
 );
+export const useSelectedTravelerAtom = atomWithStorage(
+  "useSelectedTraveler",
+  "PlayerBoy"
+);
 export const useCarouselAutoPlayAtom = atomWithStorage(
   "useCarouselAutoPlay",
   false
