@@ -38,6 +38,9 @@ export default function CharacterProfileMobile({
     >
       <LazyBackgroundImage
         className="h-[420px] md:h-[520px] w-full flex flex-col items-start justify-end rounded-lg"
+        style={{
+          zoom: 0.9,
+        }}
         img={spalshImage}
       >
         <div className="flex flex-col items-start w-full pl-4">
