@@ -34,20 +34,3 @@ export function syncInitialValues() {
     }
   }
 }
-
-export const appendHeaders = (
-  _input: RequestInfo | URL,
-  init?: RequestInit
-) => {
-  syncInitialValues();
-  const headers = new Headers(init?.headers);
-
-  FEATURES.forEach((feature) => {
-    const value = localStorage.getItem(feature.id) === "true" || false;
-    if (value !== null) {
-      headers.set(feature.headerName, value.toString());
-    }
-  });
-
-  return { ...init, headers };
-};

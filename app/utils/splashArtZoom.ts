@@ -7,7 +7,7 @@ const getZoomValue = (
   let zoomValue = 1.7;
 
   if (isTraveler) {
-    zoomValue = 2.5;
+    zoomValue = 1.7;
 
     return zoomValue;
   } else {
