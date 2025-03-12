@@ -3,10 +3,10 @@ import { useAtomValue } from "jotai";
 import { useEffect, useState } from "react";
 
 import {
-  selectedElementAtom,
-  selectedRarityAtom,
-  selectedWeaponAtom,
-} from "~/atoms/teyvat.atom";
+  selectedCharacterElementAtom,
+  selectedCharacterRarityAtom,
+  selectedCharacterWeaponAtom,
+} from "~/atoms/teyvat/character.atom";
 import CharacterThumbnail from "./characterThumbnail";
 
 type Props = {
@@ -14,9 +14,9 @@ type Props = {
 };
 
 export default function AllCharacterShowcase({ characters }: Readonly<Props>) {
-  const selectedElement = useAtomValue(selectedElementAtom);
-  const selectedWeapon = useAtomValue(selectedWeaponAtom);
-  const selectedRarity = useAtomValue(selectedRarityAtom);
+  const selectedCharacterElement = useAtomValue(selectedCharacterElementAtom);
+  const selectedCharacterWeapon = useAtomValue(selectedCharacterWeaponAtom);
+  const selectedCharacterRarity = useAtomValue(selectedCharacterRarityAtom);
 
   const [filteredCharacters, setFilteredCharacters] =
     useState<IBaseCharacter[]>(characters);
@@ -24,13 +24,21 @@ export default function AllCharacterShowcase({ characters }: Readonly<Props>) {
   useEffect(() => {
     const tempFilteredCharacters = characters.filter(
       (character) =>
-        (selectedElement === "all" || character.element === selectedElement) &&
-        (selectedWeapon === "all" || character.weaponType === selectedWeapon) &&
-        (selectedRarity === "all" || character.rarity === selectedRarity)
+        (selectedCharacterElement === "all" ||
+          character.element === selectedCharacterElement) &&
+        (selectedCharacterWeapon === "all" ||
+          character.weaponType === selectedCharacterWeapon) &&
+        (selectedCharacterRarity === "all" ||
+          character.rarity === selectedCharacterRarity)
     );
 
     setFilteredCharacters(tempFilteredCharacters);
-  }, [selectedElement, characters, selectedWeapon, selectedRarity]);
+  }, [
+    selectedCharacterElement,
+    characters,
+    selectedCharacterWeapon,
+    selectedCharacterRarity,
+  ]);
 
   return (
     <div className="overflow-hidden w-full items-center justify-center flex px-4 md:px-12">

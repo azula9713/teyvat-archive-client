@@ -1,4 +1,4 @@
-import parseText from "~/utils/parseEnkaText";
+import parseText from "~/utils/parsers/parseEnkaText";
 
 type Props = {
   selectedTalent?: IAllTalent;

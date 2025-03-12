@@ -17,6 +17,9 @@ export const WEAPONS = [
 ] as const;
 
 export const RARITIES = [
+  "QUALITY_GRAY",
+  "QUALITY_GREEN",
+  "QUALITY_BLUE",
   "QUALITY_PURPLE",
   "QUALITY_ORANGE",
   "QUALITY_ORANGE_SP",

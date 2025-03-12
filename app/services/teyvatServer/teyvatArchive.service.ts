@@ -30,6 +30,18 @@ export const getCharacterBySkillDepotId = async (
   }
 };
 
+export const getWeapons = async () => {
+  try {
+    const response = await serverInstance.get("/weapons/all");
+    return response.data;
+    
+  } catch (error) {
+    console.error(error);
+    return [];
+    
+  }
+};
+
 export const getMaterialById = async (materialId: string) => {
   try {
     const response = await serverInstance.get(`/materials/id/${materialId}`);

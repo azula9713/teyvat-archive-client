@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 import { WEAPONS } from "~/data/teyvatData";
-import ItemSeparator from "./itemSeparator";
+import ItemSeparator from "../../characterShowcase/filtering/itemSeparator";
 import weaponIconFilter from "~/utils/weaponIconFilter";
 
 type Props = {
