@@ -1,10 +1,10 @@
+import { useAtom } from "jotai";
+import { useEffect, useState } from "react";
+
 import AllCharacterShowcase from "~/components/characterShowcase/allCharacterShowcase";
 import CharacterFilterSection from "~/components/characterShowcase/characterFilterSection";
 import PageTitle from "~/components/common/typography/pageTitle";
 import { getCharacters } from "~/services/teyvatServer/teyvatArchive.service";
-
-import { useAtom } from "jotai";
-import { useEffect, useState } from "react";
 import {
   useFilterTravelersAtom,
   useSelectedTravelerAtom,
@@ -24,7 +24,7 @@ export function HydrateFallback() {
 
 export function meta() {
   return [
-    { title: `Character Archive` },
+    { title: `Teyvat Archive - Characters` },
     { name: "description", content: "Welcome to Teyvat Archive!" },
   ];
 }

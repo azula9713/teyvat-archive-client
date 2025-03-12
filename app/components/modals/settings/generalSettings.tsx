@@ -16,7 +16,7 @@ export default function GeneralSettings() {
   );
 
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-3">
       <ToggleItem
         value={useFilterTravelers}
         setValue={setUseFilterTravelers}

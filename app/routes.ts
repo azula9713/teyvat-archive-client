@@ -12,6 +12,7 @@ export default [
   layout("./components/layout/container/baseLayout.tsx", { id: "base" }, [
     index("./routes/home.tsx"),
     route("characters", "./routes/characters.tsx"),
+    route("weapons", "./routes/weapons.tsx"),
     route("about", "./routes/about.tsx"),
   ]),
 
