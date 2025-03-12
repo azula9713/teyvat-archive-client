@@ -10,6 +10,11 @@ const FEATURES = [
     value: true,
   },
   {
+    id: "useSelectedTraveler",
+    headerName: "X-Use-Selected-Traveler",
+    value: "PlayerBoy",
+  },
+  {
     id: "useCarouselAutoPlay",
     headerName: "X-Use-Carousel-Auto-Play",
     value: true,
