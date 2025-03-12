@@ -1,9 +1,5 @@
 import { atomWithStorage } from "jotai/utils";
 
-export const useImageFetchOptimizerAtom = atomWithStorage(
-  "useImageFetchOptimizer",
-  true
-);
 export const useFilterTravelersAtom = atomWithStorage(
   "useFilterTravelers",
   true
