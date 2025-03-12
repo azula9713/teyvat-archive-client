@@ -33,6 +33,7 @@ export default function GeneralSettings() {
           { value: "PlayerBoy", label: "Aether" },
           { value: "PlayerGirl", label: "Lumine" },
         ]}
+        description="Enable filter travelers option to choose a traveler"
       />
     </div>
   );

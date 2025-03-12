@@ -5,11 +5,8 @@ import { getCharacterBySkillDepotId } from "~/services/teyvatServer/teyvatArchiv
 import decryptUniqueRoute from "~/utils/decryptUniqueId";
 import type { Route } from "./+types/character";
 
-export async function loader({ params, request }: Readonly<Route.LoaderArgs>) {
+export async function loader({ params }: Readonly<Route.LoaderArgs>) {
   const { uniqueId } = params;
-
-  const useImageFetchOptimizer =
-    request.headers.get("X-Use-Image-Optimizer") === "true";
 
   const { skillDepotId, enkaId } = decryptUniqueRoute(uniqueId);
 
@@ -18,13 +15,9 @@ export async function loader({ params, request }: Readonly<Route.LoaderArgs>) {
     skillDepotId
   );
 
-  if (useImageFetchOptimizer) {
-    const transformedCharacter = transforCharacterData(character);
+  const transformedCharacter = transforCharacterData(character);
 
-    return { character: transformedCharacter };
-  } else {
-    return { character };
-  }
+  return { character: transformedCharacter };
 }
 
 export function HydrateFallback() {

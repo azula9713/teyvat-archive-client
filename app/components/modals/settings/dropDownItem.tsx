@@ -22,7 +22,11 @@ export default function DropdownItem({
 }: Readonly<Props>) {
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div
+        className={`flex items-center justify-between ${
+          isDisabled ? "opacity-50" : ""
+        }`}
+      >
         <label htmlFor={id}>{label}</label>
         <div className="relative">
           <select
@@ -45,7 +49,7 @@ export default function DropdownItem({
         </div>
       </div>
       <div>
-        {description && <p className="text-sm text-gray-500">{description}</p>}
+        {description && <p className="text-xs text-gray-500">{description}</p>}
       </div>
     </div>
   );

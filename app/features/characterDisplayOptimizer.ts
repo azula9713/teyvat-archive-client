@@ -7,7 +7,6 @@ const filterCharacters = (
   selectedTraveler: string
 ) => {
   return characters.filter((character) => {
-    console.log("character", character, selectedTraveler);
     if (!character.isTraveler) {
       return true;
     }

@@ -11,7 +11,7 @@ import { scan } from "react-scan";
 import "react-tooltip/dist/react-tooltip.css";
 import type { Route } from "./+types/root";
 import "./app.css";
-import { appendHeaders, syncInitialValues } from "./utils/syncHeaderValues";
+import { syncInitialValues } from "./utils/syncHeaderValues";
 
 scan({
   enabled: false,
@@ -31,13 +31,7 @@ export const links: Route.LinksFunction = () => [
 ];
 
 if (typeof window !== "undefined") {
-  const originalFetch = window.fetch;
-  window.fetch = async function fetch(input, init) {
-    syncInitialValues();
-    const headers = new Headers(init?.headers);
-
-    return originalFetch(input, appendHeaders(input, { ...init, headers }));
-  };
+  syncInitialValues();
 }
 
 export function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
