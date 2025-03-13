@@ -7,10 +7,6 @@ import ToggleItem from "~/components/common/basic/toggleItem";
 export default function DisplaySettings() {
   const [selectedMode, setSelectedMode] = useAtom(selectedModeAtom);
 
-  useEffect(() => {
-    console.log("selectedMode", selectedMode);
-  }, [selectedMode]);
-
   return (
     <div className="flex flex-col space-y-3">
       <ToggleItem
