@@ -13,6 +13,7 @@ export default function DisplaySettings() {
         label="Dark Mode"
         value={!theme}
         setValue={() => toggleTheme()}
+        isDisabled
       />
     </div>
   );
