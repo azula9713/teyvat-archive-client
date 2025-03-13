@@ -3,9 +3,10 @@ import {
   GlobeAltIcon,
   WrenchIcon,
 } from "@heroicons/react/16/solid";
+import DisplaySettings from "~/components/modals/settings/displaySettings";
 import GeneralSettings from "~/components/modals/settings/generalSettings";
 
-const SETTINGS_ITEMS = [
+const SETTINGS_CATEGORIES = [
   {
     id: "general",
     title: "General",
@@ -16,6 +17,7 @@ const SETTINGS_ITEMS = [
     id: "display",
     title: "Display",
     icon: ComputerDesktopIcon,
+    content: DisplaySettings,
   },
   {
     id: "language",
@@ -24,4 +26,4 @@ const SETTINGS_ITEMS = [
   },
 ];
 
-export { SETTINGS_ITEMS };
+export { SETTINGS_CATEGORIES };

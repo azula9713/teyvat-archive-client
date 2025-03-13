@@ -4,8 +4,8 @@ import {
   useFilterTravelersAtom,
   useSelectedTravelerAtom,
 } from "~/atoms/feature.atoms";
-import DropdownItem from "./dropDownItem";
-import ToggleItem from "./toggleItem";
+import DropdownItem from "../../common/basic/dropDownItem";
+import ToggleItem from "../../common/basic/toggleItem";
 
 export default function GeneralSettings() {
   const [useFilterTravelers, setUseFilterTravelers] = useAtom(

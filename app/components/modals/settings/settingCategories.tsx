@@ -1,9 +1,9 @@
-import { SETTINGS_ITEMS } from "~/data/settingsData";
+import { SETTINGS_CATEGORIES } from "~/data/settingsData";
 
-export default function SettingItems() {
+export default function SettingCategories() {
   return (
     <ul className="w-full">
-      {SETTINGS_ITEMS.map((item) => (
+      {SETTINGS_CATEGORIES.map((item) => (
         <li
           key={item.id}
           className="my-4 rounded-lg bg-gray-100 dark:bg-gray-800 py-2 px-4"

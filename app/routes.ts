@@ -24,4 +24,12 @@ export default [
       [route(":uniqueId", "./routes/character.tsx")]
     ),
   ]),
+
+  ...prefix("weapon", [
+    layout(
+      "./components/layout/container/baseLayout.tsx",
+      { id: "weapon_base" },
+      [route(":uniqueId", "./routes/weapon.tsx")]
+    ),
+  ]),
 ] satisfies RouteConfig;
