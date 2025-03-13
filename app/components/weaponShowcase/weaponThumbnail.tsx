@@ -14,7 +14,7 @@ export default function WeaponThumbnail({ weapon }: Props) {
 
   return (
     <ThumbnaiContainer name={weapon.name} rarity={rarityParser(weapon.stars)}>
-      <NavLink to={`/weapon/${weapon.id}`}>
+      <NavLink to={`/weapon/${weapon.id}-${weapon.enkaId}`}>
         <div
           className="w-full flex flex-col items-center mt-1"
           onMouseEnter={() => setIsHovered(true)}
