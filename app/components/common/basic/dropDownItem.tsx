@@ -33,14 +33,14 @@ export default function DropdownItem({
         id={id}
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        className="block w-full px-4 mr-2 py-1 bg-slate-800 border text-sm border-slate-600 rounded-md shadow-sm focus:outline-none"
+        className="primary-text block w-full px-4 mr-2 py-1 bg-slate-200 dark:bg-slate-800 border text-sm border-slate-300 dark:border-slate-700 rounded-md shadow-sm focus:outline-none"
         disabled={isDisabled}
       >
         {options.map((option) => (
           <option
             key={option.value}
             value={option.value}
-            className="bg-slate-800 text-white"
+            className="bg-slate-800 primary-text"
           >
             {option.label}
           </option>

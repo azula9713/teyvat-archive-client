@@ -50,3 +50,7 @@ h6 {
 .usable-width {
   @apply w-usable max-w-[1000px];
 }
+
+.primary-text{
+    @apply text-slate-600 dark:text-white;
+}
