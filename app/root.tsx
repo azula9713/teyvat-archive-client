@@ -12,6 +12,9 @@ import "react-tooltip/dist/react-tooltip.css";
 import type { Route } from "./+types/root";
 import "./app.css";
 import { syncInitialValues } from "./utils/syncHeaderValues";
+import { useAtomValue } from "jotai";
+import { selectedModeAtom } from "./atoms/general.atoms";
+import { useEffect } from "react";
 
 scan({
   enabled: false,
@@ -53,6 +56,12 @@ export function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
 }
 
 export default function App() {
+  const displayMode = useAtomValue(selectedModeAtom);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", displayMode === "dark");
+  }, [displayMode]);
+
   return <Outlet />;
 }
 
