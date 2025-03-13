@@ -1,9 +1,8 @@
 import OverviewItemHolder from "~/components/common/overviewItemHolder";
-import type { IBirthday, IElementType, IWeaponType } from "~/types/enka.types";
 import birthdayFormatter from "~/utils/birthdayFormatter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import weaponIconFilter from "~/utils/weaponIconFilter";
-import weaponTypeParser from "~/utils/weaponTypeParser";
+import weaponTypeParser from "~/utils/parsers/weaponTypeParser";
 
 type Props = {
   element: IElementType;

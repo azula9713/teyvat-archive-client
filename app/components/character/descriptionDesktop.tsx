@@ -4,17 +4,13 @@ type Props = {
 
 export default function DescriptionDesktop({ description }: Readonly<Props>) {
   return (
-    <p className="mt-6 text-xl font-semibold leading-8 tracking-wide text-white w-2/3 italic">
-      "
-      {description?.split(" ").length > 100 ? (
-        <span>
-          {description?.split(" ").slice(0, 100).join(" ")}...
-          <span className="text-blue-500">Read More</span>
-        </span>
-      ) : (
-        description
-      )}
-      "
+    <p
+      className="mt-6 text-xl leading-6 tracking-wide text-white w-2/3 italic"
+      style={{
+        textShadow: "2px 2px 2px rgba(0, 0, 0, 0.9)",
+      }}
+    >
+      "{description}"
     </p>
   );
 }

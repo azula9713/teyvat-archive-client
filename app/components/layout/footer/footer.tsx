@@ -19,15 +19,6 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Copyright information */}
-        <div className="mb-6">
-          <p>
-            Teyvat Archive is a fan-made website and is not affiliated with
-            miHoYo. Genshin Impact and its materials are trademarks and
-            copyrights of miHoYo. Other trademarks are the property of their
-            respective owners.
-          </p>
-        </div>
         {/* Links section */}
         <div className="grid md:grid-cols-2">
           <ThankingSection />

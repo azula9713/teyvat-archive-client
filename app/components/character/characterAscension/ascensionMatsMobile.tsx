@@ -1,4 +1,3 @@
-import type { IAscensionData } from "~/types/enka.types";
 import MobileContainer from "../containers/mobileContainer";
 import AscensionMaterialHolderMobile from "./ascensionMaterialHolderMobile";
 

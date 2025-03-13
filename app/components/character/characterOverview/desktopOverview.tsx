@@ -1,9 +1,8 @@
 import OverviewItemHolder from "~/components/common/overviewItemHolder";
-import type { IBirthday, IElementType, IWeaponType } from "~/types/enka.types";
 import birthdayFormatter from "~/utils/birthdayFormatter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import weaponIconFilter from "~/utils/weaponIconFilter";
-import weaponTypeParser from "~/utils/weaponTypeParser";
+import weaponTypeParser from "~/utils/parsers/weaponTypeParser";
 
 type Props = {
   element: IElementType;
@@ -32,6 +31,8 @@ export default function DesktopOverview({
           <OverviewItemHolder
             label="Weapon Type"
             value={weaponTypeParser(weapon) as string}
+            textShadowLabel
+            textShadowValue
           >
             <img
               className="size-14 mr-2"
@@ -48,7 +49,12 @@ export default function DesktopOverview({
             label="Birthday"
             value={birthday ? `${birthdayFormatter(birthday)}` : "Unknown"}
           ></OverviewItemHolder>
-          <OverviewItemHolder label="Affiliation" value={affiliation} />
+          <OverviewItemHolder
+            label="Affiliation"
+            value={affiliation}
+            textShadowLabel
+            textShadowValue
+          />
         </div>
       </div>
     </div>

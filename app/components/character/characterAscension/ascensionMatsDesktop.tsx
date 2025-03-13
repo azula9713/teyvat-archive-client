@@ -1,4 +1,3 @@
-import type { IAscensionData } from "~/types/enka.types";
 import DesktopContainer from "../containers/desktopContainer";
 import AscensionMaterialHolderDesktop from "./ascensionMaterialHolderDesktop";
 
@@ -6,7 +5,9 @@ type Props = {
   ascensionData: IAscensionData[];
 };
 
-export default function AscensionMatsDesktop({ ascensionData }: Props) {
+export default function AscensionMatsDesktop({
+  ascensionData,
+}: Readonly<Props>) {
   const itemsMap = ascensionData
     ?.flatMap((ascData) => ascData.costItems)
     .filter((item) => item.id)

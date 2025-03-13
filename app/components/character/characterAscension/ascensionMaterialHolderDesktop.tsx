@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getMaterialById } from "~/services/enka/enka.service";
-import type { IMaterialData } from "~/types/enka.types";
+
+import { getMaterialById } from "~/services/teyvatServer/teyvatArchive.service";
 import RarityStars from "../rarityStars";
 
 type Props = {

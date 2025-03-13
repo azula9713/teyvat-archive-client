@@ -1,32 +1,21 @@
-import { atom } from "jotai";
+import { useEffect, useState } from "react";
 
-import { useFilterTravelersAtom } from "~/atoms/feature.atoms";
-import AllCharacterShowcase from "~/components/home/allCharacterShowcase";
-import ElementalPicker from "~/components/home/elementalPicker";
-import filterCharacters from "~/features/characterDisplayOptimizer";
-import { getCharacters } from "~/services/enka/enka.service";
-import type { IBaseCharacter } from "~/types/enka.types";
+import PageTitle from "~/components/common/typography/pageTitle";
+import Carousel from "~/components/home/carousel/carousel";
+import OtherEvents from "~/components/home/events/otherEvents";
+import { getAllEvents } from "~/services/teyvatServer/teyvatArchive.service";
 import type { Route } from "./+types/home";
 
 export function meta() {
   return [
     { title: "Teyvat Archive" },
-    { name: "description", content: "Welcome to React Router!" },
+    { name: "description", content: "Welcome to Tevyat Archive!" },
   ];
 }
 
 export async function loader() {
-  const characters: IBaseCharacter[] = await getCharacters();
-
-  const fillterTravelers = atom((get) => get(useFilterTravelersAtom));
-
-  if (fillterTravelers) {
-    const filteredCharacters = filterCharacters(characters);
-
-    return { characters: filteredCharacters };
-  }
-
-  return { characters };
+  const events: IEvent[] = await getAllEvents();
+  return { events };
 }
 
 export function HydrateFallback() {
@@ -34,12 +23,34 @@ export function HydrateFallback() {
 }
 
 export default function Home({ loaderData }: Readonly<Route.ComponentProps>) {
-  const { characters } = loaderData;
+  const { events } = loaderData;
+
+  const [wishEventItems, setWishEventItems] = useState<IEvent[]>([]);
+  const [otherEventItems, setOtherEventItems] = useState<IEvent[]>([]);
+
+  useEffect(() => {
+    const filterWishEvents = events.filter((event) =>
+      event.title.includes("Event Wish")
+    );
+
+    const filterOtherEvents = events.filter(
+      (event) =>
+        !event.title.includes("Event Wish") && !event.title.includes("Update")
+    );
+
+    setWishEventItems(filterWishEvents);
+    setOtherEventItems(filterOtherEvents);
+  }, [events]);
 
   return (
-    <>
-      <ElementalPicker />
-      <AllCharacterShowcase characters={characters} />
-    </>
+    <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
+      <PageTitle title="Welcome to Teyvat Archive" />
+      <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
+        <div className="w-full flex flex-col items-center justify-center xl:mb-4 mt-3">
+          <Carousel items={wishEventItems} />
+          <OtherEvents events={otherEventItems} />
+        </div>
+      </div>
+    </div>
   );
 }

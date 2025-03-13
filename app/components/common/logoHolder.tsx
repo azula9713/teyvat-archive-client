@@ -1,21 +1,24 @@
-import { Link, NavLink } from "react-router";
 import LogoImage from "~/assets/images/logo/logo.jpg";
 
 type Props = {
-  size?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large" | number;
 };
 
-export default function LogoHolder({ size = "medium" }: Props) {
+export default function LogoHolder({ size = "medium" }: Readonly<Props>) {
   const sizeFilter =
-    size === "small" ? "size-8" : size === "large" ? "size-16" : "size-12";
+    size === "small"
+      ? "size-8"
+      : size === "large"
+      ? "size-16"
+      : size === "medium"
+      ? "size-12"
+      : `size-${size}`;
 
   return (
-    <div>
-      <img
-        src={LogoImage}
-        alt="logo"
-        className={`${sizeFilter} cursor-pointer`}
-      />
-    </div>
+    <img
+      src={LogoImage}
+      alt="logo"
+      className={`${sizeFilter} cursor-pointer`}
+    />
   );
 }

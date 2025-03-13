@@ -1,5 +1,4 @@
-import StaticNameCard from "~/assets/images/namecards/UI_NameCardPic_0_P.png";
-import type { ICharacter } from "~/types/enka.types";
+import { getMarginRightValue, getZoomValue } from "~/utils/splashArtZoom";
 import LazyBackgroundImage from "../common/lazyBackgroundImage";
 import AscensionMatsDesktop from "./characterAscension/ascensionMatsDesktop";
 import DesktopConstellationView from "./characterConstellations/desktopConstellationView";
@@ -36,7 +35,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
   return (
     <div className="py-4 px-12 flex-col items-center justify-start space-y-8 hidden xl:flex w-full">
       <LazyBackgroundImage
-        img={nameCard === "No Name Card" ? StaticNameCard : nameCard}
+        img={nameCard}
         isDarkened
         className="hidden xl:flex w-[calc(100%-3rem)] flex-col relative items-start justify-between p-10 xl:h-[650px] rounded-4xl"
       >
@@ -48,7 +47,6 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
               alt={name}
               style={{
                 zoom: "1.5",
-                //move bit to top
                 transform: "translateY(-8px)",
               }}
             />
@@ -66,16 +64,24 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
             birthday={characterData.birthday}
           />
         </div>
-        <div className="w-full xl:h-[400px] flex items-center justify-end">
-          <div className={`w-4/5 h-full ${nameId}`}>
+        <div className="w-full xl:h-[400px]  flex items-center justify-end">
+          <div className={`w-4/5 h-full ${nameId} relative`}>
             <img
               src={splashUrl}
+              className={`bottom-[-10] right-0 absolute ${getMarginRightValue(
+                characterData.bodyType,
+                characterData.isTraveler
+              )}`}
               alt={name}
               style={{
                 height: "100%",
-                marginLeft: "18%",
-                marginTop: "3%",
-                scale: "1.2",
+                marginTop: "15%",
+                scale: `${getZoomValue(
+                  characterData.rarity,
+                  characterData.bodyType,
+                  characterData.isTraveler,
+                  characterData.isArchon
+                )}`,
               }}
             />
           </div>

@@ -11,7 +11,7 @@ export default function RarityStars({ stars }: Readonly<Props>) {
         .fill("")
         .map((_, i) => (
           <StarIcon
-            className="h-3 w-3 lg:w-4 lg:h-4 xl:h-6 xl:w-6 text-[gold]"
+            className="size-3 lg:w-4 lg:h-4 xl:h-6 xl:w-6 text-[gold]"
             key={i}
           />
         ))}

@@ -1,4 +1,3 @@
-import type { ICharacter } from "~/types/enka.types";
 import AscensionMatsMobile from "./characterAscension/ascensionMatsMobile";
 import MobileConstellationView from "./characterConstellations/mobileConstellationView";
 import Mobileoverview from "./characterOverview/mobileOverview";

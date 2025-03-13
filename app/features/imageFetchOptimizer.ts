@@ -1,19 +1,9 @@
-import travelerSplashImage from "~/assets/images/traveler/traveler.png";
-import type { ICharacter } from "~/types/enka.types";
+import aetherSplashImage from "~/assets/images/traveler/aether-nobg.png";
+import lumineSplashImage from "~/assets/images/traveler/lumine-nobg.png";
 
 const IMAGE_BASE_URL = import.meta.env.VITE_IMAGE_BASE_URL as string;
 
 const transformCharacterData = (character: ICharacter) => {
-  // if (useImageFetchOptimizer) {
-  // get namecard value
-  //  "nameCard": "https://enka.network/ui/UI_NameCardPic_Ayaka_Alpha.png",
-
-  // constellation Icon
-  // https://gi.yatta.moe/assets/UI/Eff_UI_Talent_Ayaka.png
-
-  // side icon
-  // https://homdgcat.wiki/homdgcat-res/Avatar/UI_AvatarIcon_Side_Qin.png
-
   if (!character.isTraveler && !character?.nameCard) return character;
 
   let nameCard;
@@ -21,9 +11,11 @@ const transformCharacterData = (character: ICharacter) => {
   let splashUrl;
 
   if (character.isTraveler) {
+    const isAether = character.nameId === "PlayerBoy";
+
     nameCard = `${IMAGE_BASE_URL}/nameCardPicAlpha/UI_NameCardPic_${character.name}.png`;
     chapterIcon = `${IMAGE_BASE_URL}/chapterIcons/UI_ChapterIcon_${character.name}.png`;
-    splashUrl = travelerSplashImage;
+    splashUrl = isAether ? aetherSplashImage : lumineSplashImage;
   } else {
     const currentName = character.nameCard?.split("/").pop();
     nameCard = `${IMAGE_BASE_URL}/nameCardPicAlpha/${currentName}`;

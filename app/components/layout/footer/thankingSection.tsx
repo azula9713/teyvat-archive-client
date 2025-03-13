@@ -1,17 +1,16 @@
-import SocialIcon from "~/components/common/socialIcon";
-import thankingMembers from "~/data/specialThanks";
-
 import DiscordIcon from "~/assets/icons/icons8-discord.svg";
 import GithubIcon from "~/assets/icons/icons8-github.svg";
 import TwitchIcon from "~/assets/icons/icons8-twitch.svg";
 import Ximage from "~/assets/icons/icons8-x.svg";
 import YoutubeIcon from "~/assets/icons/icons8-youtube.svg";
+import SocialIcon from "~/components/common/socialIcon";
+import thankingMembers from "~/data/specialThanks";
 
 export default function ThankingSection() {
   return (
-    <div className="mb-6 flex flex-col items-start">
+    <div className="mb-6 flex flex-col items-center md:items-start">
       <h5 className="mb-2.5 uppercase">Special Thanks Goes To</h5>
-      <ul className="mb-0 list-none">
+      <ul className="mb-0 list-none w-full items-center justify-center flex flex-col md:items-start">
         {thankingMembers.map((member) => (
           <li key={member.name}>
             <div className="flex items-center space-x-2">

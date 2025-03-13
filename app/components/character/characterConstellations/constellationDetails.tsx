@@ -1,5 +1,4 @@
-import type { IConstellation } from "~/types/enka.types";
-import parseText from "~/utils/parseEnkaText";
+import parseText from "~/utils/parsers/parseEnkaText";
 
 type Props = {
   selectedConstellation: IConstellation;
