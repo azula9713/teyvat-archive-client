@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import SettingCategories from "./settingCategories";
 import { useAtomValue } from "jotai";
-import { selectedModeAtom } from "~/atoms/general.atoms";
+import { themeAtom } from "~/atoms/general.atoms";
 
 type Props = {
   isOpen: boolean;
@@ -13,7 +13,7 @@ export default function SettingsModal({
   isOpen,
   onRequestClose,
 }: Readonly<Props>) {
-  const selectedMode = useAtomValue(selectedModeAtom);
+  const theme = useAtomValue(themeAtom);
 
   const customStyles = {
     content: {
@@ -24,15 +24,11 @@ export default function SettingsModal({
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       backgroundColor: `${
-        selectedMode === "light"
-          ? "var(--color-slate-200)"
-          : "var(--color-slate-900)"
+        theme === "light" ? "var(--color-slate-200)" : "var(--color-slate-900)"
       }`,
       outline: "none",
       border: `${
-        selectedMode === "light"
-          ? "var(--color-slate-300)"
-          : "var(--color-slate-900)"
+        theme === "light" ? "var(--color-slate-300)" : "var(--color-slate-900)"
       } 2px solid`,
       borderRadius: "0.5rem",
     },
