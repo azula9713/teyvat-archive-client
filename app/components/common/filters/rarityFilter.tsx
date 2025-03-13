@@ -17,7 +17,7 @@ function RarityFilter({
   isCharacter = false,
 }: Readonly<Props>) {
   return (
-    <div className="w-full font-enka lg:w-max max-w-[300px] flex items-center justify-between p-2 mb-3 border-2 border-slate-600 rounded-lg h-[40px]">
+    <div className="w-full font-semibold lg:w-max max-w-[300px] flex items-center justify-between p-2 mb-3 border-2 border-slate-600 rounded-lg h-[40px]">
       {!isCharacter && (
         <>
           <div className="flex items-center">

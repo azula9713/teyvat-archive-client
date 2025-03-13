@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 type Props = {
   series: {
     value: string;
@@ -8,13 +10,13 @@ type Props = {
   setSelectedSeries: (series: string) => void;
 };
 
-export default function WeaponSeriesFilter({
+function WeaponSeriesFilter({
   series,
   selectedSeries,
   setSelectedSeries,
 }: Props) {
   return (
-    <div className="w-full font-enka lg:w-max max-w-[300px] flex items-center justify-between p-2 mb-3 border-2 border-slate-600 rounded-lg h-[40px]">
+    <div className="w-full lg:w-max max-w-[300px] flex items-center justify-between p-2 mb-3 border-2 border-slate-600 rounded-lg h-[40px]">
       <div className="flex items-center">
         <select
           className="text-sm text-white px-4 py-1 focus:outline-none"
@@ -35,3 +37,5 @@ export default function WeaponSeriesFilter({
     </div>
   );
 }
+
+export default memo(WeaponSeriesFilter);
