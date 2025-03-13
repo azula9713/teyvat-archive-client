@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 
 import AllCharacterShowcase from "~/components/characterShowcase/allCharacterShowcase";
-import CharacterFilterSection from "~/components/characterShowcase/characterFilterSection";
+import CharacterFilterSection from "~/components/characterShowcase/filtering/characterFilterSection";
 import PageTitle from "~/components/common/typography/pageTitle";
 import { getCharacters } from "~/services/teyvatServer/teyvatArchive.service";
 import {

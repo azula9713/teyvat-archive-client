@@ -6,7 +6,7 @@ import rarityParser from "~/utils/parsers/rarityParser";
 import { useState } from "react";
 
 type Props = {
-  weapon: IBaseWeapon;
+  weapon: IBasicWeapon;
 };
 
 export default function WeaponThumbnail({ weapon }: Props) {

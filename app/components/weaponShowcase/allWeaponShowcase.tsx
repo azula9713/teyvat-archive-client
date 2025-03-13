@@ -32,8 +32,6 @@ export default function AllWeaponShowcase({ weapons }: Props) {
           weapon.series === selectedWeaponSeries)
     );
 
-    console.log("selectedSeries", selectedWeaponSeries);
-
     setFilteredWeapons(tempFilteredWeapons.sort((a, b) => a.stars - b.stars));
   }, [weapons, selectedWeaponType, selectedWeaponRarity, selectedWeaponSeries]);
 

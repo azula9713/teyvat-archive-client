@@ -5,7 +5,7 @@ import {
 import type { Route } from "./+types/weapons";
 import PageTitle from "~/components/common/typography/pageTitle";
 import AllWeaponShowcase from "~/components/weaponShowcase/allWeaponShowcase";
-import WeaponFilterSection from "~/components/weaponShowcase/weaponFilterSection";
+import WeaponFilterSection from "~/components/weaponShowcase/filtering/weaponFilterSection";
 
 export async function loader() {
   const weapons: IBasicWeapon[] = await getWeapons();

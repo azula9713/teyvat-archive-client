@@ -13,6 +13,7 @@ export default [
     index("./routes/home.tsx"),
     route("characters", "./routes/characters.tsx"),
     route("weapons", "./routes/weapons.tsx"),
+    route("artifacts", "./routes/artifacts.tsx"),
     route("about", "./routes/about.tsx"),
   ]),
 

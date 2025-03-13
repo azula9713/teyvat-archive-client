@@ -1,32 +1,31 @@
-import { useState } from "react";
-import { useAtom } from "jotai";
 import {
   AdjustmentsHorizontalIcon,
   ChevronDownIcon,
   ChevronUpIcon,
   StarIcon,
 } from "@heroicons/react/16/solid";
-
+import { useAtom } from "jotai";
+import { useState } from "react";
 import {
-  selectedCharacterElementAtom,
-  selectedCharacterRarityAtom,
-  selectedCharacterWeaponAtom,
-} from "~/atoms/teyvat/character.atom";
-import elementalImageFilter from "~/utils/elementalImagePicker";
+  selectedWeaponRarityAtom,
+  selectedWeaponSeriesAtom,
+  selectedWeaponTypeAtom,
+} from "~/atoms/teyvat/weapon.atom";
 import weaponIconFilter from "~/utils/weaponIconFilter";
-import { RARITIES } from "~/data/teyvatData";
-import CharacterFilterStack from "./filtering/characterFilterStack";
+import WeaponFilterStack from "./weaponFilterStack";
 
-export default function CharacterFilterSection() {
-  const [selectedCharacterElement, setSelectedCharacterElement] = useAtom(
-    selectedCharacterElementAtom
+type Props = {
+  weaponSeries: IBaseWeaponSeries;
+};
+
+export default function WeaponFilterSection({ weaponSeries }: Props) {
+  const [selectedWeaponType, setSelectedWeaponType] = useAtom(
+    selectedWeaponTypeAtom
   );
-  const [selectedCharacterWeapon, setSelectedCharacterWeapon] = useAtom(
-    selectedCharacterWeaponAtom
+  const [selectedWeaponRarity, setSelectedWeaponRarity] = useAtom(
+    selectedWeaponRarityAtom
   );
-  const [selectedCharacterRarity, setSelectedCharacterRarity] = useAtom(
-    selectedCharacterRarityAtom
-  );
+  const [selectedSeries, setSelectedSeries] = useAtom(selectedWeaponSeriesAtom);
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -41,22 +40,22 @@ export default function CharacterFilterSection() {
             </div>
 
             <div className="flex items-center w-full space-x-1 justify-end">
-              {selectedCharacterElement !== "all" && (
+              {/* {selectedCharacterElement !== "all" && (
                 <img
                   src={elementalImageFilter[selectedCharacterElement]}
                   alt={selectedCharacterElement}
                   className="w-[24px]"
                 />
-              )}
+              )} */}
 
-              {selectedCharacterWeapon !== "all" && (
+              {selectedWeaponType !== "all" && (
                 <img
                   src={
                     weaponIconFilter[
-                      selectedCharacterWeapon as keyof typeof weaponIconFilter
+                      selectedWeaponType as keyof typeof weaponIconFilter
                     ]
                   }
-                  alt={selectedCharacterWeapon}
+                  alt={selectedWeaponType}
                   className="w-[26px]"
                   style={{
                     filter: "brightness(0) invert(1)",
@@ -64,7 +63,7 @@ export default function CharacterFilterSection() {
                 />
               )}
 
-              {selectedCharacterRarity !== "all" && (
+              {/* {selectedCharacterRarity !== "all" && (
                 <div className="flex items-center">
                   {selectedCharacterRarity === RARITIES[0]
                     ? "4"
@@ -73,7 +72,7 @@ export default function CharacterFilterSection() {
                     : "5SP"}
                   <StarIcon className="size-4 text-[gold]" />
                 </div>
-              )}
+              )} */}
             </div>
           </div>
 
@@ -91,27 +90,29 @@ export default function CharacterFilterSection() {
 
         {isFilterOpen && (
           <div className="absolute flex flex-col items-center justify-evenly pt-4 end-0 z-10 w-full rounded-md border border-gray-100 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-900">
-            <CharacterFilterStack
+            <WeaponFilterStack
               setIsFilterOpen={setIsFilterOpen}
-              selectedElement={selectedCharacterElement}
-              setSelectedElement={setSelectedCharacterElement}
-              selectedWeapon={selectedCharacterWeapon}
-              setSelectedWeapon={setSelectedCharacterWeapon}
-              selectedRarity={selectedCharacterRarity}
-              setSelectedRarity={setSelectedCharacterRarity}
+              selectedWeaponType={selectedWeaponType}
+              setSelectedWeaponType={setSelectedWeaponType}
+              selectedRarity={selectedWeaponRarity}
+              setSelectedRarity={setSelectedWeaponRarity}
+              selectedSeries={selectedSeries}
+              setSelectedSeries={setSelectedSeries}
+              weaponSeries={weaponSeries}
             />
           </div>
         )}
       </div>
       <div className="hidden lg:flex flex-col items-center lg:flex-row lg:justify-center lg:space-x-4">
-        <CharacterFilterStack
+        <WeaponFilterStack
           setIsFilterOpen={setIsFilterOpen}
-          selectedElement={selectedCharacterElement}
-          setSelectedElement={setSelectedCharacterElement}
-          selectedWeapon={selectedCharacterWeapon}
-          setSelectedWeapon={setSelectedCharacterWeapon}
-          selectedRarity={selectedCharacterRarity}
-          setSelectedRarity={setSelectedCharacterRarity}
+          selectedWeaponType={selectedWeaponType}
+          setSelectedWeaponType={setSelectedWeaponType}
+          selectedRarity={selectedWeaponRarity}
+          setSelectedRarity={setSelectedWeaponRarity}
+          selectedSeries={selectedSeries}
+          setSelectedSeries={setSelectedSeries}
+          weaponSeries={weaponSeries}
         />
       </div>
     </div>
