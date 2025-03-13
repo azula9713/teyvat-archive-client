@@ -1,13 +1,17 @@
-import { getWeapons } from "~/services/teyvatServer/teyvatArchive.service";
+import {
+  getWeapons,
+  getWeaponSeries,
+} from "~/services/teyvatServer/teyvatArchive.service";
 import type { Route } from "./+types/weapons";
 import PageTitle from "~/components/common/typography/pageTitle";
 import AllWeaponShowcase from "~/components/weaponShowcase/allWeaponShowcase";
 import WeaponFilterSection from "~/components/weaponShowcase/weaponFilterSection";
 
 export async function loader() {
-  const weapons: IBaseWeapon[] = await getWeapons();
+  const weapons: IBasicWeapon[] = await getWeapons();
+  const weaponSeries: IBaseWeaponSeries = await getWeaponSeries();
 
-  return { weapons };
+  return { weapons, weaponSeries };
 }
 
 export function meta() {
@@ -24,13 +28,14 @@ export function HydrateFallback() {
 export default function Weapons({
   loaderData,
 }: Readonly<Route.ComponentProps>) {
-  const { weapons } = loaderData;
+  const { weapons, weaponSeries } = loaderData;
+
   return (
     <>
       <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
         <PageTitle title="Teyvat Weapons" />
       </div>
-      <WeaponFilterSection />
+      <WeaponFilterSection weaponSeries={weaponSeries} />
       <AllWeaponShowcase weapons={weapons} />
     </>
   );

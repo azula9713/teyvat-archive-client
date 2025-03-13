@@ -8,21 +8,24 @@ import { useAtom } from "jotai";
 import { useState } from "react";
 import {
   selectedWeaponRarityAtom,
+  selectedWeaponSeriesAtom,
   selectedWeaponTypeAtom,
 } from "~/atoms/teyvat/weapon.atom";
 import weaponIconFilter from "~/utils/weaponIconFilter";
-import CharacterFilterStack from "../characterShowcase/filtering/characterFilterStack";
 import WeaponFilterStack from "./filtering/weaponFilterStack";
 
-type Props = {};
+type Props = {
+  weaponSeries: IBaseWeaponSeries;
+};
 
-export default function WeaponFilterSection({}: Props) {
+export default function WeaponFilterSection({ weaponSeries }: Props) {
   const [selectedWeaponType, setSelectedWeaponType] = useAtom(
     selectedWeaponTypeAtom
   );
   const [selectedWeaponRarity, setSelectedWeaponRarity] = useAtom(
     selectedWeaponRarityAtom
   );
+  const [selectedSeries, setSelectedSeries] = useAtom(selectedWeaponSeriesAtom);
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -93,6 +96,9 @@ export default function WeaponFilterSection({}: Props) {
               setSelectedWeaponType={setSelectedWeaponType}
               selectedRarity={selectedWeaponRarity}
               setSelectedRarity={setSelectedWeaponRarity}
+              selectedSeries={selectedSeries}
+              setSelectedSeries={setSelectedSeries}
+              weaponSeries={weaponSeries}
             />
           </div>
         )}
@@ -104,6 +110,9 @@ export default function WeaponFilterSection({}: Props) {
           setSelectedWeaponType={setSelectedWeaponType}
           selectedRarity={selectedWeaponRarity}
           setSelectedRarity={setSelectedWeaponRarity}
+          selectedSeries={selectedSeries}
+          setSelectedSeries={setSelectedSeries}
+          weaponSeries={weaponSeries}
         />
       </div>
     </div>

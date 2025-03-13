@@ -34,11 +34,19 @@ export const getWeapons = async () => {
   try {
     const response = await serverInstance.get("/weapons/all");
     return response.data;
-    
   } catch (error) {
     console.error(error);
     return [];
-    
+  }
+};
+
+export const getWeaponSeries = async () => {
+  try {
+    const response = await serverInstance.get("/weapons/series");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return [];
   }
 };
 
