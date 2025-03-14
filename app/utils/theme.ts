@@ -19,7 +19,7 @@ export const getThemeFromCookie = (ctx?: any): Theme => {
           })
       );
 
-      const theme = (cookies[THEME_COOKIE_NAME] as Theme) || THEME_LIGHT;
+      const theme = (cookies[THEME_COOKIE_NAME] as Theme) || THEME_DARK;
       return theme;
     }
   }
@@ -27,7 +27,7 @@ export const getThemeFromCookie = (ctx?: any): Theme => {
   // Fallback to nookies for client-side or Node.js-style req
   const cookies = parseCookies(ctx);
 
-  const theme = (cookies[THEME_COOKIE_NAME] as Theme) || THEME_LIGHT;
+  const theme = (cookies[THEME_COOKIE_NAME] as Theme) || THEME_DARK;
 
   return theme;
 };
