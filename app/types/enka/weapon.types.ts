@@ -11,7 +11,7 @@ interface IWeaponData {
   weaponProp: {
     propType: string;
     initValue: number;
-    type: string;
+    type: IWeaponCurve;
   }[];
 }
 

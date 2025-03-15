@@ -1,4 +1,4 @@
-import MobileContainer from "../containers/mobileContainer";
+import AttributeMobileContainer from "../../layout/container/attributeMobileContainer";
 import DataItemCard from "../dataItemCard";
 
 type Props = {
@@ -12,20 +12,20 @@ export default function TalentsMobile({
 }: Readonly<Props>) {
   return (
     <>
-      <MobileContainer title="Character Skills">
+      <AttributeMobileContainer title="Character Skills">
         <div className="w-full flex flex-col items-start justify-center">
           {skills.map((skill) => (
             <DataItemCard item={skill} key={skill.id} />
           ))}
         </div>
-      </MobileContainer>
-      <MobileContainer title="Passive Talents">
+      </AttributeMobileContainer>
+      <AttributeMobileContainer title="Passive Talents">
         <div className="w-full flex flex-col items-start justify-center">
           {passiveTalents.map((passivetalent) => (
             <DataItemCard item={passivetalent} key={passivetalent.id} />
           ))}
         </div>
-      </MobileContainer>
+      </AttributeMobileContainer>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import DesktopContainer from "../containers/desktopContainer";
+import AttributeDesktopContainer from "../../layout/container/attributeDesktopContainer";
 import ConstellationDetails from "./constellationDetails";
 import ConstellationIcon from "./constellationIcon";
 
@@ -25,7 +25,7 @@ export default function DesktopConstellationView({
   }, [constellations]);
 
   return (
-    <DesktopContainer title={`Constellation - ${consName}`}>
+    <AttributeDesktopContainer title={`Constellation - ${consName}`}>
       <div className="w-full flex items-start justify-between">
         <div className="w-full flex flex-col items-center justify-start pb-40">
           <div
@@ -57,6 +57,6 @@ export default function DesktopConstellationView({
         </div>
         <ConstellationDetails selectedConstellation={selectedConstellation} />
       </div>
-    </DesktopContainer>
+    </AttributeDesktopContainer>
   );
 }

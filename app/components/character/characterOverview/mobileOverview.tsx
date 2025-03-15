@@ -2,7 +2,7 @@ import OverviewItemHolder from "~/components/common/overviewItemHolder";
 import birthdayFormatter from "~/utils/birthdayFormatter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import weaponIconFilter from "~/utils/weaponIconFilter";
-import weaponTypeParser from "~/utils/parsers/weaponTypeParser";
+import { weaponTypeParser } from "~/utils/parsers/weaponDataParser";
 
 type Props = {
   element: IElementType;
@@ -12,7 +12,7 @@ type Props = {
   birthday: IBirthday | null;
 };
 
-export default function Mobileoverview({
+export default function MobileOverview({
   element,
   weapon,
   affiliation,
@@ -52,16 +52,11 @@ export default function Mobileoverview({
         </OverviewItemHolder>
       </div>
       <div className="flex items-start w-full justify-between mt-4">
-        <OverviewItemHolder
-          label="Affiliation"
-          value={affiliation}
-        ></OverviewItemHolder>
+        <OverviewItemHolder label="Affiliation" value={affiliation} />
         <OverviewItemHolder
           label="Birthday"
           value={birthday ? `${birthdayFormatter(birthday)}` : "Unknown"}
-        >
-          {/* <img className="w-6 h-6 mr-2" src={chapterIcon} alt={name} /> */}
-        </OverviewItemHolder>
+        />
       </div>
     </div>
   );

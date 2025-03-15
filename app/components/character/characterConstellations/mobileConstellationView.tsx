@@ -1,4 +1,4 @@
-import MobileContainer from "../containers/mobileContainer";
+import AttributeMobileContainer from "../../layout/container/attributeMobileContainer";
 import DataItemCard from "../dataItemCard";
 
 type Props = {
@@ -13,7 +13,7 @@ export default function MobileConstellationView({
   chapterIcon,
 }: Readonly<Props>) {
   return (
-    <MobileContainer title={constellation}>
+    <AttributeMobileContainer title={constellation}>
       <div className="w-full flex items-center justify-center">
         <img src={chapterIcon} alt={constellation} className="h-48 w-48" />
       </div>
@@ -22,6 +22,6 @@ export default function MobileConstellationView({
           <DataItemCard item={con} key={con.id} index={i} />
         ))}
       </div>
-    </MobileContainer>
+    </AttributeMobileContainer>
   );
 }

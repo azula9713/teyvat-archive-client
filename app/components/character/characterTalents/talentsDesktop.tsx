@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import DesktopContainer from "../containers/desktopContainer";
+import AttributeDesktopContainer from "../../layout/container/attributeDesktopContainer";
 import CharacterTalentDetails from "./characterTalentDetails";
 import TalentIcon from "./talentIcon";
 
@@ -46,7 +46,7 @@ export default function TalentsDesktop({
   }, [skills]);
 
   return (
-    <DesktopContainer title="Talents">
+    <AttributeDesktopContainer title="Talents">
       <div className="w-full flex items-center justify-start space-x-8 mt-8 mb-6">
         {allTalents
           .filter((skill) => skill.name !== "")
@@ -67,6 +67,6 @@ export default function TalentsDesktop({
         )}
         element={element}
       />
-    </DesktopContainer>
+    </AttributeDesktopContainer>
   );
 }

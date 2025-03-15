@@ -9,7 +9,7 @@ type Props = {
   title: string;
 };
 
-function MobileContainer({ children, title }: Readonly<Props>) {
+function AttributeMobileContainer({ children, title }: Readonly<Props>) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   function handleExpansion() {
@@ -48,4 +48,4 @@ function MobileContainer({ children, title }: Readonly<Props>) {
   );
 }
 
-export default memo(MobileContainer);
+export default memo(AttributeMobileContainer);

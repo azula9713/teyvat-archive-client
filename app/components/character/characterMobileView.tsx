@@ -1,6 +1,6 @@
 import AscensionMatsMobile from "./characterAscension/ascensionMatsMobile";
 import MobileConstellationView from "./characterConstellations/mobileConstellationView";
-import Mobileoverview from "./characterOverview/mobileOverview";
+import MobileOverview from "./characterOverview/mobileOverview";
 import CharacterProfileMobile from "./characterProfile/characterProfileMobile";
 import TalentsMobile from "./characterTalents/talentsMobile";
 
@@ -27,7 +27,7 @@ export default function CharacterMobileView({
         spalshImage={characterData.splashUrl}
         element={characterData.element}
       />
-      <Mobileoverview
+      <MobileOverview
         element={characterData.element}
         weapon={characterData.weaponType}
         affiliation={characterData.location}

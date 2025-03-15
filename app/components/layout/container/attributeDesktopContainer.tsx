@@ -6,7 +6,7 @@ type Props = {
   title: string;
 };
 
-function DesktopContainer({ children, title }: Readonly<Props>) {
+function AttributeDesktopContainer({ children, title }: Readonly<Props>) {
   return (
     <div className="w-full px-7 py-4 overflow-hidden">
       <div className="w-full flex flex-col items-start justify-center mt-8">
@@ -19,4 +19,4 @@ function DesktopContainer({ children, title }: Readonly<Props>) {
   );
 }
 
-export default memo(DesktopContainer);
+export default memo(AttributeDesktopContainer);
