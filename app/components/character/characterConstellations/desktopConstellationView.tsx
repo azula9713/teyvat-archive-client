@@ -7,14 +7,14 @@ import ConstellationIcon from "./constellationIcon";
 type Props = {
   consName: string;
   constellations: IConstellation[];
-  chapterIcon: string;
+  constellationIcon: string;
   element: IElementType;
 };
 
 export default function DesktopConstellationView({
   consName,
   constellations,
-  chapterIcon,
+  constellationIcon,
   element,
 }: Readonly<Props>) {
   const [selectedConstellation, setSelectedConstellation] =
@@ -46,12 +46,13 @@ export default function DesktopConstellationView({
               />
             ))}
             <img
-              src={chapterIcon}
-              alt="Chapter Icon"
+              src={constellationIcon}
+              alt="CONSTELLATION ICON"
               className="size-60"
               style={{
                 transform: "rotate(180deg)",
                 zoom: "1.2",
+                filter: "brightness(1000%)",
               }}
             />
           </div>

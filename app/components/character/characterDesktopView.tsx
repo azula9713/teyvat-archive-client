@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { getMarginRightValue, getZoomValue } from "~/utils/splashArtZoom";
 import LazyBackgroundImage from "../common/lazyBackgroundImage";
 import AscensionMatsDesktop from "./characterAscension/ascensionMatsDesktop";
@@ -7,6 +8,8 @@ import DesktopOverview from "./characterOverview/desktopOverview";
 import CharacterProfileDesktop from "./characterProfile/characterProfileDesktop";
 import TalentsDesktop from "./characterTalents/talentsDesktop";
 import RarityStars from "./rarityStars";
+
+import selectedIndicator from "~/assets/icons/1490.png";
 
 type Props = {
   characterData: ICharacter;
@@ -107,28 +110,32 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
       </LazyBackgroundImage>
       <div className="w-full flex items-start justify-between space-x-4 border-2 rounded-lg border-slate-700 mt-20">
         {/* tab nav */}
-
         <div className="flex flex-col justify-between w-1/4">
-          <div className="pl-12 pb-6 pt-12">
-            <ul className="space-y-1 w-full">
-              {TAB_NAV.map((tab) => (
-                <li key={tab.id} className="w-full">
-                  <button
-                    onClick={() => setSelectedTab(tab.id)}
-                    className={`block rounded-lg font-enka px-4 py-2 text-lg font-medium text-left cursor-pointer w-full ${
-                      selectedTab === tab.id
-                        ? "bg-slate-800 text-white"
-                        : "bg-slate-700 text-white"
-                    }`}
-                  >
-                    {tab.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+          <ul className="space-y-1 w-full pl-12 pb-6 pt-12">
+            {TAB_NAV.map((tab) => (
+              <li key={tab.id} className="w-full">
+                <button
+                  onClick={() => setSelectedTab(tab.id)}
+                  className={`flex items-center justify-start space-x-2 rounded-lg font-enka px-4 py-2 text-lg font-medium text-left cursor-pointer w-full ${
+                    selectedTab === tab.id
+                      ? "bg-slate-800 text-white"
+                      : "bg-slate-700 text-white"
+                  }`}
+                >
+                  {selectedTab === tab.id && (
+                    <img
+                      src={selectedIndicator}
+                      alt="selected"
+                      className="size-6 mr-2"
+                    />
+                  )}
 
+                  {tab.name}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
         {/* tab nav ends */}
         <div className="w-full">
           {/* tab content */}
@@ -144,7 +151,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
               <DesktopConstellationView
                 consName={constellation}
                 constellations={constellations}
-                chapterIcon={constellationIcon}
+                constellationIcon={constellationIcon}
                 element={element}
               />
             )}
