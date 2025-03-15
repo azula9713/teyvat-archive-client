@@ -24,7 +24,7 @@ export default function CharacterMobileView({
       <CharacterProfileMobile
         charName={characterData.name}
         stars={characterData.stars}
-        spalshImage={characterData.splashUrl}
+        splashImage={characterData.splashUrl}
         element={characterData.element}
       />
       <MobileOverview

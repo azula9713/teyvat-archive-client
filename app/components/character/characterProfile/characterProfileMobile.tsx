@@ -11,14 +11,14 @@ import RarityStars from "../rarityStars";
 type Props = {
   charName: string;
   stars: number;
-  spalshImage: string;
+  splashImage: string;
   element: IElementType;
 };
 
 export default function CharacterProfileMobile({
   charName,
   stars,
-  spalshImage,
+  splashImage,
   element,
 }: Readonly<Props>) {
   const elementalBgPicker = {
@@ -41,7 +41,7 @@ export default function CharacterProfileMobile({
         style={{
           zoom: 0.9,
         }}
-        img={spalshImage}
+        img={splashImage}
       >
         <div className="flex flex-col items-start w-full pl-4">
           <RarityStars stars={stars} />
