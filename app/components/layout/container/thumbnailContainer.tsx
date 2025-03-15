@@ -1,5 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
 
 import rarityColoFilter from "~/utils/thumbnailColorFilter";
 
@@ -9,7 +9,11 @@ type Props = {
   name: string;
 };
 
-export default function ThumbnaiContainer({ children, rarity, name }: Props) {
+export default function ThumbnaiContainer({
+  children,
+  rarity,
+  name,
+}: Readonly<Props>) {
   const {
     toColor: bgTo,
     fromColor: bgFrom,
