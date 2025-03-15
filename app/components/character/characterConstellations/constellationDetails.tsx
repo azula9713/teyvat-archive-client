@@ -10,12 +10,12 @@ export default function ConstellationDetails({
   if (!selectedConstellation) return null;
 
   return (
-    <div className="w-full flex flex-col items-center justify-start rounded-lg bg-slate-700 h-[40rem] mt-20 p-8 relative">
-      <h6 className="text-4xl px-8 font-bold text-left w-full">
+    <div className="w-4/9 flex flex-col items-center justify-start rounded-lg bg-slate-700 h-[35rem] mt-10 py-8 px-6 relative">
+      <h6 className="text-3xl px-4 font-bold text-left w-full">
         {selectedConstellation.name}
       </h6>
       <div
-        className="mt-12 text-lg text-left px-8 w-full z-10"
+        className="mt-8 text-lg text-left px-4 w-full z-10"
         dangerouslySetInnerHTML={{
           __html: parseText(selectedConstellation?.description),
         }}
@@ -25,7 +25,7 @@ export default function ConstellationDetails({
         <img
           src={selectedConstellation.icon}
           alt={selectedConstellation.name}
-          className="w-80 h-80"
+          className="size-80"
           style={{
             filter: "blur(0.5px) brightness(0.5)",
           }}

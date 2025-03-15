@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { getMarginRightValue, getZoomValue } from "~/utils/splashArtZoom";
 import LazyBackgroundImage from "../common/lazyBackgroundImage";
 import AscensionMatsDesktop from "./characterAscension/ascensionMatsDesktop";
@@ -31,6 +32,23 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
     sideIcon,
     ascensionData,
   } = characterData;
+
+  const TAB_NAV = [
+    {
+      name: "Talents",
+      id: "talents",
+    },
+    {
+      name: "Constellations",
+      id: "constellations",
+    },
+    {
+      name: "Ascension",
+      id: "ascension",
+    },
+  ];
+
+  const [selectedTab, setSelectedTab] = useState(TAB_NAV[0].id);
 
   return (
     <div className="py-4 px-12 flex-col items-center justify-start space-y-8 hidden xl:flex w-full">
@@ -87,18 +105,55 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
           </div>
         </div>
       </LazyBackgroundImage>
-      <TalentsDesktop
-        element={element}
-        skills={skills}
-        passiveTalents={passiveTalents}
-      />
-      <DesktopConstellationView
-        consName={constellation}
-        constellations={constellations}
-        chapterIcon={constellationIcon}
-        element={element}
-      />
-      <AscensionMatsDesktop ascensionData={ascensionData} />
+      <div className="w-full flex items-start justify-between space-x-4 border-2 rounded-lg border-slate-700 mt-20">
+        {/* tab nav */}
+
+        <div className="flex flex-col justify-between w-1/4">
+          <div className="pl-12 pb-6 pt-12">
+            <ul className="space-y-1 w-full">
+              {TAB_NAV.map((tab) => (
+                <li key={tab.id} className="w-full">
+                  <button
+                    onClick={() => setSelectedTab(tab.id)}
+                    className={`block rounded-lg font-enka px-4 py-2 text-lg font-medium text-left cursor-pointer w-full ${
+                      selectedTab === tab.id
+                        ? "bg-slate-800 text-white"
+                        : "bg-slate-700 text-white"
+                    }`}
+                  >
+                    {tab.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* tab nav ends */}
+        <div className="w-full">
+          {/* tab content */}
+          <div className="px-4 pb-6">
+            {selectedTab === "talents" && (
+              <TalentsDesktop
+                element={element}
+                skills={skills}
+                passiveTalents={passiveTalents}
+              />
+            )}
+            {selectedTab === "constellations" && (
+              <DesktopConstellationView
+                consName={constellation}
+                constellations={constellations}
+                chapterIcon={constellationIcon}
+                element={element}
+              />
+            )}
+            {selectedTab === "ascension" && (
+              <AscensionMatsDesktop ascensionData={ascensionData} />
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

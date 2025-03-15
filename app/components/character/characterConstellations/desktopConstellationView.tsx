@@ -26,10 +26,10 @@ export default function DesktopConstellationView({
 
   return (
     <AttributeDesktopContainer title={`Constellation - ${consName}`}>
-      <div className="w-full flex items-start justify-between">
-        <div className="w-full flex flex-col items-center justify-start pb-40">
+      <div className="w-full flex items-start justify-between space-x-6">
+        <div className="w-1/2 flex flex-col items-center justify-start pb-40">
           <div
-            className="mt-60 min-h-max flex items-center justify-center w-full"
+            className="mt-40 min-h-max flex items-center justify-center w-full"
             style={{
               //rotate 180deg to make the first constellation at the top
               transform: "rotate(180deg)",
@@ -48,9 +48,10 @@ export default function DesktopConstellationView({
             <img
               src={chapterIcon}
               alt="Chapter Icon"
-              className="w-80 h-80"
+              className="size-60"
               style={{
                 transform: "rotate(180deg)",
+                zoom: "1.2",
               }}
             />
           </div>
