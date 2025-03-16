@@ -12,7 +12,7 @@ export default function Header() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   return (
-    <header className="bg-white dark:bg-gray-900 w-full shadow-slate-300 dark:shadow-slate-950 shadow-md">
+    <header className="bg-white dark:bg-gray-900 w-full shadow-slate-300 dark:shadow-slate-950 shadow-md overflow-x-hidden">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mx-2 w-full">
           <Link to="/" className="flex items-center justify-start py-2 w-full">

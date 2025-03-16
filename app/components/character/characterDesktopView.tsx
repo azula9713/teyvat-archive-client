@@ -54,7 +54,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
   const [selectedTab, setSelectedTab] = useState(TAB_NAV[0].id);
 
   return (
-    <div className="py-4 px-12 flex-col items-center justify-start space-y-8 hidden xl:flex w-full">
+    <div className="py-4 px-12 flex-col items-center justify-start space-y-8 hidden xl:flex w-full overflow-x-hidden">
       <LazyBackgroundImage
         img={nameCard}
         isDarkened
