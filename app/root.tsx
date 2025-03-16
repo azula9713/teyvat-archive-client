@@ -19,7 +19,7 @@ import { useEffect } from "react";
 import { getThemeFromCookie } from "./utils/theme";
 
 scan({
-  enabled: true,
+  enabled: false,
 });
 
 export async function loader({ request }: Route.LoaderArgs) {
