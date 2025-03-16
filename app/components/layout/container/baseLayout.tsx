@@ -13,7 +13,7 @@ export default function BaseLayout() {
       }}
     >
       <Header />
-      <main className="bg-slate-200 dark:bg-gray-900 primary-text overflow-x-hidden min-h-[calc(100vh/2)] w-full flex flex-col items-center justify-start mt-4 md:mt-8 lg:mt-12 xl:mt-16 max-w-[1500px]">
+      <main className="bg-slate-200 dark:bg-gray-900 primary-text flex-1 w-full flex flex-col items-center justify-start mt-4 md:mt-8 lg:mt-12 xl:mt-16 max-w-[1500px]">
         <Outlet />
       </main>
       <Footer />

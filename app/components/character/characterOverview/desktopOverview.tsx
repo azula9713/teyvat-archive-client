@@ -7,7 +7,7 @@ import { weaponTypeParser } from "~/utils/parsers/weaponDataParser";
 type Props = {
   element: IElementType;
   weapon: IWeaponType;
-  affiliation: string;
+  affiliation: ICharacterLocation;
   birthday: IBirthday | null;
 };
 
@@ -46,12 +46,13 @@ export default function DesktopOverview({
         </div>
         <div className="flex w-full items-start justify-start">
           <OverviewItemHolder
+            label="Affiliation"
+            value={`${affiliation.region} - ${affiliation.faction}`}
+            
+          />
+          <OverviewItemHolder
             label="Birthday"
             value={birthday ? `${birthdayFormatter(birthday)}` : "Unknown"}
-          ></OverviewItemHolder>
-          <OverviewItemHolder
-            label="Affiliation"
-            value={affiliation}
             textShadowLabel
             textShadowValue
           />

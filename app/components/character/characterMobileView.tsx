@@ -30,7 +30,7 @@ export default function CharacterMobileView({
       <MobileOverview
         element={characterData.element}
         weapon={characterData.weaponType}
-        affiliation={characterData.location.faction}
+        affiliation={characterData.location}
         description={characterData.description}
         birthday={characterData.birthday}
       />

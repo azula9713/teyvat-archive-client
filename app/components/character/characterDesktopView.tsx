@@ -81,7 +81,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
           <DesktopOverview
             element={element}
             weapon={weaponType}
-            affiliation={location.faction}
+            affiliation={location}
             birthday={characterData.birthday}
           />
         </div>

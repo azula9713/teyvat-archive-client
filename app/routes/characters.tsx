@@ -50,10 +50,12 @@ export default function Characters({
 
   return (
     <>
-      <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
-        <PageTitle title="Teyvat Characters" />
+      <div className="sticky top-0 z-10 bg-gray-900 w-full">
+        <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
+          <PageTitle title="Teyvat Characters" />
+        </div>
+        <CharacterFilterSection />
       </div>
-      <CharacterFilterSection />
       <AllCharacterShowcase characters={filteredCharacters} />
     </>
   );
