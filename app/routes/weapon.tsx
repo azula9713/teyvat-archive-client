@@ -27,8 +27,6 @@ export function meta(params: Readonly<Route.MetaArgs>) {
 export default function Weapon({ loaderData }: Readonly<Route.ComponentProps>) {
   const { weapon } = loaderData;
 
-  console.log("refinement", weapon.stats);
-
   return (
     <>
       <WeaponMobileView weapon={weapon} />
