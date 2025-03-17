@@ -7,9 +7,8 @@ import DesktopConstellationView from "./characterConstellations/desktopConstella
 import DesktopOverview from "./characterOverview/desktopOverview";
 import CharacterProfileDesktop from "./characterProfile/characterProfileDesktop";
 import TalentsDesktop from "./characterTalents/talentsDesktop";
-import RarityStars from "./rarityStars";
-
-import selectedIndicator from "~/assets/icons/1490.png";
+import RarityStars from "../common/rarityStars";
+import TabNavigation from "../common/basic/tabNavigation";
 
 type Props = {
   characterData: ICharacter;
@@ -83,6 +82,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
             weapon={weaponType}
             affiliation={location}
             birthday={characterData.birthday}
+            isTraveler={characterData.isTraveler}
           />
         </div>
         <div className="w-full xl:h-[400px]  flex items-center justify-end">
@@ -109,36 +109,13 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
         </div>
       </LazyBackgroundImage>
       <div className="w-full flex items-start justify-between space-x-4 border-2 rounded-lg border-slate-700 mt-20">
-        {/* tab nav */}
-        <div className="flex flex-col justify-between w-1/4">
-          <ul className="space-y-1 w-full pl-12 pb-6 pt-12">
-            {TAB_NAV.map((tab) => (
-              <li key={tab.id} className="w-full">
-                <button
-                  onClick={() => setSelectedTab(tab.id)}
-                  className={`flex items-center justify-start space-x-2 rounded-lg font-enka px-4 py-2 text-lg font-medium text-left cursor-pointer w-full ${
-                    selectedTab === tab.id
-                      ? "bg-slate-800 text-white"
-                      : "bg-slate-700 text-white"
-                  }`}
-                >
-                  {selectedTab === tab.id && (
-                    <img
-                      src={selectedIndicator}
-                      alt="selected"
-                      className="size-6 mr-2"
-                    />
-                  )}
-
-                  {tab.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-        {/* tab nav ends */}
+        <TabNavigation
+          tabs={TAB_NAV}
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
+        />
+        {/* tab content */}
         <div className="w-full">
-          {/* tab content */}
           <div className="px-4 pb-6">
             {selectedTab === "talents" && (
               <TalentsDesktop
@@ -160,6 +137,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
             )}
           </div>
         </div>
+        {/* tab content ends */}
       </div>
     </div>
   );

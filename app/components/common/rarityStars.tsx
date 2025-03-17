@@ -12,7 +12,7 @@ export default function RarityStars({ stars }: Readonly<Props>) {
         .map((_, i) => (
           <StarIcon
             className="size-3 lg:w-4 lg:h-4 xl:h-6 xl:w-6 text-[gold]"
-            key={i}
+            key={`star-${i + 1}`}
           />
         ))}
     </div>

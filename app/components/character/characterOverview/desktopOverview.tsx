@@ -3,12 +3,14 @@ import birthdayFormatter from "~/utils/birthdayFormatter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import weaponIconFilter from "~/utils/weaponIconFilter";
 import { weaponTypeParser } from "~/utils/parsers/weaponDataParser";
+import characterLocationParser from "~/utils/parsers/characterLocationParser";
 
 type Props = {
   element: IElementType;
   weapon: IWeaponType;
   affiliation: ICharacterLocation;
   birthday: IBirthday | null;
+  isTraveler: boolean;
 };
 
 export default function DesktopOverview({
@@ -16,6 +18,7 @@ export default function DesktopOverview({
   weapon,
   affiliation,
   birthday,
+  isTraveler,
 }: Readonly<Props>) {
   return (
     <div className="hidden xl:flex mt-4 xl:mt-8 flex-col items-start justify-center py-4 w-full h-full">
@@ -47,8 +50,7 @@ export default function DesktopOverview({
         <div className="flex w-full items-start justify-start">
           <OverviewItemHolder
             label="Affiliation"
-            value={`${affiliation.region} - ${affiliation.faction}`}
-            
+            value={characterLocationParser(affiliation, isTraveler)}
           />
           <OverviewItemHolder
             label="Birthday"

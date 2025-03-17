@@ -1,5 +1,5 @@
 import React from "react";
-import RarityStars from "~/components/character/rarityStars";
+import RarityStars from "~/components/common/rarityStars";
 import LazyBackgroundImage from "~/components/common/lazyBackgroundImage";
 
 type Props = {

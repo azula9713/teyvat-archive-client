@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { getMaterialById } from "~/services/teyvatServer/teyvatArchive.service";
-import RarityStars from "../rarityStars";
+import RarityStars from "../../common/rarityStars";
 
 type Props = {
   id: string;

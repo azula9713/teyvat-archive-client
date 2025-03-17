@@ -1,7 +1,7 @@
 import { decryptWeaponUniqueRoute } from "~/utils/decryptUniqueId";
 import type { Route } from "./+types/weapon";
 import { getWeaponById } from "~/services/teyvatServer/teyvatArchive.service";
-import RarityStars from "~/components/character/rarityStars";
+import RarityStars from "~/components/common/rarityStars";
 import LazyBackgroundImage from "~/components/common/lazyBackgroundImage";
 import { useState } from "react";
 import WeaponMobileView from "~/components/weapon/weaponMobileView";
