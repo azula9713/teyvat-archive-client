@@ -1,8 +1,7 @@
 import WeaponProfileMobile from "./weaponProfile/weaponProfileMobile";
 import WeaponMobileOverview from "./weaponOverview/weaponMobileOverview";
-
 import WeaponRefinementMobile from "./weaponRefinement/weaponRefinementMobile";
-import AttributeMobileContainer from "../layout/container/attributeMobileContainer";
+import WeaponStatsMobile from "./weaponStats/weaponStatsMobile";
 
 type Props = {
   weapon: IWeapon;
@@ -23,11 +22,7 @@ export default function WeaponMobileView({ weapon }: Readonly<Props>) {
       <WeaponProfileMobile {...{ splashImage, name, stars }} />
       <WeaponMobileOverview {...{ stars, description, stats, weaponType }} />
       {stars > 2 && <WeaponRefinementMobile {...{ refinements }} />}
-      <AttributeMobileContainer title="Stats">
-        <div className="py-6 space-y-2  text-white">
-          {/* <h5 className="text-lg font-semibold">{refinements[0].name}</h5> */}
-        </div>
-      </AttributeMobileContainer>
+      <WeaponStatsMobile {...{ stats, stars }} />
     </div>
   );
 }

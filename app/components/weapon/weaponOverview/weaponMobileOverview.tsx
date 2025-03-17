@@ -49,8 +49,6 @@ export default function WeaponMobileOverview({
             }}
           />
         </OverviewItemHolder>
-      </div>
-      <div className="flex w-full justify-between items-start">
         <OverviewItemHolder
           label={stats[1][0].fightPropName}
           value={formatWeaponStatValue(
@@ -73,13 +71,15 @@ export default function WeaponMobileOverview({
             }}
           />
         </OverviewItemHolder>
+      </div>
+      <div className="flex w-full justify-between items-end mt-4">
         {stars > 2 && (
           <OverviewItemHolder
             label={stats[1][1].fightPropName}
             value={formatWeaponStatValue(
               stats[selectedLevel][1].multiplier,
-              true,
-              0
+              stats[selectedLevel][1].isPercent,
+              1
             )}
           >
             <img
@@ -97,10 +97,11 @@ export default function WeaponMobileOverview({
             />
           </OverviewItemHolder>
         )}
+        <OverviewLevelPicker {...{ selectedLevel, setSelectedLevel, stars }} />
       </div>
-      <div className="w-full flex items-center justify-end text-sm">
-        <OverviewLevelPicker {...{ selectedLevel, setSelectedLevel }} />
-      </div>
+      {/* <div className="w-full flex items-center justify-end text-sm">
+        <OverviewLevelPicker {...{ selectedLevel, setSelectedLevel, stars }} />
+      </div> */}
     </div>
   );
 }
