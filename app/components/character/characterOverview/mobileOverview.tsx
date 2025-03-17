@@ -1,7 +1,7 @@
 import OverviewItemHolder from "~/components/common/overviewItemHolder";
 import birthdayFormatter from "~/utils/birthdayFormatter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
-import weaponIconFilter from "~/utils/weaponIconFilter";
+import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
 import { weaponTypeParser } from "~/utils/parsers/weaponDataParser";
 import characterLocationParser from "~/utils/parsers/characterLocationParser";
 
@@ -46,7 +46,7 @@ export default function MobileOverview({
         >
           <img
             className="w-6 h-6 mr-2"
-            src={weaponIconFilter[weapon]}
+            src={weaponTypeIconFilter[weapon]}
             alt={weapon}
             style={{
               filter: "brightness(0) invert(1)",

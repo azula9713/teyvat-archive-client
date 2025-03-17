@@ -46,7 +46,7 @@ if (typeof window !== "undefined") {
 }
 
 export function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const { theme: initialTheme } = useLoaderData() as { theme: string };
+  const { theme: initialTheme } = useLoaderData();
   return (
     <html lang="en" className={initialTheme}>
       <head>

@@ -13,7 +13,7 @@ import {
   selectedCharacterWeaponAtom,
 } from "~/atoms/teyvat/character.atom";
 import elementalImageFilter from "~/utils/elementalImagePicker";
-import weaponIconFilter from "~/utils/weaponIconFilter";
+import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
 import { RARITIES } from "~/data/teyvatData";
 import CharacterFilterStack from "./characterFilterStack";
 
@@ -52,8 +52,8 @@ export default function CharacterFilterSection() {
               {selectedCharacterWeapon !== "all" && (
                 <img
                   src={
-                    weaponIconFilter[
-                      selectedCharacterWeapon as keyof typeof weaponIconFilter
+                    weaponTypeIconFilter[
+                      selectedCharacterWeapon as keyof typeof weaponTypeIconFilter
                     ]
                   }
                   alt={selectedCharacterWeapon}

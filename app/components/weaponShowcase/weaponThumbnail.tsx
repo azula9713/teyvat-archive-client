@@ -9,13 +9,13 @@ type Props = {
   weapon: IBasicWeapon;
 };
 
-export default function WeaponThumbnail({ weapon }: Props) {
+export default function WeaponThumbnail({ weapon }: Readonly<Props>) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <ThumbnaiContainer name={weapon.name} rarity={rarityParser(weapon.stars)}>
       <NavLink to={`/weapon/${weapon.id}-${weapon.enkaId}`}>
-        <div
+        <button
           className="w-full flex flex-col items-center mt-1"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -31,7 +31,7 @@ export default function WeaponThumbnail({ weapon }: Props) {
               transition={{ duration: 1 }}
             />
           </div>
-        </div>
+        </button>
       </NavLink>
     </ThumbnaiContainer>
   );

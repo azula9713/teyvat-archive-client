@@ -11,8 +11,8 @@ type Props = {
 
 export default function AscensionMaterialHolderDesktop({
   id,
-  index,
   value,
+  index,
 }: Readonly<Props>) {
   const [materialData, setMaterialData] = useState<IMaterialData>(
     {} as IMaterialData

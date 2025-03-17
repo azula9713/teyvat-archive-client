@@ -8,7 +8,7 @@ type Props = {
   artifact: IBaseArtifact;
 };
 
-export default function ArtifactThumbnail({ artifact }: Props) {
+export default function ArtifactThumbnail({ artifact }: Readonly<Props>) {
   return (
     <ThumbnaiContainer
       name={artifact.name}

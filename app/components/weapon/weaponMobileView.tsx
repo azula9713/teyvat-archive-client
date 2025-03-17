@@ -1,13 +1,13 @@
 import { weaponTypeParser } from "~/utils/parsers/weaponDataParser";
 import OverviewItemHolder from "../common/overviewItemHolder";
 import WeaponProfileMobile from "./weaponProfile/weaponProfileMobile";
-import weaponIconFilter from "~/utils/weaponIconFilter";
+import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
 
 type Props = {
   weapon: IWeapon;
 };
 
-export default function WeaponMobileView({ weapon }: Props) {
+export default function WeaponMobileView({ weapon }: Readonly<Props>) {
   return (
     <div className="pt-2 md:p-10 px-2 xl:hidden w-full">
       <WeaponProfileMobile
@@ -25,26 +25,37 @@ export default function WeaponMobileView({ weapon }: Props) {
           "{weapon.description}"
         </p>
         <div className="flex w-full justify-between items-start">
-          <OverviewItemHolder label="Base ATK" value="10">
-            {/* <img
-            className="w-5 h-5 mr-2"
-            src={elementalImageFilter[element]}
-            alt={element}
-          /> */}
-          </OverviewItemHolder>
           <OverviewItemHolder
             label="Weapon Type"
             value={weaponTypeParser(weapon.weaponType) as string}
           >
             <img
-              className="w-6 h-6 mr-2"
-              src={weaponIconFilter[weapon.weaponType]}
+              className="size-6 mr-2"
+              src={weaponTypeIconFilter[weapon.weaponType]}
               alt={weapon.weaponType}
               style={{
                 filter: "brightness(0) invert(1)",
               }}
             />
           </OverviewItemHolder>
+          {weapon.stars > 2 && (
+            <OverviewItemHolder
+              label="Advanced Stat"
+              value={weapon.stats[1][1].fightPropName}
+            >
+              {/* <img
+                className="size-6 mr-2"
+                src={weaponIconFilter[weapon.weaponType]}
+                alt={weapon.weaponType}
+                style={{
+                  filter: "brightness(0) invert(1)",
+                }}
+              /> */}
+
+              {/* //dynamically import depending on fightProp from assets/icons/stats/{weapon.stats[1][1].fightProp}  */}
+              {/* <img className="size-6 mr-2" src={} alt="attack" /> */}
+            </OverviewItemHolder>
+          )}
         </div>
         <div className="flex items-start w-full justify-between mt-4">
           {/* <OverviewItemHolder

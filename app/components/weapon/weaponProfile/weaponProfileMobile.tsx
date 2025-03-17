@@ -1,4 +1,3 @@
-import React from "react";
 import RarityStars from "~/components/common/rarityStars";
 import LazyBackgroundImage from "~/components/common/lazyBackgroundImage";
 
@@ -12,7 +11,7 @@ export default function WeaponProfileMobile({
   splashImage,
   name,
   stars,
-}: Props) {
+}: Readonly<Props>) {
   return (
     <div>
       <LazyBackgroundImage

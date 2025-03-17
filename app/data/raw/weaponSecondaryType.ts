@@ -52,6 +52,3 @@ export const weaponSecondaryType = {
   FIGHT_PROP_DEFENSE_PERCENT_A: "DEF Percentage",
   FIGHT_PROP_HP_PERCENT_A: "HP Percentage",
 } as const;
-
-export type WeaponSecondaryType =
-  (typeof weaponSecondaryType)[keyof typeof weaponSecondaryType];

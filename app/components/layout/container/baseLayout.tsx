@@ -7,7 +7,7 @@ import Header from "../header/header";
 export default function BaseLayout() {
   return (
     <div
-      className="bg-slate-200 dark:bg-gray-900 w-full flex flex-col items-center justify-start"
+      className="bg-slate-200 dark:bg-gray-900 w-full flex flex-col items-center justify-start min-h-svh"
       style={{
         cursor: "url(" + CustomCursor + "), auto",
       }}

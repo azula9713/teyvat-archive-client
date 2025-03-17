@@ -14,7 +14,7 @@ export default function SettingItemContainer({
   isDisabled,
   label,
   description,
-}: Props) {
+}: Readonly<Props>) {
   return (
     <div className="w-full flex items-center justify-between border border-slate-300 dark:border-slate-700 p-4 rounded-xl">
       <div className="flex flex-col items-start justify-between">

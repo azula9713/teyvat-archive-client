@@ -2,12 +2,10 @@ import parseText from "~/utils/parsers/parseEnkaText";
 
 type Props = {
   selectedTalent?: IAllTalent;
-  element: IElementType;
 };
 
 export default function CharacterTalentDetails({
   selectedTalent,
-  element,
 }: Readonly<Props>) {
   if (selectedTalent) {
     return (

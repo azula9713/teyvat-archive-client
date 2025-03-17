@@ -4,7 +4,7 @@ import ClaymoreIcon from "~/assets/images/weaponTypes/Icon_Claymore.png";
 import PolearmIcon from "~/assets/images/weaponTypes/Icon_Polearm.png";
 import SwordIcon from "~/assets/images/weaponTypes/Icon_Sword.png";
 
-const weaponIconFilter = {
+const weaponTypeIconFilter = {
   WEAPON_SWORD_ONE_HAND: SwordIcon,
   WEAPON_CLAYMORE: ClaymoreIcon,
   WEAPON_POLE: PolearmIcon,
@@ -12,4 +12,4 @@ const weaponIconFilter = {
   WEAPON_BOW: BowIcon,
 };
 
-export default weaponIconFilter;
+export { weaponTypeIconFilter };

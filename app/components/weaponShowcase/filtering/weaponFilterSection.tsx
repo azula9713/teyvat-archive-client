@@ -11,7 +11,7 @@ import {
   selectedWeaponSeriesAtom,
   selectedWeaponTypeAtom,
 } from "~/atoms/teyvat/weapon.atom";
-import weaponIconFilter from "~/utils/weaponIconFilter";
+import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
 import WeaponFilterStack from "./weaponFilterStack";
 import { RARITIES } from "~/data/teyvatData";
 
@@ -60,7 +60,7 @@ export default function WeaponFilterSection({ weaponSeries }: Readonly<Props>) {
             <div className="flex items-center w-full space-x-1 justify-end">
               {selectedWeaponType !== "all" && (
                 <img
-                  src={weaponIconFilter[selectedWeaponType as IWeaponType]}
+                  src={weaponTypeIconFilter[selectedWeaponType as IWeaponType]}
                   alt={selectedWeaponType}
                   className="w-[24px]"
                   style={{ filter: "brightness(0) invert(1)" }}
