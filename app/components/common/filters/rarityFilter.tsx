@@ -4,6 +4,7 @@ import { StarIcon as OutlineStar } from "@heroicons/react/24/outline";
 
 import { RARITIES } from "~/data/teyvatData";
 import ItemSeparator from "../../characterShowcase/filtering/itemSeparator";
+import RaritySelector from "./raritySelector";
 
 type Props = {
   selectedRarity: string;
@@ -17,102 +18,39 @@ function RarityFilter({
   isCharacter = false,
 }: Readonly<Props>) {
   return (
-    <div className="w-full font-semibold lg:w-max max-w-[300px] flex items-center justify-between p-2 mb-3 border-2 border-slate-600 rounded-lg h-[40px]">
+    <div className="w-full font-semibold lg:w-max max-w-[300px] flex items-center justify-center p-2 mb-3 border-2 border-slate-600 rounded-lg h-[40px]">
       {!isCharacter && (
         <>
-          <div className="flex items-center">
-            <button
-              className="cursor-pointer text-sm mx-2 flex items-center"
-              onClick={() => {
-                if (selectedRarity === RARITIES[0]) {
-                  setSelectedRarity("all");
-                } else {
-                  setSelectedRarity(RARITIES[0]);
-                }
-              }}
-            >
-              1
-              {selectedRarity === RARITIES[0] || selectedRarity === "all" ? (
-                <StarIcon
-                  className={`size-3 lg:size-4 xl:size-5 text-[gold]`}
-                />
-              ) : (
-                <OutlineStar className="size-3 lg:size-4 xl:size-5 text-[gold]" />
-              )}
-            </button>
-            <ItemSeparator />
-          </div>
+          <RaritySelector
+            selectedRarity={selectedRarity}
+            setSelectedRarity={setSelectedRarity}
+            rarityIndex={0}
+          />
+          <ItemSeparator />
 
-          <div className="flex items-center">
-            <button
-              className="cursor-pointer text-sm mx-2 flex items-center"
-              onClick={() => {
-                if (selectedRarity === RARITIES[1]) {
-                  setSelectedRarity("all");
-                } else {
-                  setSelectedRarity(RARITIES[1]);
-                }
-              }}
-            >
-              2
-              {selectedRarity === RARITIES[1] || selectedRarity === "all" ? (
-                <StarIcon
-                  className={`size-3 lg:size-4 xl:size-5 text-[gold]`}
-                />
-              ) : (
-                <OutlineStar className="size-3 lg:size-4 xl:size-5 text-[gold]" />
-              )}
-            </button>
-            <ItemSeparator />
-          </div>
+          <RaritySelector
+            selectedRarity={selectedRarity}
+            setSelectedRarity={setSelectedRarity}
+            rarityIndex={1}
+          />
+          <ItemSeparator />
 
-          <div className="flex items-center">
-            <button
-              className="cursor-pointer text-sm mx-2 flex items-center"
-              onClick={() => {
-                if (selectedRarity === RARITIES[2]) {
-                  setSelectedRarity("all");
-                } else {
-                  setSelectedRarity(RARITIES[2]);
-                }
-              }}
-            >
-              3
-              {selectedRarity === RARITIES[2] || selectedRarity === "all" ? (
-                <StarIcon
-                  className={`size-3 lg:size-4 xl:size-5 text-[gold]`}
-                />
-              ) : (
-                <OutlineStar className="size-3 lg:size-4 xl:size-5 text-[gold]" />
-              )}
-            </button>
-            <ItemSeparator />
-          </div>
+          <RaritySelector
+            selectedRarity={selectedRarity}
+            setSelectedRarity={setSelectedRarity}
+            rarityIndex={2}
+          />
+          <ItemSeparator />
         </>
       )}
 
-      <div className="flex items-center">
-        <button
-          className="cursor-pointer text-sm mx-2 flex items-center"
-          onClick={() => {
-            if (selectedRarity === RARITIES[3]) {
-              setSelectedRarity("all");
-            } else {
-              setSelectedRarity(RARITIES[3]);
-            }
-          }}
-        >
-          4
-          {selectedRarity === RARITIES[3] || selectedRarity === "all" ? (
-            <StarIcon className={`size-3 lg:size-4 xl:size-5 text-[gold]`} />
-          ) : (
-            <OutlineStar className="size-3 lg:size-4 xl:size-5 text-[gold]" />
-          )}
-        </button>
-        <ItemSeparator />
-      </div>
-
-      <div className="flex items-center">
+      <RaritySelector
+        selectedRarity={selectedRarity}
+        setSelectedRarity={setSelectedRarity}
+        rarityIndex={3}
+      />
+      <ItemSeparator />
+      {/* <div className="flex items-center justify-center w-full">
         <button
           className="cursor-pointer text-sm mx-2 flex items-center"
           onClick={() => {
@@ -124,35 +62,27 @@ function RarityFilter({
           }}
         >
           5
-          {selectedRarity === RARITIES[4] || selectedRarity === "all" ? (
+          {selectedRarity === (RARITIES[4] || RARITIES[5]) ||
+          selectedRarity === "all" ? (
             <StarIcon className={`size-3 lg:size-4 xl:size-5 text-[gold]`} />
           ) : (
             <OutlineStar className="size-3 lg:size-4 xl:size-5 text-[gold]" />
           )}
         </button>
-        {isCharacter && <ItemSeparator />}
-      </div>
+      </div> */}
+      <RaritySelector
+        selectedRarity={selectedRarity}
+        setSelectedRarity={setSelectedRarity}
+        rarityIndex={4}
+      />
+      {isCharacter && <ItemSeparator />}
 
       {isCharacter && (
-        <>
-          <button
-            className="inline-flex items-center justify-center w-full rounded-md text-sm dark:text-slate-300 dark:hover:text-gray-200 cursor-pointer mx-2"
-            onClick={() => {
-              if (selectedRarity === RARITIES[5]) {
-                setSelectedRarity("all");
-              } else {
-                setSelectedRarity(RARITIES[5]);
-              }
-            }}
-          >
-            5SP
-            {selectedRarity === RARITIES[5] || selectedRarity === "all" ? (
-              <StarIcon className={`size-3 lg:size-4 xl:size-5 text-[gold]`} />
-            ) : (
-              <OutlineStar className="size-3 lg:size-4 xl:size-5 text-[gold]" />
-            )}
-          </button>
-        </>
+        <RaritySelector
+          selectedRarity={selectedRarity}
+          setSelectedRarity={setSelectedRarity}
+          rarityIndex={5}
+        />
       )}
     </div>
   );

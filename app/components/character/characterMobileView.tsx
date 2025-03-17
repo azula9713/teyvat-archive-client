@@ -33,6 +33,7 @@ export default function CharacterMobileView({
         affiliation={characterData.location}
         description={characterData.description}
         birthday={characterData.birthday}
+        isTraveler={characterData.isTraveler}
       />
       <TalentsMobile skills={skills} passiveTalents={passiveTalents} />
       <MobileConstellationView

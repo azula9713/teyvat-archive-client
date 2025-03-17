@@ -66,11 +66,7 @@ export default function CharacterFilterSection() {
 
               {selectedCharacterRarity !== "all" && (
                 <div className="flex items-center">
-                  {selectedCharacterRarity === RARITIES[0]
-                    ? "4"
-                    : selectedCharacterElement === RARITIES[1]
-                    ? "5"
-                    : "5SP"}
+                  {selectedCharacterRarity === RARITIES[3] ? "4" : "5"}
                   <StarIcon className="size-4 text-[gold]" />
                 </div>
               )}

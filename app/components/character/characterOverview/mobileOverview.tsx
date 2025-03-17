@@ -3,6 +3,7 @@ import birthdayFormatter from "~/utils/birthdayFormatter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import weaponIconFilter from "~/utils/weaponIconFilter";
 import { weaponTypeParser } from "~/utils/parsers/weaponDataParser";
+import characterLocationParser from "~/utils/parsers/characterLocationParser";
 
 type Props = {
   element: IElementType;
@@ -10,6 +11,7 @@ type Props = {
   affiliation: ICharacterLocation;
   description: string;
   birthday: IBirthday | null;
+  isTraveler: boolean;
 };
 
 export default function MobileOverview({
@@ -18,6 +20,7 @@ export default function MobileOverview({
   affiliation,
   description,
   birthday,
+  isTraveler,
 }: Readonly<Props>) {
   return (
     <div className="mt-2 bg-slate-200 dark:bg-slate-800 bg-opacity-50 flex flex-col items-center justify-center p-4 rounded-lg shadow-md w-full xl:hidden">
@@ -54,7 +57,7 @@ export default function MobileOverview({
       <div className="flex items-start w-full justify-between mt-4">
         <OverviewItemHolder
           label="Affiliation"
-          value={`${affiliation.region} - ${affiliation.faction}`}
+          value={characterLocationParser(affiliation, isTraveler)}
         />
         <OverviewItemHolder
           label="Birthday"
