@@ -13,12 +13,13 @@ import {
 } from "~/atoms/teyvat/weapon.atom";
 import weaponIconFilter from "~/utils/weaponIconFilter";
 import WeaponFilterStack from "./weaponFilterStack";
+import { RARITIES } from "~/data/teyvatData";
 
 type Props = {
   weaponSeries: IBaseWeaponSeries;
 };
 
-export default function WeaponFilterSection({ weaponSeries }: Props) {
+export default function WeaponFilterSection({ weaponSeries }: Readonly<Props>) {
   const [selectedWeaponType, setSelectedWeaponType] = useAtom(
     selectedWeaponTypeAtom
   );
@@ -28,6 +29,23 @@ export default function WeaponFilterSection({ weaponSeries }: Props) {
   const [selectedSeries, setSelectedSeries] = useAtom(selectedWeaponSeriesAtom);
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  const getRarityLabel = (rarity: string) => {
+    switch (rarity) {
+      case RARITIES[0]:
+        return "1";
+      case RARITIES[1]:
+        return "2";
+      case RARITIES[2]:
+        return "3";
+      case RARITIES[3]:
+        return "4";
+      case RARITIES[4]:
+        return "5";
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="w-full pt-3 mx-2 px-2 flex flex-col items-center">
@@ -40,39 +58,20 @@ export default function WeaponFilterSection({ weaponSeries }: Props) {
             </div>
 
             <div className="flex items-center w-full space-x-1 justify-end">
-              {/* {selectedCharacterElement !== "all" && (
-                <img
-                  src={elementalImageFilter[selectedCharacterElement]}
-                  alt={selectedCharacterElement}
-                  className="w-[24px]"
-                />
-              )} */}
-
               {selectedWeaponType !== "all" && (
                 <img
-                  src={
-                    weaponIconFilter[
-                      selectedWeaponType as keyof typeof weaponIconFilter
-                    ]
-                  }
+                  src={weaponIconFilter[selectedWeaponType as IWeaponType]}
                   alt={selectedWeaponType}
-                  className="w-[26px]"
-                  style={{
-                    filter: "brightness(0) invert(1)",
-                  }}
+                  className="w-[24px]"
+                  style={{ filter: "brightness(0) invert(1)" }}
                 />
               )}
-
-              {/* {selectedCharacterRarity !== "all" && (
-                <div className="flex items-center">
-                  {selectedCharacterRarity === RARITIES[0]
-                    ? "4"
-                    : selectedCharacterElement === RARITIES[1]
-                    ? "5"
-                    : "5SP"}
+              {selectedWeaponRarity !== "all" && (
+                <div className="flex items-center space-x-2 justify-end">
+                  {getRarityLabel(selectedWeaponRarity)}
                   <StarIcon className="size-4 text-[gold]" />
                 </div>
-              )} */}
+              )}
             </div>
           </div>
 
