@@ -4,7 +4,7 @@ import { getMarginRightValue, getZoomValue } from "~/utils/splashArtZoom";
 import LazyBackgroundImage from "../common/lazyBackgroundImage";
 import AscensionMatsDesktop from "./characterAscension/ascensionMatsDesktop";
 import DesktopConstellationView from "./characterConstellations/desktopConstellationView";
-import DesktopOverview from "./characterOverview/desktopOverview";
+import CharacterDesktopOverview from "./characterOverview/characterDesktopOverview";
 import CharacterProfileDesktop from "./characterProfile/characterProfileDesktop";
 import TalentsDesktop from "./characterTalents/talentsDesktop";
 import RarityStars from "../common/rarityStars";
@@ -77,7 +77,7 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
             name={name}
             description={description}
           />
-          <DesktopOverview
+          <CharacterDesktopOverview
             element={element}
             weapon={weaponType}
             affiliation={location}

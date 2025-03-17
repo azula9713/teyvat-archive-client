@@ -14,7 +14,7 @@ type Props = {
   isTraveler: boolean;
 };
 
-export default function MobileOverview({
+export default function CharacterMobileOverview({
   element,
   weapon,
   affiliation,

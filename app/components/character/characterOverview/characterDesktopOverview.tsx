@@ -13,7 +13,7 @@ type Props = {
   isTraveler: boolean;
 };
 
-export default function DesktopOverview({
+export default function CharacterDesktopOverview({
   element,
   weapon,
   affiliation,
