@@ -17,7 +17,7 @@ export default function SearchFilter({
         <MagnifyingGlassIcon className="size-4 mr-2" />
         <input
           type="text"
-          className="h-full outline-none bg-transparent text-xs text-white placeholder-gray-400"
+          className="h-full outline-none bg-transparent text-white placeholder-gray-400"
           placeholder={placeholder}
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}

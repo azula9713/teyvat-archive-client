@@ -26,14 +26,13 @@ export default function AllCharacterShowcase({ characters }: Readonly<Props>) {
   useEffect(() => {
     const tempFilteredCharacters = characters.filter(
       (character) =>
-        characterSearch === "" ||
-        (character.name.toLowerCase().includes(characterSearch.toLowerCase()) &&
-          (selectedCharacterElement === "all" ||
-            character.element === selectedCharacterElement) &&
-          (selectedCharacterWeapon === "all" ||
-            character.weaponType === selectedCharacterWeapon) &&
-          (selectedCharacterRarity === "all" ||
-            character.rarity === selectedCharacterRarity))
+        character.name.toLowerCase().includes(characterSearch.toLowerCase()) &&
+        (selectedCharacterElement === "all" ||
+          character.element === selectedCharacterElement) &&
+        (selectedCharacterWeapon === "all" ||
+          character.weaponType === selectedCharacterWeapon) &&
+        (selectedCharacterRarity === "all" ||
+          character.rarity === selectedCharacterRarity)
     );
 
     setFilteredCharacters(tempFilteredCharacters);
