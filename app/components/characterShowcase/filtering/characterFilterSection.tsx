@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/16/solid";
 
 import {
+  characterSearchAtom,
   selectedCharacterElementAtom,
   selectedCharacterRarityAtom,
   selectedCharacterWeaponAtom,
@@ -27,6 +28,7 @@ export default function CharacterFilterSection() {
   const [selectedCharacterRarity, setSelectedCharacterRarity] = useAtom(
     selectedCharacterRarityAtom
   );
+  const [characterSearch, setCharacterSearch] = useAtom(characterSearchAtom);
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -96,6 +98,8 @@ export default function CharacterFilterSection() {
                 setSelectedWeapon: setSelectedCharacterWeapon,
                 selectedRarity: selectedCharacterRarity,
                 setSelectedRarity: setSelectedCharacterRarity,
+                characterSearch,
+                setCharacterSearch,
               }}
             />
           </div>
@@ -111,6 +115,8 @@ export default function CharacterFilterSection() {
             setSelectedWeapon: setSelectedCharacterWeapon,
             selectedRarity: selectedCharacterRarity,
             setSelectedRarity: setSelectedCharacterRarity,
+            characterSearch,
+            setCharacterSearch,
           }}
         />
       </div>

@@ -51,6 +51,6 @@ h6 {
   @apply w-usable max-w-[1000px];
 }
 
-.primary-text{
-    @apply text-slate-600 dark:text-white;
+.primary-text {
+  @apply text-slate-600 dark:text-white;
 }

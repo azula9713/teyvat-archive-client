@@ -3,6 +3,7 @@ import { useAtomValue } from "jotai";
 import { useEffect, useState } from "react";
 
 import {
+  characterSearchAtom,
   selectedCharacterElementAtom,
   selectedCharacterRarityAtom,
   selectedCharacterWeaponAtom,
@@ -17,6 +18,7 @@ export default function AllCharacterShowcase({ characters }: Readonly<Props>) {
   const selectedCharacterElement = useAtomValue(selectedCharacterElementAtom);
   const selectedCharacterWeapon = useAtomValue(selectedCharacterWeaponAtom);
   const selectedCharacterRarity = useAtomValue(selectedCharacterRarityAtom);
+  const characterSearch = useAtomValue(characterSearchAtom);
 
   const [filteredCharacters, setFilteredCharacters] =
     useState<IBaseCharacter[]>(characters);
@@ -24,12 +26,14 @@ export default function AllCharacterShowcase({ characters }: Readonly<Props>) {
   useEffect(() => {
     const tempFilteredCharacters = characters.filter(
       (character) =>
-        (selectedCharacterElement === "all" ||
-          character.element === selectedCharacterElement) &&
-        (selectedCharacterWeapon === "all" ||
-          character.weaponType === selectedCharacterWeapon) &&
-        (selectedCharacterRarity === "all" ||
-          character.rarity === selectedCharacterRarity)
+        characterSearch === "" ||
+        (character.name.toLowerCase().includes(characterSearch.toLowerCase()) &&
+          (selectedCharacterElement === "all" ||
+            character.element === selectedCharacterElement) &&
+          (selectedCharacterWeapon === "all" ||
+            character.weaponType === selectedCharacterWeapon) &&
+          (selectedCharacterRarity === "all" ||
+            character.rarity === selectedCharacterRarity))
     );
 
     setFilteredCharacters(tempFilteredCharacters);
@@ -38,6 +42,7 @@ export default function AllCharacterShowcase({ characters }: Readonly<Props>) {
     characters,
     selectedCharacterWeapon,
     selectedCharacterRarity,
+    characterSearch,
   ]);
 
   return (

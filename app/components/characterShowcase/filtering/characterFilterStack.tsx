@@ -3,6 +3,7 @@ import { BackspaceIcon } from "@heroicons/react/16/solid";
 import ElementFilter from "./elementFilter";
 import RarityFilter from "../../common/filters/rarityFilter";
 import WeaponFilter from "../../common/filters/weaponFilter";
+import SearchFilter from "~/components/common/filters/searchFilter";
 
 type Props = {
   setIsFilterOpen: (value: boolean) => void;
@@ -12,6 +13,8 @@ type Props = {
   setSelectedWeapon: (weapon: string) => void;
   selectedRarity: string;
   setSelectedRarity: (rarity: string) => void;
+  characterSearch: string;
+  setCharacterSearch: (search: string) => void;
 };
 
 export default function CharacterFilterStack({
@@ -22,12 +25,19 @@ export default function CharacterFilterStack({
   setSelectedWeapon,
   selectedRarity,
   setSelectedRarity,
+  characterSearch,
+  setCharacterSearch,
 }: Readonly<Props>) {
   return (
     <>
+      <SearchFilter
+        {...{
+          searchValue: characterSearch,
+          setSearchValue: setCharacterSearch,
+        }}
+      />
       <ElementFilter {...{ selectedElement, setSelectedElement }} />
       <WeaponFilter {...{ selectedWeapon, setSelectedWeapon }} />
-
       <RarityFilter
         {...{ selectedRarity, setSelectedRarity, isCharacter: true }}
       />
@@ -37,6 +47,7 @@ export default function CharacterFilterStack({
           setSelectedElement("all");
           setSelectedWeapon("all");
           setSelectedRarity("all");
+          setCharacterSearch("");
           setIsFilterOpen(false);
         }}
       >
