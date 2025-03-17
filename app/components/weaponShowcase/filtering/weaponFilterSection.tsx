@@ -90,28 +90,32 @@ export default function WeaponFilterSection({ weaponSeries }: Readonly<Props>) {
         {isFilterOpen && (
           <div className="absolute flex flex-col items-center justify-evenly pt-4 end-0 z-10 w-full rounded-md border border-gray-100 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-900">
             <WeaponFilterStack
-              setIsFilterOpen={setIsFilterOpen}
-              selectedWeaponType={selectedWeaponType}
-              setSelectedWeaponType={setSelectedWeaponType}
-              selectedRarity={selectedWeaponRarity}
-              setSelectedRarity={setSelectedWeaponRarity}
-              selectedSeries={selectedSeries}
-              setSelectedSeries={setSelectedSeries}
-              weaponSeries={weaponSeries}
+              {...{
+                setIsFilterOpen,
+                selectedWeaponType,
+                setSelectedWeaponType,
+                selectedRarity: selectedWeaponRarity,
+                setSelectedRarity: setSelectedWeaponRarity,
+                selectedSeries,
+                setSelectedSeries,
+                weaponSeries,
+              }}
             />
           </div>
         )}
       </div>
       <div className="hidden lg:flex flex-col items-center lg:flex-row lg:justify-center lg:space-x-4">
         <WeaponFilterStack
-          setIsFilterOpen={setIsFilterOpen}
-          selectedWeaponType={selectedWeaponType}
-          setSelectedWeaponType={setSelectedWeaponType}
-          selectedRarity={selectedWeaponRarity}
-          setSelectedRarity={setSelectedWeaponRarity}
-          selectedSeries={selectedSeries}
-          setSelectedSeries={setSelectedSeries}
-          weaponSeries={weaponSeries}
+          {...{
+            setIsFilterOpen,
+            selectedWeaponType,
+            setSelectedWeaponType,
+            selectedRarity: selectedWeaponRarity,
+            setSelectedRarity: setSelectedWeaponRarity,
+            selectedSeries,
+            setSelectedSeries,
+            weaponSeries,
+          }}
         />
       </div>
     </div>

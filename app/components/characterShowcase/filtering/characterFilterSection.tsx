@@ -88,26 +88,30 @@ export default function CharacterFilterSection() {
         {isFilterOpen && (
           <div className="absolute flex flex-col items-center justify-evenly pt-4 end-0 z-10 w-full rounded-md border border-gray-100 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-900">
             <CharacterFilterStack
-              setIsFilterOpen={setIsFilterOpen}
-              selectedElement={selectedCharacterElement}
-              setSelectedElement={setSelectedCharacterElement}
-              selectedWeapon={selectedCharacterWeapon}
-              setSelectedWeapon={setSelectedCharacterWeapon}
-              selectedRarity={selectedCharacterRarity}
-              setSelectedRarity={setSelectedCharacterRarity}
+              {...{
+                setIsFilterOpen,
+                selectedElement: selectedCharacterElement,
+                setSelectedElement: setSelectedCharacterElement,
+                selectedWeapon: selectedCharacterWeapon,
+                setSelectedWeapon: setSelectedCharacterWeapon,
+                selectedRarity: selectedCharacterRarity,
+                setSelectedRarity: setSelectedCharacterRarity,
+              }}
             />
           </div>
         )}
       </div>
       <div className="hidden lg:flex flex-col items-center lg:flex-row lg:justify-center lg:space-x-4">
         <CharacterFilterStack
-          setIsFilterOpen={setIsFilterOpen}
-          selectedElement={selectedCharacterElement}
-          setSelectedElement={setSelectedCharacterElement}
-          selectedWeapon={selectedCharacterWeapon}
-          setSelectedWeapon={setSelectedCharacterWeapon}
-          selectedRarity={selectedCharacterRarity}
-          setSelectedRarity={setSelectedCharacterRarity}
+          {...{
+            setIsFilterOpen,
+            selectedElement: selectedCharacterElement,
+            setSelectedElement: setSelectedCharacterElement,
+            selectedWeapon: selectedCharacterWeapon,
+            setSelectedWeapon: setSelectedCharacterWeapon,
+            selectedRarity: selectedCharacterRarity,
+            setSelectedRarity: setSelectedCharacterRarity,
+          }}
         />
       </div>
     </div>

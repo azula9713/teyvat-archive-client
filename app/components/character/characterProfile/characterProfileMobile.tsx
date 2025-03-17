@@ -3,16 +3,16 @@ import RarityStars from "../../common/rarityStars";
 import { elementalBackgroundPicker } from "~/utils/elementalImagePicker";
 
 type Props = {
-  charName: string;
+  name: string;
   stars: number;
-  splashImage: string;
+  splashUrl: string;
   element: IElementType;
 };
 
 export default function CharacterProfileMobile({
-  charName,
+  name,
   stars,
-  splashImage,
+  splashUrl,
   element,
 }: Readonly<Props>) {
   return (
@@ -25,7 +25,7 @@ export default function CharacterProfileMobile({
         style={{
           zoom: 0.9,
         }}
-        img={splashImage}
+        img={splashUrl}
       >
         <div className="flex flex-col items-start w-full pl-4">
           <RarityStars stars={stars} />
@@ -35,7 +35,7 @@ export default function CharacterProfileMobile({
               textShadow: "2px 2px black",
             }}
           >
-            {charName}
+            {name}
           </h2>
         </div>
       </LazyBackgroundImage>

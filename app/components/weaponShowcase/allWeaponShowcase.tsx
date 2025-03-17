@@ -48,7 +48,7 @@ export default function AllWeaponShowcase({ weapons }: Readonly<Props>) {
         }}
       >
         {filteredWeapons.map((weapon) => (
-          <WeaponThumbnail weapon={weapon} key={weapon.id} />
+          <WeaponThumbnail {...{ key: weapon.id, weapon }} />
         ))}
       </motion.div>
     </div>

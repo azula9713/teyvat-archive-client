@@ -37,15 +37,10 @@ export default function WeaponFilterStack({
         selectedWeapon={selectedWeaponType}
         setSelectedWeapon={setSelectedWeaponType}
       />
-      <RarityFilter
-        selectedRarity={selectedRarity}
-        setSelectedRarity={setSelectedRarity}
-      />
+      <RarityFilter {...{ selectedRarity, setSelectedRarity }} />
 
       <WeaponSeriesFilter
-        series={seriesOptions}
-        selectedSeries={selectedSeries}
-        setSelectedSeries={setSelectedSeries}
+        {...{ selectedSeries, setSelectedSeries, series: seriesOptions }}
       />
 
       <button

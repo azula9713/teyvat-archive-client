@@ -25,18 +25,11 @@ export default function CharacterFilterStack({
 }: Readonly<Props>) {
   return (
     <>
-      <ElementFilter
-        selectedElement={selectedElement}
-        setSelectedElement={setSelectedElement}
-      />
-      <WeaponFilter
-        selectedWeapon={selectedWeapon}
-        setSelectedWeapon={setSelectedWeapon}
-      />
+      <ElementFilter {...{ selectedElement, setSelectedElement }} />
+      <WeaponFilter {...{ selectedWeapon, setSelectedWeapon }} />
+
       <RarityFilter
-        selectedRarity={selectedRarity}
-        setSelectedRarity={setSelectedRarity}
-        isCharacter
+        {...{ selectedRarity, setSelectedRarity, isCharacter: true }}
       />
       <button
         className="w-full lg:w-auto p-2 mb-3 max-w-[300px] cursor-pointer rounded-lg h-[40px] text-xs hover:bg-slate-700 text-white flex items-center"

@@ -24,7 +24,7 @@ export default function CharacterProfileDesktop({
       <h4 className="uppercase font-semibold text-3xl italic tracking-widest mt-6 font-algoindeEnka drop-shadow-xl">
         {title}
       </h4>
-      <DescriptionDesktop description={description} />
+      <DescriptionDesktop {...{ description }} />
     </div>
   );
 }

@@ -18,12 +18,7 @@ export default function ToggleItem({
   isDisabled,
 }: Readonly<Props>) {
   return (
-    <SettingItemContainer
-      id={id}
-      label={label}
-      description={description}
-      isDisabled={isDisabled}
-    >
+    <SettingItemContainer {...{ id, label, description, isDisabled }}>
       <input
         type="checkbox"
         id={id}

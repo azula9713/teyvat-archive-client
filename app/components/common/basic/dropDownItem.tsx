@@ -23,12 +23,7 @@ export default function DropdownItem({
   isDisabled = false,
 }: Readonly<Props>) {
   return (
-    <SettingItemContainer
-      id={id}
-      label={label}
-      description={description}
-      isDisabled={isDisabled}
-    >
+    <SettingItemContainer {...{ id, label, description, isDisabled }}>
       <select
         id={id}
         value={value}
