@@ -38,7 +38,7 @@ export default function WeaponMobileOverview({
             value={stats[1][1].fightPropName}
           >
             <img
-              className="size-[1.12rem] mr-2"
+              className="size-4.5 mr-2"
               src={
                 weaponStatIconFilter[
                   stats[1][1].fightProp as keyof typeof weaponStatIconFilter

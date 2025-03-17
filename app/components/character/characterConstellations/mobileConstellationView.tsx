@@ -15,7 +15,7 @@ export default function MobileConstellationView({
   return (
     <AttributeMobileContainer title={constellation}>
       <div className="w-full flex items-center justify-center">
-        <img src={chapterIcon} alt={constellation} className="h-48 w-48" />
+        <img src={chapterIcon} alt={constellation} className="size-48" />
       </div>
       <div className="w-full flex flex-col items-start justify-center">
         {constellations.map((con, i) => (
