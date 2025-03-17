@@ -1,4 +1,4 @@
-import React from "react";
+import { motion } from "framer-motion";
 
 type Props = {
   selectedLevel: number;
@@ -10,20 +10,40 @@ export default function OverviewLevelPicker({
   setSelectedLevel,
 }: Readonly<Props>) {
   return (
-    <div className="flex items-center p-1 space-x-1 rtl:space-x-reverse text-sm text-gray-600 bg-gray-500/5 rounded-xl dark:bg-gray-500/20">
-      {[1, 90].map((level) => (
-        <button
-          key={level}
-          onClick={() => setSelectedLevel(level)}
-          className={`flex whitespace-nowrap items-center h-5 px-2 font-medium rounded-lg outline-none focus:ring-2 focus:ring-teal-600 focus:ring-inset ${
-            selectedLevel === level
-              ? "text-teal-600 shadow bg-white dark:text-white dark:bg-teal-600"
-              : "hover:text-gray-800 focus:text-teal-600 dark:text-gray-400 dark:hover:text-gray-300 dark:focus:text-gray-400"
-          }`}
-        >
-          {level}
-        </button>
-      ))}
+    <div className="relative flex items-center p-1 space-x-1 rtl:space-x-reverse text-sm text-gray-600 bg-gray-500/5 rounded-xl dark:bg-gray-500/20">
+      {/* Static Buttons */}
+      <button
+        onClick={() => setSelectedLevel(1)}
+        className={`relative z-10 flex whitespace-nowrap items-center h-5 px-2 font-medium rounded-lg outline-none focus:ring-0 ${
+          selectedLevel === 1
+            ? "text-teal-600 dark:text-white"
+            : "text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
+        }`}
+      >
+        01
+      </button>
+      <button
+        onClick={() => setSelectedLevel(90)}
+        className={`relative z-10 flex whitespace-nowrap items-center h-5 px-2 font-medium rounded-lg outline-none focus:ring-0 ${
+          selectedLevel === 90
+            ? "text-teal-600 dark:text-white"
+            : "text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
+        }`}
+      >
+        90
+      </button>
+
+      {/* Sliding Teal Background */}
+      <motion.div
+        className="absolute top-1 bottom-1 rounded-lg bg-white dark:bg-teal-600 shadow"
+        animate={{
+          x: selectedLevel === 1 ? "0%" : "100%",
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        style={{
+          width: "calc(50% - 0.4rem)", // Half container minus space-x-1 gap
+        }}
+      />
     </div>
   );
 }
