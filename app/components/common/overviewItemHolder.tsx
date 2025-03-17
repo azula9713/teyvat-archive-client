@@ -7,6 +7,8 @@ type Props = {
   children?: React.ReactNode | React.ReactNode[];
   textShadowLabel?: boolean;
   textShadowValue?: boolean;
+  labelCustomClass?: string;
+  valueCustomClass?: string;
 };
 
 export default function OverviewItemHolder({
@@ -15,13 +17,15 @@ export default function OverviewItemHolder({
   children,
   textShadowLabel = false,
   textShadowValue = false,
+  labelCustomClass = "uppercase",
+  valueCustomClass = "text-slate-300 xl:text-white xl:text-xl font-semibold leading-4 xl:leading-5",
 }: Readonly<Props>) {
   return (
     <div className="w-full max-w-[350px] flex flex-col justify-between items-start mx-1">
       <div className=" xl:py-1 xl:px-2 xl:rounded-md relative my-1">
         <TextLabel
           label={label}
-          classNames="uppercase"
+          classNames={labelCustomClass}
           textShadow={textShadowLabel}
         />
         <div
@@ -31,7 +35,11 @@ export default function OverviewItemHolder({
           }}
         >
           {children}
-          <TextValue text={value} textShadow={textShadowValue} />
+          <TextValue
+            text={value}
+            textShadow={textShadowValue}
+            customClass={valueCustomClass}
+          />
         </div>
       </div>
     </div>

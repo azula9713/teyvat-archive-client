@@ -7,7 +7,6 @@ function elementalColorPicker(element: string) {
       break;
     case "Anemo":
       color = "#3e9f85";
-
       break;
     case "Dendro":
       color = "#397c53";

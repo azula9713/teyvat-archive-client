@@ -14,7 +14,7 @@ export default function WeaponRefinementMobile({
   const [refinementLevel, setRefinementLevel] = useState(1);
   return (
     <AttributeMobileContainer title="Refinement">
-      <div className="px-4 py-6 space-y-2  text-white">
+      <div className="py-6 space-y-2  text-white">
         <h5 className="text-lg font-semibold">{refinements[0].name}</h5>
         <div className="flex gap-3 w-full py-1">
           {Array.from({ length: 5 }, (_, i) => (

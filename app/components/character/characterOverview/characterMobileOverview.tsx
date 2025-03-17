@@ -1,5 +1,5 @@
 import OverviewItemHolder from "~/components/common/overviewItemHolder";
-import birthdayFormatter from "~/utils/birthdayFormatter";
+import birthdayFormatter from "~/utils/formatters/birthday.formatter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
 import { weaponTypeParser } from "~/utils/parsers/weaponDataParser";

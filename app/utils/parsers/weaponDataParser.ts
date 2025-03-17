@@ -17,6 +17,4 @@ function weaponTypeParser(weaponType: string) {
   }
 }
 
-function weaponPropParser() {}
-
-export { weaponTypeParser, weaponPropParser };
+export { weaponTypeParser };

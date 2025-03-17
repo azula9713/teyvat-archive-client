@@ -7,8 +7,6 @@ const getZoomValue = (
   let zoomValue = 1.7;
 
   if (isTraveler) {
-    zoomValue = 1.7;
-
     return zoomValue;
   } else {
     //   Scenarios, if bodyType = BODY_LOLI, add 0.4 to zoomValue
