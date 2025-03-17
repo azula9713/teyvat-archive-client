@@ -2,7 +2,7 @@ import { memo } from "react";
 
 import { WEAPONS } from "~/data/teyvatData";
 import ItemSeparator from "../../characterShowcase/filtering/itemSeparator";
-import weaponIconFilter from "~/utils/weaponIconFilter";
+import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
 
 type Props = {
   selectedWeapon: string;
@@ -26,7 +26,7 @@ function WeaponFilter({ selectedWeapon, setSelectedWeapon }: Readonly<Props>) {
             className="cursor-pointer mx-2"
           >
             <img
-              src={weaponIconFilter[weapon]}
+              src={weaponTypeIconFilter[weapon]}
               alt={weapon}
               className="w-[30px]"
               style={{

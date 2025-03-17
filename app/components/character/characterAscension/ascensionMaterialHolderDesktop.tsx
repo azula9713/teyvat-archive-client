@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { getMaterialById } from "~/services/teyvatServer/teyvatArchive.service";
-import RarityStars from "../rarityStars";
+import RarityStars from "../../common/rarityStars";
 
 type Props = {
   id: string;
@@ -11,8 +11,8 @@ type Props = {
 
 export default function AscensionMaterialHolderDesktop({
   id,
-  index,
   value,
+  index,
 }: Readonly<Props>) {
   const [materialData, setMaterialData] = useState<IMaterialData>(
     {} as IMaterialData

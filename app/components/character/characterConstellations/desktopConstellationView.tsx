@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 
-import DesktopContainer from "../containers/desktopContainer";
+import AttributeDesktopContainer from "../../layout/container/attributeDesktopContainer";
 import ConstellationDetails from "./constellationDetails";
 import ConstellationIcon from "./constellationIcon";
 
 type Props = {
   consName: string;
   constellations: IConstellation[];
-  chapterIcon: string;
+  constellationIcon: string;
   element: IElementType;
 };
 
 export default function DesktopConstellationView({
   consName,
   constellations,
-  chapterIcon,
+  constellationIcon,
   element,
 }: Readonly<Props>) {
   const [selectedConstellation, setSelectedConstellation] =
@@ -25,11 +25,11 @@ export default function DesktopConstellationView({
   }, [constellations]);
 
   return (
-    <DesktopContainer title={`Constellation - ${consName}`}>
-      <div className="w-full flex items-start justify-between">
-        <div className="w-full flex flex-col items-center justify-start pb-40">
+    <AttributeDesktopContainer title={`Constellation - ${consName}`}>
+      <div className="w-full flex items-start justify-between space-x-6">
+        <div className="w-1/2 flex flex-col items-center justify-start pb-40">
           <div
-            className="mt-60 min-h-max flex items-center justify-center w-full"
+            className="mt-40 min-h-max flex items-center justify-center w-full"
             style={{
               //rotate 180deg to make the first constellation at the top
               transform: "rotate(180deg)",
@@ -37,7 +37,7 @@ export default function DesktopConstellationView({
           >
             {constellations.map((con, i) => (
               <ConstellationIcon
-                key={i}
+                key={con.name}
                 index={i}
                 constellation={con}
                 selectedConstellation={selectedConstellation}
@@ -46,17 +46,19 @@ export default function DesktopConstellationView({
               />
             ))}
             <img
-              src={chapterIcon}
-              alt="Chapter Icon"
-              className="w-80 h-80"
+              src={constellationIcon}
+              alt="CONSTELLATION ICON"
+              className="size-60"
               style={{
                 transform: "rotate(180deg)",
+                zoom: "1.2",
+                filter: "brightness(1000%)",
               }}
             />
           </div>
         </div>
         <ConstellationDetails selectedConstellation={selectedConstellation} />
       </div>
-    </DesktopContainer>
+    </AttributeDesktopContainer>
   );
 }

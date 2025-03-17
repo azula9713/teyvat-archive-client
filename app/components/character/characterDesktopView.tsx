@@ -1,11 +1,14 @@
+import { useState } from "react";
+
 import { getMarginRightValue, getZoomValue } from "~/utils/splashArtZoom";
 import LazyBackgroundImage from "../common/lazyBackgroundImage";
 import AscensionMatsDesktop from "./characterAscension/ascensionMatsDesktop";
 import DesktopConstellationView from "./characterConstellations/desktopConstellationView";
-import DesktopOverview from "./characterOverview/desktopOverview";
+import CharacterDesktopOverview from "./characterOverview/characterDesktopOverview";
 import CharacterProfileDesktop from "./characterProfile/characterProfileDesktop";
 import TalentsDesktop from "./characterTalents/talentsDesktop";
-import RarityStars from "./rarityStars";
+import RarityStars from "../common/rarityStars";
+import TabNavigation from "../common/basic/tabNavigation";
 
 type Props = {
   characterData: ICharacter;
@@ -32,8 +35,25 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
     ascensionData,
   } = characterData;
 
+  const TAB_NAV = [
+    {
+      name: "Talents",
+      id: "talents",
+    },
+    {
+      name: "Constellations",
+      id: "constellations",
+    },
+    {
+      name: "Ascension",
+      id: "ascension",
+    },
+  ];
+
+  const [selectedTab, setSelectedTab] = useState(TAB_NAV[0].id);
+
   return (
-    <div className="py-4 px-12 flex-col items-center justify-start space-y-8 hidden xl:flex w-full">
+    <div className="py-4 px-12 flex-col items-center justify-start space-y-8 hidden xl:flex w-full overflow-x-hidden">
       <LazyBackgroundImage
         img={nameCard}
         isDarkened
@@ -57,11 +77,12 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
             name={name}
             description={description}
           />
-          <DesktopOverview
+          <CharacterDesktopOverview
             element={element}
             weapon={weaponType}
             affiliation={location}
             birthday={characterData.birthday}
+            isTraveler={characterData.isTraveler}
           />
         </div>
         <div className="w-full xl:h-[400px]  flex items-center justify-end">
@@ -87,18 +108,37 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
           </div>
         </div>
       </LazyBackgroundImage>
-      <TalentsDesktop
-        element={element}
-        skills={skills}
-        passiveTalents={passiveTalents}
-      />
-      <DesktopConstellationView
-        consName={constellation}
-        constellations={constellations}
-        chapterIcon={constellationIcon}
-        element={element}
-      />
-      <AscensionMatsDesktop ascensionData={ascensionData} />
+      <div className="w-full flex items-start justify-between space-x-4 border-2 rounded-lg border-slate-700 mt-20">
+        <TabNavigation
+          tabs={TAB_NAV}
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
+        />
+        {/* tab content */}
+        <div className="w-full">
+          <div className="px-4 pb-6">
+            {selectedTab === "talents" && (
+              <TalentsDesktop
+                element={element}
+                skills={skills}
+                passiveTalents={passiveTalents}
+              />
+            )}
+            {selectedTab === "constellations" && (
+              <DesktopConstellationView
+                consName={constellation}
+                constellations={constellations}
+                constellationIcon={constellationIcon}
+                element={element}
+              />
+            )}
+            {selectedTab === "ascension" && (
+              <AscensionMatsDesktop ascensionData={ascensionData} />
+            )}
+          </div>
+        </div>
+        {/* tab content ends */}
+      </div>
     </div>
   );
 }

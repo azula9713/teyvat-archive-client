@@ -1,4 +1,4 @@
-import DesktopContainer from "../containers/desktopContainer";
+import AttributeDesktopContainer from "../../layout/container/attributeDesktopContainer";
 import AscensionMaterialHolderDesktop from "./ascensionMaterialHolderDesktop";
 
 type Props = {
@@ -19,7 +19,7 @@ export default function AscensionMatsDesktop({
   const itemsArray = Object.entries(itemsMap);
 
   return (
-    <DesktopContainer title="Ascension Materials">
+    <AttributeDesktopContainer title="Ascension Materials">
       <div className="w-full my-4 px-2">
         <table className="w-full">
           <tbody>
@@ -43,6 +43,6 @@ export default function AscensionMatsDesktop({
           </tbody>
         </table>
       </div>
-    </DesktopContainer>
+    </AttributeDesktopContainer>
   );
 }

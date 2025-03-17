@@ -40,6 +40,16 @@ export const getWeapons = async () => {
   }
 };
 
+export const getWeaponById = async (weaponId: string) => {
+  try {
+    const response = await serverInstance.get(`/weapons/id/${weaponId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export const getWeaponSeries = async () => {
   try {
     const response = await serverInstance.get("/weapons/series");

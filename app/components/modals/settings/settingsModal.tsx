@@ -1,5 +1,7 @@
 import Modal from "react-modal";
-import SettingItems from "./settingItems";
+import SettingCategories from "./settingCategories";
+import { useAtomValue } from "jotai";
+import { themeAtom } from "~/atoms/general.atoms";
 
 type Props = {
   isOpen: boolean;
@@ -11,6 +13,8 @@ export default function SettingsModal({
   isOpen,
   onRequestClose,
 }: Readonly<Props>) {
+  const theme = useAtomValue(themeAtom);
+
   const customStyles = {
     content: {
       top: "50%",
@@ -19,9 +23,13 @@ export default function SettingsModal({
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      backgroundColor: "var(--color-slate-900)",
+      backgroundColor: `${
+        theme === "light" ? "var(--color-slate-200)" : "var(--color-slate-900)"
+      }`,
       outline: "none",
-      border: "2px solid var(--color-slate-700)",
+      border: `${
+        theme === "light" ? "var(--color-slate-300)" : "var(--color-slate-900)"
+      } 2px solid`,
       borderRadius: "0.5rem",
     },
     overlay: {
@@ -33,15 +41,16 @@ export default function SettingsModal({
   return (
     <Modal
       isOpen={isOpen}
-      //   onAfterOpen={afterOpenModal}
       onRequestClose={onRequestClose}
       style={customStyles}
       contentLabel="Teyvat Archive Settings"
     >
-      <div className="w-usable max-w-[750px]">
-        <h4 className="w-full text-center">Teyvat Archive Settings</h4>
+      <div className="w-usable max-w-[750px] bg-slate-200 dark:bg-slate-900">
+        <h4 className="w-full text-center primary-text">
+          Teyvat Archive Settings
+        </h4>
         <div className="w-full my-4 py-2 flex flex-col items-center justify-between">
-          <SettingItems />
+          <SettingCategories />
         </div>
       </div>
     </Modal>

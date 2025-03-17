@@ -1,23 +1,26 @@
 import OverviewItemHolder from "~/components/common/overviewItemHolder";
 import birthdayFormatter from "~/utils/birthdayFormatter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
-import weaponIconFilter from "~/utils/weaponIconFilter";
-import weaponTypeParser from "~/utils/parsers/weaponTypeParser";
+import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
+import { weaponTypeParser } from "~/utils/parsers/weaponDataParser";
+import characterLocationParser from "~/utils/parsers/characterLocationParser";
 
 type Props = {
   element: IElementType;
   weapon: IWeaponType;
-  affiliation: string;
+  affiliation: ICharacterLocation;
   description: string;
   birthday: IBirthday | null;
+  isTraveler: boolean;
 };
 
-export default function Mobileoverview({
+export default function CharacterMobileOverview({
   element,
   weapon,
   affiliation,
   description,
   birthday,
+  isTraveler,
 }: Readonly<Props>) {
   return (
     <div className="mt-2 bg-slate-200 dark:bg-slate-800 bg-opacity-50 flex flex-col items-center justify-center p-4 rounded-lg shadow-md w-full xl:hidden">
@@ -43,7 +46,7 @@ export default function Mobileoverview({
         >
           <img
             className="w-6 h-6 mr-2"
-            src={weaponIconFilter[weapon]}
+            src={weaponTypeIconFilter[weapon]}
             alt={weapon}
             style={{
               filter: "brightness(0) invert(1)",
@@ -54,14 +57,12 @@ export default function Mobileoverview({
       <div className="flex items-start w-full justify-between mt-4">
         <OverviewItemHolder
           label="Affiliation"
-          value={affiliation}
-        ></OverviewItemHolder>
+          value={characterLocationParser(affiliation, isTraveler)}
+        />
         <OverviewItemHolder
           label="Birthday"
           value={birthday ? `${birthdayFormatter(birthday)}` : "Unknown"}
-        >
-          {/* <img className="w-6 h-6 mr-2" src={chapterIcon} alt={name} /> */}
-        </OverviewItemHolder>
+        />
       </div>
     </div>
   );

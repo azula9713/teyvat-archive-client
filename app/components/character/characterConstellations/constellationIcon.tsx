@@ -17,7 +17,7 @@ export default function ConstellationIcon({
 }: Readonly<Props>) {
   return (
     <button
-      className="absolute w-20 h-20 rounded-full cursor-pointer p-1 hover:bg-slate-700 transition-all duration-200"
+      className="absolute size-20 rounded-full cursor-pointer p-1 hover:bg-slate-700 transition-all duration-200"
       style={{
         transform: `rotate(${index * 60}deg) translate(0, 240px)`,
         background:
@@ -29,7 +29,7 @@ export default function ConstellationIcon({
     >
       {/* add a bublle saying which constellation is is. Eg: C0 C1 C2 etc */}
       <div
-        className="absolute w-6 h-6 rounded-full flex items-center justify-center bg-slate-400 text-white text-xs font-bold"
+        className="absolute size-6 rounded-full flex items-center justify-center bg-slate-400 text-white text-xs font-bold"
         style={{
           transform: `rotate(${-index * 60}deg)`,
         }}

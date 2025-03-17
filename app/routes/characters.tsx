@@ -11,6 +11,7 @@ import {
 } from "~/atoms/feature.atoms";
 import filterCharacters from "~/features/characterDisplayOptimizer";
 import type { Route } from "./+types/characters";
+import ShowcaseFilterContainer from "~/components/layout/container/showcaseFilterContainer";
 
 export async function loader() {
   const characters: IBaseCharacter[] = await getCharacters();
@@ -50,10 +51,12 @@ export default function Characters({
 
   return (
     <>
-      <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
-        <PageTitle title="Teyvat Characters" />
-      </div>
-      <CharacterFilterSection />
+      <ShowcaseFilterContainer isSticky>
+        <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
+          <PageTitle title="Teyvat Characters" />
+        </div>
+        <CharacterFilterSection />
+      </ShowcaseFilterContainer>
       <AllCharacterShowcase characters={filteredCharacters} />
     </>
   );

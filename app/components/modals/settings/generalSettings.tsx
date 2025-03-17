@@ -4,8 +4,8 @@ import {
   useFilterTravelersAtom,
   useSelectedTravelerAtom,
 } from "~/atoms/feature.atoms";
-import DropdownItem from "./dropDownItem";
-import ToggleItem from "./toggleItem";
+import DropdownItem from "../../common/basic/dropDownItem";
+import ToggleItem from "../../common/basic/toggleItem";
 
 export default function GeneralSettings() {
   const [useFilterTravelers, setUseFilterTravelers] = useAtom(
@@ -33,7 +33,11 @@ export default function GeneralSettings() {
           { value: "PlayerBoy", label: "Aether" },
           { value: "PlayerGirl", label: "Lumine" },
         ]}
-        description="Enable filter travelers option to choose a traveler"
+        description={
+          !useFilterTravelers
+            ? "Enable 'Filter Travelers' to use this feature."
+            : ""
+        }
       />
     </div>
   );

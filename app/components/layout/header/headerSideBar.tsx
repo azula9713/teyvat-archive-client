@@ -37,7 +37,7 @@ export default function HeaderSidebar({
 
   return (
     <motion.div
-      className={`absolute top-0 right-0 w-full max-w-[300px] h-screen bg-gray-800 opacity-90 z-50 px-10 flex flex-col items-end justify-start ${
+      className={`absolute top-0 right-0 w-full max-w-[300px] h-screen bg-gray-100 dark:bg-gray-800 opacity-90 z-50 px-10 flex flex-col items-end justify-start ${
         isSidebarOpen ? "block" : "hidden"
       }`}
       initial={{ x: "100%" }}
@@ -47,7 +47,7 @@ export default function HeaderSidebar({
     >
       <button
         onClick={() => setIsSidebarOpen(false)}
-        className="absolute top-5 right-5 text-white"
+        className="absolute top-5 right-5 primary-text"
       >
         <XMarkIcon className="size-5" />
       </button>
@@ -56,7 +56,7 @@ export default function HeaderSidebar({
           <Link
             key={route.path}
             to={route.path}
-            className="text-white font-enka text-xl"
+            className="primary-text font-enka text-xl"
             onClick={() => setIsSidebarOpen(false)}
           >
             {route.name}
@@ -70,7 +70,7 @@ export default function HeaderSidebar({
           setIsSettingsOpen(true);
           setIsSidebarOpen(false);
         }}
-        className="absolute bottom-5 right-5 text-white"
+        className="absolute bottom-5 right-5 primary-text"
       >
         <Cog6ToothIcon className="size-5" />
       </button>

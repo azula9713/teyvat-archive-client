@@ -1,4 +1,4 @@
-import MobileContainer from "../containers/mobileContainer";
+import AttributeMobileContainer from "../../layout/container/attributeMobileContainer";
 import AscensionMaterialHolderMobile from "./ascensionMaterialHolderMobile";
 
 type Props = {
@@ -19,7 +19,7 @@ export default function AscensionMatsMobile({
   const itemsArray = Object.entries(itemsMap);
 
   return (
-    <MobileContainer title="Ascension Materials">
+    <AttributeMobileContainer title="Ascension Materials">
       {ascensionData ? (
         itemsArray.map(([id, count], index) => {
           if (!id || !count) return null;
@@ -36,6 +36,6 @@ export default function AscensionMatsMobile({
       ) : (
         <div>Loading Ascension data</div>
       )}
-    </MobileContainer>
+    </AttributeMobileContainer>
   );
 }

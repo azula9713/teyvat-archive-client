@@ -12,7 +12,7 @@ export default function Header() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   return (
-    <header className="bg-white dark:bg-gray-900 w-full shadow-slate-950 shadow-md">
+    <header className="bg-white dark:bg-gray-900 w-full shadow-slate-300 dark:shadow-slate-950 shadow-md overflow-x-hidden">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mx-2 w-full">
           <Link to="/" className="flex items-center justify-start py-2 w-full">
@@ -34,7 +34,7 @@ export default function Header() {
                 onClick={() => setIsSettingsOpen(true)}
                 className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75 cu"
               >
-                <Cog6ToothIcon className="size-5 text-gray-600 dark:text-white" />
+                <Cog6ToothIcon className="size-5 primary-text" />
               </button>
             </div>
 

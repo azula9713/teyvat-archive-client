@@ -24,7 +24,7 @@ export default function WeaponFilterStack({
   selectedSeries,
   setSelectedSeries,
   weaponSeries,
-}: Props) {
+}: Readonly<Props>) {
   const seriesOptions = Object.keys(weaponSeries).map((series) => ({
     value: series,
     label: series,

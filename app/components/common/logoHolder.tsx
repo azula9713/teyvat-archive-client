@@ -5,14 +5,16 @@ type Props = {
 };
 
 export default function LogoHolder({ size = "medium" }: Readonly<Props>) {
-  const sizeFilter =
-    size === "small"
-      ? "size-8"
-      : size === "large"
-      ? "size-16"
-      : size === "medium"
-      ? "size-12"
-      : `size-${size}`;
+  let sizeFilter;
+  if (size === "small") {
+    sizeFilter = "size-8";
+  } else if (size === "large") {
+    sizeFilter = "size-16";
+  } else if (size === "medium") {
+    sizeFilter = "size-12";
+  } else {
+    sizeFilter = `size-${size}`;
+  }
 
   return (
     <img

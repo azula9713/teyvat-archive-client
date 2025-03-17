@@ -13,7 +13,7 @@ type Props = {
   weapons: IBasicWeapon[];
 };
 
-export default function AllWeaponShowcase({ weapons }: Props) {
+export default function AllWeaponShowcase({ weapons }: Readonly<Props>) {
   const selectedWeaponType = useAtomValue(selectedWeaponTypeAtom);
   const selectedWeaponRarity = useAtomValue(selectedWeaponRarityAtom);
   const selectedWeaponSeries = useAtomValue(selectedWeaponSeriesAtom);
@@ -32,7 +32,9 @@ export default function AllWeaponShowcase({ weapons }: Props) {
           weapon.series === selectedWeaponSeries)
     );
 
-    setFilteredWeapons(tempFilteredWeapons.sort((a, b) => a.stars - b.stars));
+    setFilteredWeapons(
+      tempFilteredWeapons.toSorted((a, b) => a.stars - b.stars)
+    );
   }, [weapons, selectedWeaponType, selectedWeaponRarity, selectedWeaponSeries]);
 
   return (

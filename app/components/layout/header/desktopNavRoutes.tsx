@@ -11,10 +11,10 @@ export default function DesktopNavRoutes() {
           <li key={route.path}>
             <Link
               to={route.path}
-              className={`transition hover:text-gray-500/75 dark:hover:text-white/75 font-enka ${
+              className={`transition hover:text-slate-600/75 dark:hover:text-white/75 font-enka ${
                 location.pathname === route.path.toLowerCase()
                   ? "text-teal-400"
-                  : "text-white"
+                  : "text-slate-600 dark:text-white"
               }`}
             >
               {route.name}

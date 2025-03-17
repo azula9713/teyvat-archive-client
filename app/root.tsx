@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "react-router";
 import { scan } from "react-scan";
 
@@ -12,10 +13,20 @@ import "react-tooltip/dist/react-tooltip.css";
 import type { Route } from "./+types/root";
 import "./app.css";
 import { syncInitialValues } from "./utils/syncHeaderValues";
+import { useAtomValue } from "jotai";
+import { themeAtom } from "./atoms/general.atoms";
+import { useEffect } from "react";
+import { getThemeFromCookie } from "./utils/theme";
 
 scan({
   enabled: false,
 });
+
+export async function loader({ request }: Route.LoaderArgs) {
+  const theme = getThemeFromCookie({ req: request });
+
+  return { theme };
+}
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -35,13 +46,21 @@ if (typeof window !== "undefined") {
 }
 
 export function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const { theme: initialTheme } = useLoaderData();
   return (
-    <html lang="en">
+    <html lang="en" className={initialTheme}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        {/* <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.documentElement.classList.add('${initialTheme}');
+            `,
+          }}
+        /> */}
       </head>
       <body>
         {children}
@@ -53,6 +72,13 @@ export function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
 }
 
 export default function App() {
+  const theme = useAtomValue(themeAtom);
+
+  useEffect(() => {
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+  }, [theme]);
+
   return <Outlet />;
 }
 

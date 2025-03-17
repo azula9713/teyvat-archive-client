@@ -7,13 +7,13 @@ import Header from "../header/header";
 export default function BaseLayout() {
   return (
     <div
-      className="bg-gray-900 w-full flex flex-col items-center justify-start"
+      className="bg-slate-200 dark:bg-gray-900 w-full flex flex-col items-center justify-start min-h-svh"
       style={{
         cursor: "url(" + CustomCursor + "), auto",
       }}
     >
       <Header />
-      <main className="bg-gray-900 text-white overflow-x-hidden w-full flex flex-col items-center justify-start mt-4 md:mt-8 lg:mt-12 xl:mt-16 max-w-[1500px]">
+      <main className="bg-slate-200 dark:bg-gray-900 primary-text flex-1 w-full flex flex-col items-center justify-start mt-4 md:mt-8 lg:mt-12 xl:mt-16 max-w-[1500px]">
         <Outlet />
       </main>
       <Footer />
