@@ -5,6 +5,7 @@ import {
   selectedWeaponRarityAtom,
   selectedWeaponSeriesAtom,
   selectedWeaponTypeAtom,
+  weaponSearchAtom,
 } from "~/atoms/teyvat/weapon.atom";
 import { useAtomValue } from "jotai";
 import rarityParser from "~/utils/parsers/rarityParser";
@@ -17,6 +18,7 @@ export default function AllWeaponShowcase({ weapons }: Readonly<Props>) {
   const selectedWeaponType = useAtomValue(selectedWeaponTypeAtom);
   const selectedWeaponRarity = useAtomValue(selectedWeaponRarityAtom);
   const selectedWeaponSeries = useAtomValue(selectedWeaponSeriesAtom);
+  const weaponSearch = useAtomValue(weaponSearchAtom);
 
   const [filteredWeapons, setFilteredWeapons] =
     useState<IBasicWeapon[]>(weapons);
@@ -24,18 +26,26 @@ export default function AllWeaponShowcase({ weapons }: Readonly<Props>) {
   useEffect(() => {
     const tempFilteredWeapons = weapons.filter(
       (weapon) =>
-        (selectedWeaponType === "all" ||
-          weapon.weaponType === selectedWeaponType) &&
-        (selectedWeaponRarity === "all" ||
-          rarityParser(weapon.stars) === selectedWeaponRarity) &&
-        (selectedWeaponSeries === "all" ||
-          weapon.series === selectedWeaponSeries)
+        weaponSearch === "" ||
+        (weapon.name.toLowerCase().includes(weaponSearch.toLowerCase()) &&
+          (selectedWeaponType === "all" ||
+            weapon.weaponType === selectedWeaponType) &&
+          (selectedWeaponRarity === "all" ||
+            rarityParser(weapon.stars) === selectedWeaponRarity) &&
+          (selectedWeaponSeries === "all" ||
+            weapon.series === selectedWeaponSeries))
     );
 
     setFilteredWeapons(
       tempFilteredWeapons.toSorted((a, b) => a.stars - b.stars)
     );
-  }, [weapons, selectedWeaponType, selectedWeaponRarity, selectedWeaponSeries]);
+  }, [
+    weapons,
+    selectedWeaponType,
+    selectedWeaponRarity,
+    selectedWeaponSeries,
+    weaponSearch,
+  ]);
 
   return (
     <div className="overflow-hidden w-full items-center justify-center flex px-4 md:px-12">

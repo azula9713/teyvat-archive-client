@@ -3,6 +3,7 @@ import { BackspaceIcon } from "@heroicons/react/16/solid";
 import RarityFilter from "~/components/common/filters/rarityFilter";
 import WeaponFilter from "~/components/common/filters/weaponFilter";
 import WeaponSeriesFilter from "./weaponSeriesFilter";
+import SearchFilter from "~/components/common/filters/searchFilter";
 
 type Props = {
   setIsFilterOpen: (value: boolean) => void;
@@ -13,6 +14,8 @@ type Props = {
   selectedSeries: string;
   setSelectedSeries: (series: string) => void;
   weaponSeries: IBaseWeaponSeries;
+  weaponSearch: string;
+  setWeaponSearch: (searchWeapon: string) => void;
 };
 
 export default function WeaponFilterStack({
@@ -24,6 +27,8 @@ export default function WeaponFilterStack({
   selectedSeries,
   setSelectedSeries,
   weaponSeries,
+  weaponSearch,
+  setWeaponSearch,
 }: Readonly<Props>) {
   const seriesOptions = Object.keys(weaponSeries).map((series) => ({
     value: series,
@@ -33,12 +38,16 @@ export default function WeaponFilterStack({
 
   return (
     <>
+      <SearchFilter
+        {...{ searchValue: weaponSearch, setSearchValue: setWeaponSearch }}
+      />
       <WeaponFilter
-        selectedWeapon={selectedWeaponType}
-        setSelectedWeapon={setSelectedWeaponType}
+        {...{
+          selectedWeapon: selectedWeaponType,
+          setSelectedWeapon: setSelectedWeaponType,
+        }}
       />
       <RarityFilter {...{ selectedRarity, setSelectedRarity }} />
-
       <WeaponSeriesFilter
         {...{ selectedSeries, setSelectedSeries, series: seriesOptions }}
       />

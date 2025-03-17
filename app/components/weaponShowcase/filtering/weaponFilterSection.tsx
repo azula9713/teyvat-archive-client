@@ -10,6 +10,7 @@ import {
   selectedWeaponRarityAtom,
   selectedWeaponSeriesAtom,
   selectedWeaponTypeAtom,
+  weaponSearchAtom,
 } from "~/atoms/teyvat/weapon.atom";
 import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
 import WeaponFilterStack from "./weaponFilterStack";
@@ -27,6 +28,7 @@ export default function WeaponFilterSection({ weaponSeries }: Readonly<Props>) {
     selectedWeaponRarityAtom
   );
   const [selectedSeries, setSelectedSeries] = useAtom(selectedWeaponSeriesAtom);
+  const [weaponSearch, setWeaponSearch] = useAtom(weaponSearchAtom);
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -99,6 +101,8 @@ export default function WeaponFilterSection({ weaponSeries }: Readonly<Props>) {
                 selectedSeries,
                 setSelectedSeries,
                 weaponSeries,
+                setWeaponSearch,
+                weaponSearch,
               }}
             />
           </div>
@@ -115,6 +119,8 @@ export default function WeaponFilterSection({ weaponSeries }: Readonly<Props>) {
             selectedSeries,
             setSelectedSeries,
             weaponSeries,
+            setWeaponSearch,
+            weaponSearch,
           }}
         />
       </div>

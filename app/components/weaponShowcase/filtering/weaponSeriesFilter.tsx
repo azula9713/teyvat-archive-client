@@ -17,9 +17,9 @@ function WeaponSeriesFilter({
 }: Readonly<Props>) {
   return (
     <div className="w-full lg:w-max max-w-[300px] flex items-center justify-between p-2 mb-3 border-2 border-slate-600 rounded-lg h-[40px]">
-      <div className="flex items-center w-full mr-4">
+      <div className="flex items-center w-full">
         <select
-          className="text-sm bg-slate-200 dark:bg-slate-900 text-white px-4 py-1 focus:outline-none w-full mx-4"
+          className="text-sm bg-slate-200 dark:bg-slate-900 text-white py-1 focus:outline-none w-full mx-2"
           onChange={(e) => setSelectedSeries(e.target.value)}
           value={selectedSeries}
         >
