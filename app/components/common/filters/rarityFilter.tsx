@@ -1,8 +1,5 @@
 import { memo } from "react";
-import { StarIcon } from "@heroicons/react/16/solid";
-import { StarIcon as OutlineStar } from "@heroicons/react/24/outline";
 
-import { RARITIES } from "~/data/teyvatData";
 import ItemSeparator from "../../characterShowcase/filtering/itemSeparator";
 import RaritySelector from "./raritySelector";
 
@@ -50,26 +47,7 @@ function RarityFilter({
         rarityIndex={3}
       />
       <ItemSeparator />
-      {/* <div className="flex items-center justify-center w-full">
-        <button
-          className="cursor-pointer text-sm mx-2 flex items-center"
-          onClick={() => {
-            if (selectedRarity === RARITIES[4]) {
-              setSelectedRarity("all");
-            } else {
-              setSelectedRarity(RARITIES[4]);
-            }
-          }}
-        >
-          5
-          {selectedRarity === (RARITIES[4] || RARITIES[5]) ||
-          selectedRarity === "all" ? (
-            <StarIcon className={`size-3 lg:size-4 xl:size-5 text-[gold]`} />
-          ) : (
-            <OutlineStar className="size-3 lg:size-4 xl:size-5 text-[gold]" />
-          )}
-        </button>
-      </div> */}
+
       <RaritySelector
         selectedRarity={selectedRarity}
         setSelectedRarity={setSelectedRarity}
