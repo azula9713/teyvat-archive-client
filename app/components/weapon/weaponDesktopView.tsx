@@ -29,7 +29,7 @@ function WeaponDesktopView({ weapon }: Readonly<Props>) {
         isDarkened
         className="hidden xl:flex w-[calc(100%-3rem)] flex-col items-start justify-start p-10 xl:h-[650px] rounded-4xl"
       >
-        <WeaponProfileDesktop {...{ name, stars, splashImage }} />
+        <WeaponProfileDesktop {...{ weapon }} />
       </LazyBackgroundImage>
     </div>
   );

@@ -99,9 +99,6 @@ export default function WeaponMobileOverview({
         )}
         <OverviewLevelPicker {...{ selectedLevel, setSelectedLevel, stars }} />
       </div>
-      {/* <div className="w-full flex items-center justify-end text-sm">
-        <OverviewLevelPicker {...{ selectedLevel, setSelectedLevel, stars }} />
-      </div> */}
     </div>
   );
 }

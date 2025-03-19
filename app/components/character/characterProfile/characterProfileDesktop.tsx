@@ -1,4 +1,4 @@
-import DescriptionDesktop from "../descriptionDesktop";
+import DescriptionDesktop from "../../common/descriptionDesktop";
 
 type Props = {
   title: string;
@@ -24,7 +24,9 @@ export default function CharacterProfileDesktop({
       <h4 className="uppercase font-semibold text-3xl italic tracking-widest mt-6 font-algoindeEnka drop-shadow-xl">
         {title}
       </h4>
-      <DescriptionDesktop {...{ description }} />
+      <div className="w-2/3">
+        <DescriptionDesktop {...{ description }} />
+      </div>
     </div>
   );
 }
