@@ -1,20 +1,21 @@
-import { useState } from "react";
-import { useAtom } from "jotai";
 import {
   AdjustmentsHorizontalIcon,
   ChevronDownIcon,
   ChevronUpIcon,
   StarIcon,
 } from "@heroicons/react/16/solid";
+import { useAtom } from "jotai";
+import { useState } from "react";
 
 import {
+  characterSearchAtom,
   selectedCharacterElementAtom,
   selectedCharacterRarityAtom,
   selectedCharacterWeaponAtom,
 } from "~/atoms/teyvat/character.atom";
+import { RARITIES } from "~/data/teyvatData";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
-import { RARITIES } from "~/data/teyvatData";
 import CharacterFilterStack from "./characterFilterStack";
 
 export default function CharacterFilterSection() {
@@ -27,6 +28,7 @@ export default function CharacterFilterSection() {
   const [selectedCharacterRarity, setSelectedCharacterRarity] = useAtom(
     selectedCharacterRarityAtom
   );
+  const [characterSearch, setCharacterSearch] = useAtom(characterSearchAtom);
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -88,26 +90,34 @@ export default function CharacterFilterSection() {
         {isFilterOpen && (
           <div className="absolute flex flex-col items-center justify-evenly pt-4 end-0 z-10 w-full rounded-md border border-gray-100 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-900">
             <CharacterFilterStack
-              setIsFilterOpen={setIsFilterOpen}
-              selectedElement={selectedCharacterElement}
-              setSelectedElement={setSelectedCharacterElement}
-              selectedWeapon={selectedCharacterWeapon}
-              setSelectedWeapon={setSelectedCharacterWeapon}
-              selectedRarity={selectedCharacterRarity}
-              setSelectedRarity={setSelectedCharacterRarity}
+              {...{
+                setIsFilterOpen,
+                selectedElement: selectedCharacterElement,
+                setSelectedElement: setSelectedCharacterElement,
+                selectedWeapon: selectedCharacterWeapon,
+                setSelectedWeapon: setSelectedCharacterWeapon,
+                selectedRarity: selectedCharacterRarity,
+                setSelectedRarity: setSelectedCharacterRarity,
+                characterSearch,
+                setCharacterSearch,
+              }}
             />
           </div>
         )}
       </div>
       <div className="hidden lg:flex flex-col items-center lg:flex-row lg:justify-center lg:space-x-4">
         <CharacterFilterStack
-          setIsFilterOpen={setIsFilterOpen}
-          selectedElement={selectedCharacterElement}
-          setSelectedElement={setSelectedCharacterElement}
-          selectedWeapon={selectedCharacterWeapon}
-          setSelectedWeapon={setSelectedCharacterWeapon}
-          selectedRarity={selectedCharacterRarity}
-          setSelectedRarity={setSelectedCharacterRarity}
+          {...{
+            setIsFilterOpen,
+            selectedElement: selectedCharacterElement,
+            setSelectedElement: setSelectedCharacterElement,
+            selectedWeapon: selectedCharacterWeapon,
+            setSelectedWeapon: setSelectedCharacterWeapon,
+            selectedRarity: selectedCharacterRarity,
+            setSelectedRarity: setSelectedCharacterRarity,
+            characterSearch,
+            setCharacterSearch,
+          }}
         />
       </div>
     </div>

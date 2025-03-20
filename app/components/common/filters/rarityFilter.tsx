@@ -19,47 +19,33 @@ function RarityFilter({
       {!isCharacter && (
         <>
           <RaritySelector
-            selectedRarity={selectedRarity}
-            setSelectedRarity={setSelectedRarity}
-            rarityIndex={0}
+            {...{ selectedRarity, setSelectedRarity, rarityIndex: 0 }}
           />
           <ItemSeparator />
-
           <RaritySelector
-            selectedRarity={selectedRarity}
-            setSelectedRarity={setSelectedRarity}
-            rarityIndex={1}
+            {...{ selectedRarity, setSelectedRarity, rarityIndex: 1 }}
           />
           <ItemSeparator />
-
           <RaritySelector
-            selectedRarity={selectedRarity}
-            setSelectedRarity={setSelectedRarity}
-            rarityIndex={2}
+            {...{ selectedRarity, setSelectedRarity, rarityIndex: 2 }}
           />
           <ItemSeparator />
         </>
       )}
 
       <RaritySelector
-        selectedRarity={selectedRarity}
-        setSelectedRarity={setSelectedRarity}
-        rarityIndex={3}
+        {...{ selectedRarity, setSelectedRarity, rarityIndex: 3 }}
       />
       <ItemSeparator />
 
       <RaritySelector
-        selectedRarity={selectedRarity}
-        setSelectedRarity={setSelectedRarity}
-        rarityIndex={4}
+        {...{ selectedRarity, setSelectedRarity, rarityIndex: 4 }}
       />
       {isCharacter && <ItemSeparator />}
 
       {isCharacter && (
         <RaritySelector
-          selectedRarity={selectedRarity}
-          setSelectedRarity={setSelectedRarity}
-          rarityIndex={5}
+          {...{ selectedRarity, setSelectedRarity, rarityIndex: 5 }}
         />
       )}
     </div>

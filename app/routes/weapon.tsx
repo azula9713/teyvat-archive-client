@@ -1,10 +1,8 @@
+import WeaponDesktopView from "~/components/weapon/weaponDesktopView";
+import WeaponMobileView from "~/components/weapon/weaponMobileView";
+import { getWeaponById } from "~/services/teyvatServer/teyvatArchive.service";
 import { decryptWeaponUniqueRoute } from "~/utils/decryptUniqueId";
 import type { Route } from "./+types/weapon";
-import { getWeaponById } from "~/services/teyvatServer/teyvatArchive.service";
-import RarityStars from "~/components/common/rarityStars";
-import LazyBackgroundImage from "~/components/common/lazyBackgroundImage";
-import { useState } from "react";
-import WeaponMobileView from "~/components/weapon/weaponMobileView";
 
 export async function loader({ params }: Readonly<Route.LoaderArgs>) {
   const { uniqueId } = params;
@@ -33,6 +31,7 @@ export default function Weapon({ loaderData }: Readonly<Route.ComponentProps>) {
   return (
     <>
       <WeaponMobileView weapon={weapon} />
+      <WeaponDesktopView weapon={weapon} />
     </>
   );
 }

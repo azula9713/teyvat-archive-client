@@ -7,6 +7,9 @@ type Props = {
   children?: React.ReactNode | React.ReactNode[];
   textShadowLabel?: boolean;
   textShadowValue?: boolean;
+  labelCustomClass?: string;
+  valueCustomClass?: string;
+  align?: "start" | "center" | "end";
 };
 
 export default function OverviewItemHolder({
@@ -15,23 +18,34 @@ export default function OverviewItemHolder({
   children,
   textShadowLabel = false,
   textShadowValue = false,
+  labelCustomClass = "uppercase",
+  valueCustomClass = "text-slate-300 xl:text-white xl:text-xl font-semibold leading-4 xl:leading-5",
+  align = "start",
 }: Readonly<Props>) {
   return (
-    <div className="w-full max-w-[350px] flex flex-col justify-between items-start mx-1">
-      <div className=" xl:py-1 xl:px-2 xl:rounded-md relative my-1">
+    <div
+      className={`w-full max-w-[350px] flex flex-col justify-between items-${align} mx-1`}
+    >
+      <div
+        className={`xl:py-1 xl:px-2 xl:rounded-md relative my-1 flex flex-col items-${align}`}
+      >
         <TextLabel
           label={label}
-          classNames="uppercase"
+          classNames={labelCustomClass}
           textShadow={textShadowLabel}
         />
         <div
-          className="flex justify-start items-center pt-1"
+          className={`flex justify-${align} items-center pt-1`}
           style={{
             marginTop: "-2px",
           }}
         >
           {children}
-          <TextValue text={value} textShadow={textShadowValue} />
+          <TextValue
+            text={value}
+            textShadow={textShadowValue}
+            customClass={valueCustomClass}
+          />
         </div>
       </div>
     </div>

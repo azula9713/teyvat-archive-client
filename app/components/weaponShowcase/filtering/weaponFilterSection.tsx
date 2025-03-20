@@ -10,10 +10,11 @@ import {
   selectedWeaponRarityAtom,
   selectedWeaponSeriesAtom,
   selectedWeaponTypeAtom,
+  weaponSearchAtom,
 } from "~/atoms/teyvat/weapon.atom";
+import { RARITIES } from "~/data/teyvatData";
 import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
 import WeaponFilterStack from "./weaponFilterStack";
-import { RARITIES } from "~/data/teyvatData";
 
 type Props = {
   weaponSeries: IBaseWeaponSeries;
@@ -27,6 +28,7 @@ export default function WeaponFilterSection({ weaponSeries }: Readonly<Props>) {
     selectedWeaponRarityAtom
   );
   const [selectedSeries, setSelectedSeries] = useAtom(selectedWeaponSeriesAtom);
+  const [weaponSearch, setWeaponSearch] = useAtom(weaponSearchAtom);
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -90,28 +92,36 @@ export default function WeaponFilterSection({ weaponSeries }: Readonly<Props>) {
         {isFilterOpen && (
           <div className="absolute flex flex-col items-center justify-evenly pt-4 end-0 z-10 w-full rounded-md border border-gray-100 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-900">
             <WeaponFilterStack
-              setIsFilterOpen={setIsFilterOpen}
-              selectedWeaponType={selectedWeaponType}
-              setSelectedWeaponType={setSelectedWeaponType}
-              selectedRarity={selectedWeaponRarity}
-              setSelectedRarity={setSelectedWeaponRarity}
-              selectedSeries={selectedSeries}
-              setSelectedSeries={setSelectedSeries}
-              weaponSeries={weaponSeries}
+              {...{
+                setIsFilterOpen,
+                selectedWeaponType,
+                setSelectedWeaponType,
+                selectedRarity: selectedWeaponRarity,
+                setSelectedRarity: setSelectedWeaponRarity,
+                selectedSeries,
+                setSelectedSeries,
+                weaponSeries,
+                setWeaponSearch,
+                weaponSearch,
+              }}
             />
           </div>
         )}
       </div>
       <div className="hidden lg:flex flex-col items-center lg:flex-row lg:justify-center lg:space-x-4">
         <WeaponFilterStack
-          setIsFilterOpen={setIsFilterOpen}
-          selectedWeaponType={selectedWeaponType}
-          setSelectedWeaponType={setSelectedWeaponType}
-          selectedRarity={selectedWeaponRarity}
-          setSelectedRarity={setSelectedWeaponRarity}
-          selectedSeries={selectedSeries}
-          setSelectedSeries={setSelectedSeries}
-          weaponSeries={weaponSeries}
+          {...{
+            setIsFilterOpen,
+            selectedWeaponType,
+            setSelectedWeaponType,
+            selectedRarity: selectedWeaponRarity,
+            setSelectedRarity: setSelectedWeaponRarity,
+            selectedSeries,
+            setSelectedSeries,
+            weaponSeries,
+            setWeaponSearch,
+            weaponSearch,
+          }}
         />
       </div>
     </div>

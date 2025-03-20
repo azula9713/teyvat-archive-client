@@ -37,12 +37,14 @@ export default function DesktopConstellationView({
           >
             {constellations.map((con, i) => (
               <ConstellationIcon
-                key={con.name}
-                index={i}
-                constellation={con}
-                selectedConstellation={selectedConstellation}
-                setSelectedConstellation={setSelectedConstellation}
-                element={element}
+                {...{
+                  key: con.name,
+                  index: i,
+                  constellation: con,
+                  selectedConstellation,
+                  setSelectedConstellation,
+                  element,
+                }}
               />
             ))}
             <img

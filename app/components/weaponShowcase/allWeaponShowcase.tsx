@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
-import WeaponThumbnail from "./weaponThumbnail";
+import { useAtomValue } from "jotai";
 import { useEffect, useState } from "react";
 import {
   selectedWeaponRarityAtom,
   selectedWeaponSeriesAtom,
   selectedWeaponTypeAtom,
+  weaponSearchAtom,
 } from "~/atoms/teyvat/weapon.atom";
-import { useAtomValue } from "jotai";
 import rarityParser from "~/utils/parsers/rarityParser";
+import WeaponThumbnail from "./weaponThumbnail";
 
 type Props = {
   weapons: IBasicWeapon[];
@@ -17,6 +18,7 @@ export default function AllWeaponShowcase({ weapons }: Readonly<Props>) {
   const selectedWeaponType = useAtomValue(selectedWeaponTypeAtom);
   const selectedWeaponRarity = useAtomValue(selectedWeaponRarityAtom);
   const selectedWeaponSeries = useAtomValue(selectedWeaponSeriesAtom);
+  const weaponSearch = useAtomValue(weaponSearchAtom);
 
   const [filteredWeapons, setFilteredWeapons] =
     useState<IBasicWeapon[]>(weapons);
@@ -24,6 +26,7 @@ export default function AllWeaponShowcase({ weapons }: Readonly<Props>) {
   useEffect(() => {
     const tempFilteredWeapons = weapons.filter(
       (weapon) =>
+        weapon.name.toLowerCase().includes(weaponSearch.toLowerCase()) &&
         (selectedWeaponType === "all" ||
           weapon.weaponType === selectedWeaponType) &&
         (selectedWeaponRarity === "all" ||
@@ -35,7 +38,13 @@ export default function AllWeaponShowcase({ weapons }: Readonly<Props>) {
     setFilteredWeapons(
       tempFilteredWeapons.toSorted((a, b) => a.stars - b.stars)
     );
-  }, [weapons, selectedWeaponType, selectedWeaponRarity, selectedWeaponSeries]);
+  }, [
+    weapons,
+    selectedWeaponType,
+    selectedWeaponRarity,
+    selectedWeaponSeries,
+    weaponSearch,
+  ]);
 
   return (
     <div className="overflow-hidden w-full items-center justify-center flex px-4 md:px-12">
@@ -43,12 +52,9 @@ export default function AllWeaponShowcase({ weapons }: Readonly<Props>) {
         layout
         animate={{ opacity: 1 }}
         className="mt-2 grid auto-cols-fr grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 overflow-y-auto"
-        style={{
-          maxHeight: "calc(100vh - 300px)",
-        }}
       >
         {filteredWeapons.map((weapon) => (
-          <WeaponThumbnail weapon={weapon} key={weapon.id} />
+          <WeaponThumbnail key={weapon.id} {...{ weapon }} />
         ))}
       </motion.div>
     </div>

@@ -18,28 +18,36 @@ export default function CharacterMobileView({
     constellation,
     constellationIcon,
     ascensionData,
+    name,
+    stars,
+    splashUrl,
+    element,
+    weaponType,
+    location,
+    description,
+    birthday,
+    isTraveler,
   } = characterData;
   return (
     <div className="pt-2 md:p-10 px-2 xl:hidden w-full">
-      <CharacterProfileMobile
-        charName={characterData.name}
-        stars={characterData.stars}
-        splashImage={characterData.splashUrl}
-        element={characterData.element}
-      />
+      <CharacterProfileMobile {...{ name, stars, splashUrl, element }} />
       <CharacterMobileOverview
-        element={characterData.element}
-        weapon={characterData.weaponType}
-        affiliation={characterData.location}
-        description={characterData.description}
-        birthday={characterData.birthday}
-        isTraveler={characterData.isTraveler}
+        {...{
+          element,
+          weapon: weaponType,
+          affiliation: location,
+          description,
+          birthday,
+          isTraveler,
+        }}
       />
-      <TalentsMobile skills={skills} passiveTalents={passiveTalents} />
+      <TalentsMobile {...{ skills, passiveTalents }} />
       <MobileConstellationView
-        constellation={constellation}
-        constellations={constellations}
-        chapterIcon={constellationIcon}
+        {...{
+          constellation,
+          constellations,
+          chapterIcon: constellationIcon,
+        }}
       />
       <AscensionMatsMobile ascensionData={ascensionData} />
     </div>

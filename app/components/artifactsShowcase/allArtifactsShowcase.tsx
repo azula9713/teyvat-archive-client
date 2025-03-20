@@ -1,12 +1,12 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import ArtifactThumbnail from "./artifactThumbnail";
 
 type Props = {
   artifacts: IBaseArtifact[];
 };
 
-export default function AllArtifactsShowcase({ artifacts }: Props) {
+export default function AllArtifactsShowcase({ artifacts }: Readonly<Props>) {
   const [filteredArtifacts, setFilteredArtifacts] =
     useState<IBaseArtifact[]>(artifacts);
 
@@ -21,7 +21,12 @@ export default function AllArtifactsShowcase({ artifacts }: Props) {
         }}
       >
         {filteredArtifacts.map((artifact) => (
-          <ArtifactThumbnail artifact={artifact} key={artifact.id} />
+          <ArtifactThumbnail
+            {...{
+              key: artifact.id,
+              artifact,
+            }}
+          />
         ))}
       </motion.div>
     </div>

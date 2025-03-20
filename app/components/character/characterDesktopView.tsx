@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 import { getMarginRightValue, getZoomValue } from "~/utils/splashArtZoom";
+import TabNavigation from "../common/basic/tabNavigation";
 import LazyBackgroundImage from "../common/lazyBackgroundImage";
+import RarityStars from "../common/rarityStars";
 import AscensionMatsDesktop from "./characterAscension/ascensionMatsDesktop";
 import DesktopConstellationView from "./characterConstellations/desktopConstellationView";
 import CharacterDesktopOverview from "./characterOverview/characterDesktopOverview";
 import CharacterProfileDesktop from "./characterProfile/characterProfileDesktop";
 import TalentsDesktop from "./characterTalents/talentsDesktop";
-import RarityStars from "../common/rarityStars";
-import TabNavigation from "../common/basic/tabNavigation";
 
 type Props = {
   characterData: ICharacter;
@@ -33,6 +33,8 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
     constellationIcon,
     sideIcon,
     ascensionData,
+    birthday,
+    isTraveler,
   } = characterData;
 
   const TAB_NAV = [
@@ -72,17 +74,15 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
             />
             <RarityStars stars={stars} />
           </div>
-          <CharacterProfileDesktop
-            title={title}
-            name={name}
-            description={description}
-          />
+          <CharacterProfileDesktop {...{ name, title, description }} />
           <CharacterDesktopOverview
-            element={element}
-            weapon={weaponType}
-            affiliation={location}
-            birthday={characterData.birthday}
-            isTraveler={characterData.isTraveler}
+            {...{
+              element,
+              weapon: weaponType,
+              affiliation: location,
+              birthday,
+              isTraveler,
+            }}
           />
         </div>
         <div className="w-full xl:h-[400px]  flex items-center justify-end">
@@ -118,22 +118,20 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
         <div className="w-full">
           <div className="px-4 pb-6">
             {selectedTab === "talents" && (
-              <TalentsDesktop
-                element={element}
-                skills={skills}
-                passiveTalents={passiveTalents}
-              />
+              <TalentsDesktop {...{ element, skills, passiveTalents }} />
             )}
             {selectedTab === "constellations" && (
               <DesktopConstellationView
-                consName={constellation}
-                constellations={constellations}
-                constellationIcon={constellationIcon}
-                element={element}
+                {...{
+                  consName: constellation,
+                  constellations,
+                  constellationIcon,
+                  element,
+                }}
               />
             )}
             {selectedTab === "ascension" && (
-              <AscensionMatsDesktop ascensionData={ascensionData} />
+              <AscensionMatsDesktop {...{ ascensionData }} />
             )}
           </div>
         </div>

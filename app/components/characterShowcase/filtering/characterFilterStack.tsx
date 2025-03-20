@@ -1,8 +1,9 @@
 import { BackspaceIcon } from "@heroicons/react/16/solid";
 
-import ElementFilter from "./elementFilter";
+import SearchFilter from "~/components/common/filters/searchFilter";
 import RarityFilter from "../../common/filters/rarityFilter";
 import WeaponFilter from "../../common/filters/weaponFilter";
+import ElementFilter from "./elementFilter";
 
 type Props = {
   setIsFilterOpen: (value: boolean) => void;
@@ -12,6 +13,8 @@ type Props = {
   setSelectedWeapon: (weapon: string) => void;
   selectedRarity: string;
   setSelectedRarity: (rarity: string) => void;
+  characterSearch: string;
+  setCharacterSearch: (search: string) => void;
 };
 
 export default function CharacterFilterStack({
@@ -22,21 +25,21 @@ export default function CharacterFilterStack({
   setSelectedWeapon,
   selectedRarity,
   setSelectedRarity,
+  characterSearch,
+  setCharacterSearch,
 }: Readonly<Props>) {
   return (
     <>
-      <ElementFilter
-        selectedElement={selectedElement}
-        setSelectedElement={setSelectedElement}
+      <SearchFilter
+        {...{
+          searchValue: characterSearch,
+          setSearchValue: setCharacterSearch,
+        }}
       />
-      <WeaponFilter
-        selectedWeapon={selectedWeapon}
-        setSelectedWeapon={setSelectedWeapon}
-      />
+      <ElementFilter {...{ selectedElement, setSelectedElement }} />
+      <WeaponFilter {...{ selectedWeapon, setSelectedWeapon }} />
       <RarityFilter
-        selectedRarity={selectedRarity}
-        setSelectedRarity={setSelectedRarity}
-        isCharacter
+        {...{ selectedRarity, setSelectedRarity, isCharacter: true }}
       />
       <button
         className="w-full lg:w-auto p-2 mb-3 max-w-[300px] cursor-pointer rounded-lg h-[40px] text-xs hover:bg-slate-700 text-white flex items-center"
@@ -44,6 +47,7 @@ export default function CharacterFilterStack({
           setSelectedElement("all");
           setSelectedWeapon("all");
           setSelectedRarity("all");
+          setCharacterSearch("");
           setIsFilterOpen(false);
         }}
       >

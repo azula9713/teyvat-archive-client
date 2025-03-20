@@ -1,8 +1,8 @@
 import { memo } from "react";
 
 import { ELEMENTS } from "~/data/teyvatData";
-import ItemSeparator from "./itemSeparator";
 import elementalImageFilter from "~/utils/elementalImagePicker";
+import ItemSeparator from "./itemSeparator";
 
 type Props = {
   selectedElement: string;

@@ -49,10 +49,12 @@ export default function Header() {
           </div>
 
           <HeaderSidebar
-            isSidebarOpen={isSidebarOpen}
-            setIsSidebarOpen={setIsSidebarOpen}
-            isSettingsOpen={isSettingsOpen}
-            setIsSettingsOpen={setIsSettingsOpen}
+            {...{
+              isSidebarOpen,
+              setIsSidebarOpen,
+              isSettingsOpen,
+              setIsSettingsOpen,
+            }}
           />
           <SettingsModal
             isOpen={isSettingsOpen}

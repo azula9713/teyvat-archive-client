@@ -1,17 +1,17 @@
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 
-import AllCharacterShowcase from "~/components/characterShowcase/allCharacterShowcase";
-import CharacterFilterSection from "~/components/characterShowcase/filtering/characterFilterSection";
-import PageTitle from "~/components/common/typography/pageTitle";
-import { getCharacters } from "~/services/teyvatServer/teyvatArchive.service";
 import {
   useFilterTravelersAtom,
   useSelectedTravelerAtom,
 } from "~/atoms/feature.atoms";
-import filterCharacters from "~/features/characterDisplayOptimizer";
-import type { Route } from "./+types/characters";
+import AllCharacterShowcase from "~/components/characterShowcase/allCharacterShowcase";
+import CharacterFilterSection from "~/components/characterShowcase/filtering/characterFilterSection";
+import PageTitle from "~/components/common/typography/pageTitle";
 import ShowcaseFilterContainer from "~/components/layout/container/showcaseFilterContainer";
+import filterCharacters from "~/features/characterDisplayOptimizer";
+import { getCharacters } from "~/services/teyvatServer/teyvatArchive.service";
+import type { Route } from "./+types/characters";
 
 export async function loader() {
   const characters: IBaseCharacter[] = await getCharacters();

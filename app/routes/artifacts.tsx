@@ -1,7 +1,7 @@
+import AllArtifactsShowcase from "~/components/artifactsShowcase/allArtifactsShowcase";
+import PageTitle from "~/components/common/typography/pageTitle";
 import { getArtifacts } from "~/services/teyvatServer/teyvatArchive.service";
 import type { Route } from "./+types/artifacts";
-import PageTitle from "~/components/common/typography/pageTitle";
-import AllArtifactsShowcase from "~/components/artifactsShowcase/allArtifactsShowcase";
 
 export async function loader() {
   const artifacts: IBaseArtifact[] = await getArtifacts();

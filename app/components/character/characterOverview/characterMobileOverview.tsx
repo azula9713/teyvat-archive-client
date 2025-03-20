@@ -1,9 +1,9 @@
 import OverviewItemHolder from "~/components/common/overviewItemHolder";
-import birthdayFormatter from "~/utils/birthdayFormatter";
 import elementalImageFilter from "~/utils/elementalImagePicker";
-import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
-import { weaponTypeParser } from "~/utils/parsers/weaponDataParser";
+import birthdayFormatter from "~/utils/formatters/birthday.formatter";
 import characterLocationParser from "~/utils/parsers/characterLocationParser";
+import { weaponTypeParser } from "~/utils/parsers/weaponDataParser";
+import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
 
 type Props = {
   element: IElementType;
