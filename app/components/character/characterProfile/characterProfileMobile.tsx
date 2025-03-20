@@ -1,6 +1,6 @@
 import LazyBackgroundImage from "~/components/common/lazyBackgroundImage";
-import RarityStars from "../../common/rarityStars";
 import { elementalBackgroundPicker } from "~/utils/elementalImagePicker";
+import RarityStars from "../../common/rarityStars";
 
 type Props = {
   name: string;

@@ -1,9 +1,9 @@
 import { BackspaceIcon } from "@heroicons/react/16/solid";
 
 import RarityFilter from "~/components/common/filters/rarityFilter";
+import SearchFilter from "~/components/common/filters/searchFilter";
 import WeaponFilter from "~/components/common/filters/weaponFilter";
 import WeaponSeriesFilter from "./weaponSeriesFilter";
-import SearchFilter from "~/components/common/filters/searchFilter";
 
 type Props = {
   setIsFilterOpen: (value: boolean) => void;

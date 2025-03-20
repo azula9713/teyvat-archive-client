@@ -1,8 +1,8 @@
+import WeaponDesktopView from "~/components/weapon/weaponDesktopView";
+import WeaponMobileView from "~/components/weapon/weaponMobileView";
+import { getWeaponById } from "~/services/teyvatServer/teyvatArchive.service";
 import { decryptWeaponUniqueRoute } from "~/utils/decryptUniqueId";
 import type { Route } from "./+types/weapon";
-import { getWeaponById } from "~/services/teyvatServer/teyvatArchive.service";
-import WeaponMobileView from "~/components/weapon/weaponMobileView";
-import WeaponDesktopView from "~/components/weapon/weaponDesktopView";
 
 export async function loader({ params }: Readonly<Route.LoaderArgs>) {
   const { uniqueId } = params;

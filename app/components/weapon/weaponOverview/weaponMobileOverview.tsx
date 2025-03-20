@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import OverviewItemHolder from "~/components/common/overviewItemHolder";
 import { formatWeaponStatValue } from "~/utils/formatters/weaponStatValue.formatter";
 import { weaponTypeParser } from "~/utils/parsers/weaponDataParser";

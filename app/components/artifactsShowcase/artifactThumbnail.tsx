@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { NavLink } from "react-router";
 
-import ThumbnaiContainer from "../layout/container/thumbnailContainer";
 import rarityParser from "~/utils/parsers/rarityParser";
+import ThumbnaiContainer from "../layout/container/thumbnailContainer";
 
 type Props = {
   artifact: IBaseArtifact;

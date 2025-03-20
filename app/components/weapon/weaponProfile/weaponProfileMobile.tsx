@@ -1,5 +1,5 @@
-import RarityStars from "~/components/common/rarityStars";
 import LazyBackgroundImage from "~/components/common/lazyBackgroundImage";
+import RarityStars from "~/components/common/rarityStars";
 import rarityBgPicker from "~/utils/rarityBgPicker";
 
 type Props = {

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import AttributeMobileContainer from "~/components/layout/container/attributeMobileContainer";
-import { formatWeaponStatValue } from "~/utils/formatters/weaponStatValue.formatter";
 import squashWeaponLevels from "~/utils/squashWeaponLevels";
 import StatsSection from "./statsSection";
 

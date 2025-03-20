@@ -1,9 +1,9 @@
-import { NavLink } from "react-router";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { NavLink } from "react-router";
 
-import ThumbnaiContainer from "../layout/container/thumbnailContainer";
 import rarityParser from "~/utils/parsers/rarityParser";
+import ThumbnaiContainer from "../layout/container/thumbnailContainer";
 
 type Props = {
   weapon: IBasicWeapon;

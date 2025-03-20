@@ -12,9 +12,9 @@ import {
   selectedWeaponTypeAtom,
   weaponSearchAtom,
 } from "~/atoms/teyvat/weapon.atom";
+import { RARITIES } from "~/data/teyvatData";
 import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
 import WeaponFilterStack from "./weaponFilterStack";
-import { RARITIES } from "~/data/teyvatData";
 
 type Props = {
   weaponSeries: IBaseWeaponSeries;

@@ -1,7 +1,3 @@
-import { atom } from "jotai";
-
-import { useFilterTravelersAtom } from "~/atoms/feature.atoms";
-
 const filterCharacters = (
   characters: IBaseCharacter[],
   selectedTraveler: string

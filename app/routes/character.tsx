@@ -2,9 +2,8 @@ import CharacterDesktopView from "~/components/character/characterDesktopView";
 import CharacterMobileView from "~/components/character/characterMobileView";
 import { transforCharacterData } from "~/features/imageFetchOptimizer";
 import { getCharacterBySkillDepotId } from "~/services/teyvatServer/teyvatArchive.service";
-
-import type { Route } from "./+types/character";
 import { decryptCharacterUniqueRoute } from "~/utils/decryptUniqueId";
+import type { Route } from "./+types/character";
 
 export async function loader({ params }: Readonly<Route.LoaderArgs>) {
   const { uniqueId } = params;

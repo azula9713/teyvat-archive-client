@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 import { getMarginRightValue, getZoomValue } from "~/utils/splashArtZoom";
+import TabNavigation from "../common/basic/tabNavigation";
 import LazyBackgroundImage from "../common/lazyBackgroundImage";
+import RarityStars from "../common/rarityStars";
 import AscensionMatsDesktop from "./characterAscension/ascensionMatsDesktop";
 import DesktopConstellationView from "./characterConstellations/desktopConstellationView";
 import CharacterDesktopOverview from "./characterOverview/characterDesktopOverview";
 import CharacterProfileDesktop from "./characterProfile/characterProfileDesktop";
 import TalentsDesktop from "./characterTalents/talentsDesktop";
-import RarityStars from "../common/rarityStars";
-import TabNavigation from "../common/basic/tabNavigation";
 
 type Props = {
   characterData: ICharacter;

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import DescriptionDesktop from "~/components/common/descriptionDesktop";
 import OverviewItemHolder from "~/components/common/overviewItemHolder";
 import { formatWeaponStatValue } from "~/utils/formatters/weaponStatValue.formatter";
@@ -7,7 +8,6 @@ import {
   weaponTypeIconFilter,
 } from "~/utils/weaponIconFilter";
 import OverviewLevelPicker from "./overviewLevelPicker";
-import { useState } from "react";
 
 type Props = {
   description: string;

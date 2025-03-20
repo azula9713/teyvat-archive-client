@@ -1,7 +1,7 @@
-import Modal from "react-modal";
-import SettingCategories from "./settingCategories";
 import { useAtomValue } from "jotai";
+import Modal from "react-modal";
 import { themeAtom } from "~/atoms/general.atoms";
+import SettingCategories from "./settingCategories";
 
 type Props = {
   isOpen: boolean;

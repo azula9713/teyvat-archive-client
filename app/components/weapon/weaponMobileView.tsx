@@ -1,5 +1,5 @@
-import WeaponProfileMobile from "./weaponProfile/weaponProfileMobile";
 import WeaponMobileOverview from "./weaponOverview/weaponMobileOverview";
+import WeaponProfileMobile from "./weaponProfile/weaponProfileMobile";
 import WeaponRefinementMobile from "./weaponRefinement/weaponRefinementMobile";
 import WeaponStatsMobile from "./weaponStats/weaponStatsMobile";
 

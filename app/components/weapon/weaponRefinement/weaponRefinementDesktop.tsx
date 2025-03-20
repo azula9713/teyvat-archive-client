@@ -1,6 +1,6 @@
+import { useState } from "react";
 import AttributeDesktopContainer from "~/components/layout/container/attributeDesktopContainer";
 import RefinementSection from "./refinementSection";
-import { useState } from "react";
 
 type Props = {
   refinements: IRefinement[];

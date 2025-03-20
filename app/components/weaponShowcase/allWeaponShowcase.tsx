@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import WeaponThumbnail from "./weaponThumbnail";
+import { useAtomValue } from "jotai";
 import { useEffect, useState } from "react";
 import {
   selectedWeaponRarityAtom,
@@ -7,8 +7,8 @@ import {
   selectedWeaponTypeAtom,
   weaponSearchAtom,
 } from "~/atoms/teyvat/weapon.atom";
-import { useAtomValue } from "jotai";
 import rarityParser from "~/utils/parsers/rarityParser";
+import WeaponThumbnail from "./weaponThumbnail";
 
 type Props = {
   weapons: IBasicWeapon[];

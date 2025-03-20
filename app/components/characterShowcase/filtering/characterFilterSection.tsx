@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useAtom } from "jotai";
 import {
   AdjustmentsHorizontalIcon,
   ChevronDownIcon,
   ChevronUpIcon,
   StarIcon,
 } from "@heroicons/react/16/solid";
+import { useAtom } from "jotai";
+import { useState } from "react";
 
 import {
   characterSearchAtom,
@@ -13,9 +13,9 @@ import {
   selectedCharacterRarityAtom,
   selectedCharacterWeaponAtom,
 } from "~/atoms/teyvat/character.atom";
+import { RARITIES } from "~/data/teyvatData";
 import elementalImageFilter from "~/utils/elementalImagePicker";
 import { weaponTypeIconFilter } from "~/utils/weaponIconFilter";
-import { RARITIES } from "~/data/teyvatData";
 import CharacterFilterStack from "./characterFilterStack";
 
 export default function CharacterFilterSection() {
