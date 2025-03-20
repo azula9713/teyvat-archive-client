@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import ArtifactThumbnail from "./artifactThumbnail";
 
 type Props = {
@@ -9,9 +8,6 @@ type Props = {
 export default function AllArtifactsShowcase({
   artifactSets,
 }: Readonly<Props>) {
-  const [filteredArtifacts, setFilteredArtifacts] =
-    useState<IBaseArtifactSet[]>(artifactSets);
-
   return (
     <div className="overflow-hidden w-full items-center justify-center flex px-4 md:px-12">
       <motion.div
@@ -22,14 +18,16 @@ export default function AllArtifactsShowcase({
           maxHeight: "calc(100vh - 300px)",
         }}
       >
-        {filteredArtifacts.map((artiSet) => (
-          <ArtifactThumbnail
-            key={artiSet.id}
-            {...{
-              artifactSet: artiSet,
-            }}
-          />
-        ))}
+        {artifactSets
+          .toSorted((a, b) => a.highestRarity - b.highestRarity)
+          .map((artiSet) => (
+            <ArtifactThumbnail
+              key={artiSet.id}
+              {...{
+                artifactSet: artiSet,
+              }}
+            />
+          ))}
       </motion.div>
     </div>
   );

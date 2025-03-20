@@ -11,12 +11,12 @@ type Props = {
 export default function ArtifactThumbnail({
   artifactSet: artifact,
 }: Readonly<Props>) {
-  const { id, name, icon } = artifact;
+  const { id, name, icon, highestRarity } = artifact;
   return (
     <ThumbnaiContainer
       {...{
         name,
-        rarity: rarityParser(3),
+        rarity: rarityParser(highestRarity),
       }}
     >
       <NavLink to={`/artifact/${id}`}>

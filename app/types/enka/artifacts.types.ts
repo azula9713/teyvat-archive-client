@@ -11,4 +11,5 @@ interface IBaseArtifactSet {
   id: number;
   name: string;
   icon: string;
+  highestRarity: number;
 }
