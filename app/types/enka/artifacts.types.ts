@@ -4,10 +4,10 @@ interface IBaseArtifact {
   eqipType: string;
   icon: string;
   stars: number;
-  set: IBaseSet;
+  set: IBaseArtifactSet;
 }
 
-interface IBaseSet {
+interface IBaseArtifactSet {
   id: number;
   name: string;
   icon: string;

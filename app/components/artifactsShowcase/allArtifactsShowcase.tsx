@@ -3,12 +3,14 @@ import { useState } from "react";
 import ArtifactThumbnail from "./artifactThumbnail";
 
 type Props = {
-  artifacts: IBaseArtifact[];
+  artifactSets: IBaseArtifactSet[];
 };
 
-export default function AllArtifactsShowcase({ artifacts }: Readonly<Props>) {
+export default function AllArtifactsShowcase({
+  artifactSets,
+}: Readonly<Props>) {
   const [filteredArtifacts, setFilteredArtifacts] =
-    useState<IBaseArtifact[]>(artifacts);
+    useState<IBaseArtifactSet[]>(artifactSets);
 
   return (
     <div className="overflow-hidden w-full items-center justify-center flex px-4 md:px-12">
@@ -20,11 +22,11 @@ export default function AllArtifactsShowcase({ artifacts }: Readonly<Props>) {
           maxHeight: "calc(100vh - 300px)",
         }}
       >
-        {filteredArtifacts.map((artifact) => (
+        {filteredArtifacts.map((artiSet) => (
           <ArtifactThumbnail
+            key={artiSet.id}
             {...{
-              key: artifact.id,
-              artifact,
+              artifactSet: artiSet,
             }}
           />
         ))}

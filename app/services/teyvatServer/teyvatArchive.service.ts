@@ -70,6 +70,16 @@ export const getArtifacts = async () => {
   }
 };
 
+export const getArtifactSets = async () => {
+  try {
+    const response = await serverInstance.get("/artifacts/sets");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+
 export const getMaterialById = async (materialId: string) => {
   try {
     const response = await serverInstance.get(`/materials/id/${materialId}`);

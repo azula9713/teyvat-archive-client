@@ -5,16 +5,18 @@ import rarityParser from "~/utils/parsers/rarityParser";
 import ThumbnaiContainer from "../layout/container/thumbnailContainer";
 
 type Props = {
-  artifact: IBaseArtifact;
+  artifactSet: IBaseArtifactSet;
 };
 
-export default function ArtifactThumbnail({ artifact }: Readonly<Props>) {
-  const { id, name, stars, icon } = artifact;
+export default function ArtifactThumbnail({
+  artifactSet: artifact,
+}: Readonly<Props>) {
+  const { id, name, icon } = artifact;
   return (
     <ThumbnaiContainer
       {...{
         name,
-        rarity: rarityParser(stars),
+        rarity: rarityParser(3),
       }}
     >
       <NavLink to={`/artifact/${id}`}>

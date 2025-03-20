@@ -1,12 +1,12 @@
 import AllArtifactsShowcase from "~/components/artifactsShowcase/allArtifactsShowcase";
 import PageTitle from "~/components/common/typography/pageTitle";
-import { getArtifacts } from "~/services/teyvatServer/teyvatArchive.service";
+import { getArtifactSets } from "~/services/teyvatServer/teyvatArchive.service";
 import type { Route } from "./+types/artifacts";
 
 export async function loader() {
-  const artifacts: IBaseArtifact[] = await getArtifacts();
+  const artifactSets: IBaseArtifactSet[] = await getArtifactSets();
 
-  return { artifacts };
+  return { artifactSets };
 }
 
 export function meta() {
@@ -23,13 +23,13 @@ export function HydrateFallback() {
 export default function Artifacts({
   loaderData,
 }: Readonly<Route.ComponentProps>) {
-  const { artifacts } = loaderData;
+  const { artifactSets } = loaderData;
   return (
     <>
       <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
         <PageTitle title="Teyvat Artifacts" />
       </div>
-      <AllArtifactsShowcase artifacts={artifacts} />
+      <AllArtifactsShowcase artifactSets={artifactSets} />
     </>
   );
 }
