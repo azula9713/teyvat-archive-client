@@ -6,6 +6,7 @@ import type { Route } from "./+types/weapons";
 import PageTitle from "~/components/common/typography/pageTitle";
 import AllWeaponShowcase from "~/components/weaponShowcase/allWeaponShowcase";
 import WeaponFilterSection from "~/components/weaponShowcase/filtering/weaponFilterSection";
+import ShowcaseFilterContainer from "~/components/layout/container/showcaseFilterContainer";
 
 export async function loader() {
   const weapons: IBasicWeapon[] = await getWeapons();
@@ -32,10 +33,12 @@ export default function Weapons({
 
   return (
     <>
-      <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
-        <PageTitle title="Teyvat Weapons" />
-      </div>
-      <WeaponFilterSection weaponSeries={weaponSeries} />
+      <ShowcaseFilterContainer isSticky>
+        <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
+          <PageTitle title="Teyvat Weapons" />
+        </div>
+        <WeaponFilterSection weaponSeries={weaponSeries} />
+      </ShowcaseFilterContainer>
       <AllWeaponShowcase weapons={weapons} />
     </>
   );

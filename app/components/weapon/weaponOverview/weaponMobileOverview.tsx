@@ -51,6 +51,7 @@ export default function WeaponMobileOverview({
         </OverviewItemHolder>
         <OverviewItemHolder
           label={stats[1][0].fightPropName}
+          align="end"
           value={formatWeaponStatValue(
             stats[selectedLevel][0].multiplier,
             false,
