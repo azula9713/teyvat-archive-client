@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 import AttributeMobileContainer from "~/components/layout/container/attributeMobileContainer";
-import parseText from "~/utils/parsers/parseEnkaText";
 import RefinementSection from "./refinementSection";
 
 type Props = {

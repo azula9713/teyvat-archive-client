@@ -1,19 +1,18 @@
-import rarityBgPicker from "~/utils/rarityBgPicker";
-import LazyBackgroundImage from "../common/lazyBackgroundImage";
-import RarityStars from "../common/rarityStars";
-import TitleHeading from "../common/typography/titleHeading";
-import WeaponProfileDesktop from "./weaponProfile/weaponProfileDesktop";
-import RefinementSection from "./weaponRefinement/refinementSection";
 import { useState } from "react";
+import rarityBgPicker from "~/utils/rarityBgPicker";
 import TabNavigation from "../common/basic/tabNavigation";
-import AttributeDesktopContainer from "../layout/container/attributeDesktopContainer";
+import LazyBackgroundImage from "../common/lazyBackgroundImage";
+import WeaponProfileDesktop from "./weaponProfile/weaponProfileDesktop";
+import WeaponRefinementDesktop from "./weaponRefinement/weaponRefinementDesktop";
+import WeaponStatsDesktop from "./weaponStats/weaponStatsDesktop";
 
 type Props = {
   weapon: IWeapon;
 };
 
 function WeaponDesktopView({ weapon }: Readonly<Props>) {
-  const { name, stars, icon, awakenIcon, splashImage } = weapon;
+  const { name, stars, stats, icon, awakenIcon, splashImage, refinements } =
+    weapon;
 
   const TAB_NAV = [
     {
@@ -26,7 +25,6 @@ function WeaponDesktopView({ weapon }: Readonly<Props>) {
     },
   ];
 
-  const [refinementLevel, setRefinementLevel] = useState(1);
   const [selectedTab, setSelectedTab] = useState(TAB_NAV[0].id);
 
   return (
@@ -49,16 +47,10 @@ function WeaponDesktopView({ weapon }: Readonly<Props>) {
         <div className="w-full">
           <div className="px-4 pb-6">
             {selectedTab === "refinement" && stars > 2 && (
-              <AttributeDesktopContainer title="Refinements">
-                <RefinementSection
-                  {...{
-                    refinements: weapon.refinements,
-                    setRefinementLevel,
-                    refinementLevel,
-                    align: "start",
-                  }}
-                />
-              </AttributeDesktopContainer>
+              <WeaponRefinementDesktop {...{ refinements }} />
+            )}
+            {selectedTab === "stats" && (
+              <WeaponStatsDesktop {...{ stars, stats }} />
             )}
           </div>
         </div>

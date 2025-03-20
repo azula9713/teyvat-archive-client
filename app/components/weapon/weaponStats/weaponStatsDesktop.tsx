@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import AttributeMobileContainer from "~/components/layout/container/attributeMobileContainer";
-import { formatWeaponStatValue } from "~/utils/formatters/weaponStatValue.formatter";
+import AttributeDesktopContainer from "~/components/layout/container/attributeDesktopContainer";
 import squashWeaponLevels from "~/utils/squashWeaponLevels";
 import StatsSection from "./statsSection";
 
@@ -11,7 +10,7 @@ type Props = {
   stars: number;
 };
 
-export default function WeaponStatsMobile({ stats, stars }: Readonly<Props>) {
+export default function WeaponStatsDesktop({ stats, stars }: Readonly<Props>) {
   const [squashedView, setSquashedView] = useState(false);
   const [mutatedStats, setMutatedStats] = useState(stats);
 
@@ -34,10 +33,10 @@ export default function WeaponStatsMobile({ stats, stars }: Readonly<Props>) {
   }, [squashedView]);
 
   return (
-    <AttributeMobileContainer title="Stats">
+    <AttributeDesktopContainer title="Stats">
       <StatsSection
         {...{ setSquashedView, stars, squashedView, stats: mutatedStats }}
       />
-    </AttributeMobileContainer>
+    </AttributeDesktopContainer>
   );
 }
