@@ -11,21 +11,23 @@ type Props = {
 };
 
 function WeaponDesktopView({ weapon }: Readonly<Props>) {
-  const { name, stars, stats, icon, awakenIcon, splashImage, refinements } =
-    weapon;
+  const { stars, stats, refinements } = weapon;
 
   const TAB_NAV = [
     {
       name: "Refinement",
       id: "refinement",
+      shouldDisplay: stars > 2,
     },
     {
       name: "Stats",
       id: "stats",
+      isActive: true,
+      shouldDisplay: true,
     },
   ];
 
-  const [selectedTab, setSelectedTab] = useState(TAB_NAV[0].id);
+  const [selectedTab, setSelectedTab] = useState(TAB_NAV[stars > 2 ? 0 : 1].id);
 
   return (
     <div className="py-4 px-12 flex-col items-center justify-start space-y-8 hidden xl:flex w-full overflow-hidden">

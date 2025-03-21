@@ -41,14 +41,17 @@ function CharacterDesktopView({ characterData }: Readonly<Props>) {
     {
       name: "Talents",
       id: "talents",
+      shouldDisplay: true,
     },
     {
       name: "Constellations",
       id: "constellations",
+      shouldDisplay: true,
     },
     {
       name: "Ascension",
       id: "ascension",
+      shouldDisplay: true,
     },
   ];
 
