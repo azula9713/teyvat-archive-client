@@ -17,6 +17,7 @@ export default function WeaponMobileView({ weapon }: Readonly<Props>) {
     weaponType,
     stats,
   } = weapon;
+
   return (
     <div className="pt-2 md:p-10 px-2 xl:hidden w-full">
       <WeaponProfileMobile {...{ splashImage, name, stars }} />
