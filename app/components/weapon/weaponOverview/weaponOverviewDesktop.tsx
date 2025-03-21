@@ -14,7 +14,7 @@ type Props = {
   series: string;
   weaponType: IWeaponType;
   stats: {
-    [key: number]: IWeaponStat[];
+    [key: number]: IEnkaStat[];
   };
   stars: number;
 };

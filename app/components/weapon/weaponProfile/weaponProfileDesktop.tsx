@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 
 import RarityStars from "~/components/common/rarityStars";
 import TitleHeading from "~/components/common/typography/titleHeading";
@@ -55,4 +55,4 @@ function WeaponProfileDesktop({ weapon }: Readonly<Props>) {
   );
 }
 
-export default WeaponProfileDesktop;
+export default memo(WeaponProfileDesktop);

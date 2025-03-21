@@ -48,3 +48,10 @@ type IWeaponCurve =
   | "GROW_CURVE_ATTACK_304"
   | "GROW_CURVE_ATTACK_305"
   | "GROW_CURVE_CRITICAL_301";
+
+type EquipType =
+  | "EQUIP_BRACER"
+  | "EQUIP_NECKLACE"
+  | "EQUIP_SHOES"
+  | "EQUIP_RING"
+  | "EQUIP_DRESS";

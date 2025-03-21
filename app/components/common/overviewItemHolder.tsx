@@ -1,3 +1,4 @@
+import { memo } from "react";
 import TextLabel from "./typography/textLabel";
 import TextValue from "./typography/textValue";
 
@@ -12,7 +13,7 @@ type Props = {
   align?: "start" | "center" | "end";
 };
 
-export default function OverviewItemHolder({
+function OverviewItemHolder({
   label,
   value,
   children,
@@ -51,3 +52,5 @@ export default function OverviewItemHolder({
     </div>
   );
 }
+
+export default memo(OverviewItemHolder);

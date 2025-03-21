@@ -5,7 +5,7 @@ import StatsSection from "./statsSection";
 
 type Props = {
   stats: {
-    [key: string]: IWeaponStat[];
+    [key: string]: IEnkaStat[];
   };
   stars: number;
 };
@@ -18,7 +18,7 @@ export default function WeaponStatsDesktop({ stats, stars }: Readonly<Props>) {
     if (squashedView) {
       const squashedLevels = squashWeaponLevels(
         stats,
-        stats[1][1].fightProp as keyof IWeaponStat
+        stats[1][1].fightProp as keyof IEnkaStat
       );
 
       //only display values from keys of squashedLevels

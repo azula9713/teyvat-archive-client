@@ -1,12 +1,11 @@
+import { memo } from "react";
+
 type Props = {
   description: string;
   align?: "left" | "center" | "right";
 };
 
-export default function DescriptionDesktop({
-  description,
-  align = "left",
-}: Readonly<Props>) {
+function DescriptionDesktop({ description, align = "left" }: Readonly<Props>) {
   return (
     <p
       className={`mt-6 w-full text-xl leading-6 tracking-wide text-white italic text-${align}`}
@@ -18,3 +17,5 @@ export default function DescriptionDesktop({
     </p>
   );
 }
+
+export default memo(DescriptionDesktop);

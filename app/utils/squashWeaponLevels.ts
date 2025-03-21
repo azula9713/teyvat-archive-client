@@ -1,9 +1,9 @@
 function squashWeaponLevels(
-  stats: { [key: string]: IWeaponStat[] },
-  propName: keyof IWeaponStat
+  stats: { [key: string]: IEnkaStat[] },
+  propName: keyof IEnkaStat
 ) {
   const squashedLevels: string[] = [];
-  let prevValue: IWeaponStat | undefined = undefined;
+  let prevValue: IEnkaStat | undefined = undefined;
 
   Object.keys(stats).forEach((level) => {
     const data = stats[level];

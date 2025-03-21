@@ -80,6 +80,18 @@ export const getArtifactSets = async () => {
   }
 };
 
+export const getArtifactSetById = async (artifactSetId: string) => {
+  try {
+    const response = await serverInstance.get(
+      `/artifacts/set/${artifactSetId}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export const getMaterialById = async (materialId: string) => {
   try {
     const response = await serverInstance.get(`/materials/id/${materialId}`);

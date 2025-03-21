@@ -22,14 +22,6 @@ interface IRefinement {
   id: number;
 }
 
-interface IWeaponStat {
-  fightProp: string;
-  fightPropName: string;
-  isPercent: boolean;
-  value: number;
-  rawValue: number;
-  multiplier: number;
-}
 interface IBasicWeapon extends IBaseWeapon {
   icon: string;
   awakenIcon: string;
@@ -43,7 +35,7 @@ interface IWeapon extends IBasicWeapon {
   splashImage: string;
   refinements: IRefinement[];
   stats: {
-    [key: number]: IWeaponStat[];
+    [key: number]: IEnkaStat[];
   };
   data: IWeaponData;
 }

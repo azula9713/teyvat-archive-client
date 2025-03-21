@@ -26,10 +26,10 @@ function TabNavigation({
             <li key={tab.id} className="w-full">
               <button
                 onClick={() => setSelectedTab(tab.id)}
-                className={`flex items-center justify-start space-x-2 rounded-lg font-enka px-4 py-2 text-lg font-medium text-left cursor-pointer w-full ${
+                className={`flex items-center text-white justify-start space-x-2 rounded-lg font-enka px-4 py-2 text-lg font-medium text-left cursor-pointer w-full ${
                   selectedTab === tab.id
-                    ? "bg-slate-800 text-white"
-                    : "bg-slate-700 text-white hover:bg-slate-600"
+                    ? "bg-slate-700 hover:bg-slate-600"
+                    : "bg-slate-800 hover:bg-slate-700"
                 }`}
               >
                 {selectedTab === tab.id && (

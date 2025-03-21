@@ -3,7 +3,7 @@ import { formatWeaponStatValue } from "~/utils/formatters/weaponStatValue.format
 type Props = {
   stars: number;
   stats: {
-    [key: string]: IWeaponStat[];
+    [key: string]: IEnkaStat[];
   };
   squashedView: boolean;
   setSquashedView: (value: boolean) => void;

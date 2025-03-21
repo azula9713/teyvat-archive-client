@@ -13,3 +13,25 @@ interface IBaseArtifactSet {
   icon: string;
   highestRarity: number;
 }
+
+interface ISetBonus {
+  id: number;
+  needCount: number;
+  description: string;
+  addProps: IEnkaStat[];
+}
+
+interface IEquipCollection {
+  id: number;
+  equipType: EquipType;
+  equipTypeName: string;
+  name: string;
+  icon: string;
+  stars: number;
+}
+
+interface IArtifactSet extends IBaseArtifactSet {
+  rarities: number[];
+  setBonus: ISetBonus[];
+  collection: IEquipCollection[];
+}
