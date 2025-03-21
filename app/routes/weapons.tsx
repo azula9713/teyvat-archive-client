@@ -9,8 +9,10 @@ import {
 import type { Route } from "./+types/weapons";
 
 export async function loader() {
-  const weapons: IBasicWeapon[] = await getWeapons();
-  const weaponSeries: IBaseWeaponSeries = await getWeaponSeries();
+  const [weapons, weaponSeries] = await Promise.all([
+    getWeapons(),
+    getWeaponSeries(),
+  ]);
 
   return { weapons, weaponSeries };
 }

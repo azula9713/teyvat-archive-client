@@ -39,7 +39,7 @@ export default function CharacterFilterStack({
       <ElementFilter {...{ selectedElement, setSelectedElement }} />
       <WeaponFilter {...{ selectedWeapon, setSelectedWeapon }} />
       <RarityFilter
-        {...{ selectedRarity, setSelectedRarity, isCharacter: true }}
+        {...{ selectedRarity, setSelectedRarity, category: "character" }}
       />
       <button
         className="w-full lg:w-auto p-2 mb-3 max-w-[300px] cursor-pointer rounded-lg h-[40px] text-xs hover:bg-slate-700 text-white flex items-center"

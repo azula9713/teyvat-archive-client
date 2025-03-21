@@ -2,6 +2,8 @@ import AllArtifactsShowcase from "~/components/artifactsShowcase/allArtifactsSho
 import PageTitle from "~/components/common/typography/pageTitle";
 import { getArtifactSets } from "~/services/teyvatServer/teyvatArchive.service";
 import type { Route } from "./+types/artifacts";
+import ShowcaseFilterContainer from "~/components/layout/container/showcaseFilterContainer";
+import ArtifactFilterSection from "~/components/artifactsShowcase/filtering/artifactFilterSection";
 
 export async function loader() {
   const artifactSets: IBaseArtifactSet[] = await getArtifactSets();
@@ -26,9 +28,12 @@ export default function Artifacts({
   const { artifactSets } = loaderData;
   return (
     <>
-      <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
-        <PageTitle title="Teyvat Artifacts" />
-      </div>
+      <ShowcaseFilterContainer isSticky>
+        <div className="w-full flex items-center justify-center xl:mb-4 mt-3">
+          <PageTitle title="Teyvat Artifacts" />
+        </div>
+        <ArtifactFilterSection />
+      </ShowcaseFilterContainer>
       <AllArtifactsShowcase artifactSets={artifactSets} />
     </>
   );

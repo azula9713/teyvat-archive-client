@@ -1,4 +1,11 @@
 import { motion } from "framer-motion";
+import { useAtomValue } from "jotai";
+import { useEffect, useState } from "react";
+import {
+  artifactRarityAtom,
+  artifactSearchAtom,
+} from "~/atoms/teyvat/artifact.atom";
+import rarityParser from "~/utils/parsers/rarityParser";
 import ArtifactThumbnail from "./artifactThumbnail";
 
 type Props = {
@@ -8,6 +15,22 @@ type Props = {
 export default function AllArtifactsShowcase({
   artifactSets,
 }: Readonly<Props>) {
+  const selectedArtifactRarity = useAtomValue(artifactRarityAtom);
+  const artifactSearch = useAtomValue(artifactSearchAtom);
+
+  const [filteredArtifactSets, setFilteredArtifactSets] =
+    useState(artifactSets);
+
+  useEffect(() => {
+    const filtered = artifactSets.filter(
+      (set) =>
+        set.name.toLowerCase().includes(artifactSearch.toLowerCase()) &&
+        (selectedArtifactRarity === "all" ||
+          rarityParser(set.highestRarity) === selectedArtifactRarity)
+    );
+    setFilteredArtifactSets(filtered);
+  }, [artifactSearch, artifactSets, selectedArtifactRarity]);
+
   return (
     <div className="overflow-hidden w-full items-center justify-center flex px-4 md:px-12">
       <motion.div
@@ -18,7 +41,7 @@ export default function AllArtifactsShowcase({
           maxHeight: "calc(100vh - 300px)",
         }}
       >
-        {artifactSets
+        {filteredArtifactSets
           .toSorted((a, b) => a.highestRarity - b.highestRarity)
           .map((artiSet) => (
             <ArtifactThumbnail
